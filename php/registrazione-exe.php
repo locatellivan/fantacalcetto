@@ -1,18 +1,25 @@
 <?php
 include_once("connessione.php");
 $nickname=$_POST['nickname'];
-$psw=$_POST['psw'];
+$psw1=$_POST['psw1'];
+$psw2=$_POST['psw2'];
 $email=$_POST['email'];
+if($psw1==$psw2){
 
-$sql="INSERT INTO Utenti(nickname,email,password) VALUES ('$nickname','$email','$psw')";
+$sql="INSERT INTO utente(Nickname,Mail,Password) VALUES ('$nickname','$email','$psw1')";
 
 $utente=$cid->query($sql) or die("<p>Impossibile eseguire query.</p>"
 														 ."<p>codice di errore ".$cid->errno
 														 .":".$cid->error."</p>");
 
 $cid->close();
+}
+else{
+echo("le password non coincidono");
 
-header("Location:../home.php?status=ok");
+}
+
+header("Location:../main.php?status=ok");
 
 
 

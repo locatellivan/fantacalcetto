@@ -1,43 +1,45 @@
 <?php
 include_once("connessione.php");
 
-$login= $_POST["user"];
-$pwd = $_POST["pass"];
+$mail= $_POST["mail"];
+$psw = $_POST["password"];
 
 /*Inserire utenze dal database*/
 
-$sql="SELECT nickname,password FROM Utenti WHERE nickname='".$login."'";
+$sql="SELECT Mail, Password FROM Utente WHERE Mail='$mail'";
+
+
 
 $utente=$cid->query($sql) or die("<p>Impossibile eseguire query.</p>"
-														 ."<p>codice di errore ".$cid->errno
+														 ."<p>Codice di errore ".$cid->errno
 														 .":".$cid->error."</p>");
+
 $row=$utente->fetch_row();
 
-
-if ($login==$row[0] && $pwd==$row[1])
+if ( $psw==$row[1] && $mail==$row[0])
 {
   if (isset($_POST["ricordami"])){
-		setcookie ("user",$login,time()+43200,"/");
+		setcookie ("mail",$mail,time()+43200,"/");
   }
-	elseif (isset($_COOKIE["user"])) {
-		unset($_COOKIE['user']);
-		setcookie('user', null, -1, '/');
+	elseif (isset($_COOKIE["mail"])) {
+		unset($_COOKIE['mail']);
+		setcookie('mail', null, -1, '/');
 	}
 
-  $query="SELECT ruoloU FROM Utenti WHERE nickname='".$login."'";
-  $ruolo=$cid->query($query) or die("<p>Impossibile eseguire query.</p>"
-  														 ."<p>codice di errore ".$cid->errno
+  $query="SELECT Tipo FROM Utente WHERE Mail='".$mail."'";
+  $type=$cid->query($query) or die("<p>Impossibile eseguire query.</p>"
+  														 ."<p>Codice di errore ".$cid->errno
   														 .":".$cid->error."</p>");
-  $r=$ruolo->fetch_row();
+  $tipo=$type->fetch_row();
 	session_start();
-  $_SESSION[''.$r[0].'']=$login;
+  $_SESSION[''.$tipo[0].'']=$mail;
   $cid->close();
 
-  header("Location:../home.php?op=dashboard");
+  header("Location:../main.php");
 }
 else
 {
-  header("Location:../home.php?op=none&status=ko&msg=" . urlencode("autenticazione fallita"));
+  header("Location:../main.php?op=none&status=ko&msg=" . urlencode("Autenticazione fallita."));
 }
 
 

@@ -46,7 +46,7 @@ CREATE TABLE Vince (
 
 CREATE TABLE Giornata (
 	NumGior int(2) UNSIGNED PRIMARY KEY,
-	DataPartite DATE,
+	DataPartite DATE
 );
 
 CREATE TABLE Giocatore (

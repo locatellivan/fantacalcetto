@@ -6,16 +6,16 @@
 		</div>
 		<div class="form-group">
 		      <label>Nickname</label>
-		      <input class="form-control" type="text" name="cognome" placeholder="Nickname"/>
+		      <input class="form-control" type="text" name="nickname" placeholder="Nickname"/>
 		</div>
 
 		<div class="form-group">
 		      <label>Password</label>
-		      <input class="form-control" type="password" name="pwd1" placeholder="Password">
+		      <input class="form-control" type="password" name="psw1" placeholder="Password">
 		</div>
 		<div class="form-group">
 		      <label>Ripeti Password</label>
-		      <input class="form-control" type="password" name="pwd2" placeholder="Conferma Password">
+		      <input class="form-control" type="password" name="psw2" placeholder="Conferma Password">
 		</div>
 
 		<input type="submit" class="btn btn-primary" value="Registra"></input>

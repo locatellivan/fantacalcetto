@@ -18,8 +18,8 @@
 				 <li class="active"><a href="main.php">HOME</a></li>
 				 			<li class="active"><a href="index.php">CLASSIFICA</a></li>
 
-				 <?php if (isset($_SESSION["utente"])) { ?>
-				 <li class="active"><a href="main.php?op=profilo">Profilo</a></li>
+				 <?php if (isset($_SESSION["mail"])) { ?>
+				 <li><a href="main.php?op=profilo">Profilo</a></li>
 
 				 <li class="dropdown">
 					 <a href="#" class="dropdown-toggle" data-toggle="dropdown"
@@ -75,7 +75,7 @@ Maggiori informazioni a http://www.html.it/guide/img/bootstrap/ref/modal.html --
 			 </form>
 
 			 <div class="login-help">
-			 <a href="index.php?op=registrazione">Non hai ancora un account? Registrati</a>
+			 <a href="main.php?op=registrazione">Non hai ancora un account? Registrati</a>
 			 </div>
 		 </div>
 	 </div>
