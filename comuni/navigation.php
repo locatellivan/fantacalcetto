@@ -45,7 +45,7 @@
 	 <?php } // end if?>
 			 </ul>
 			 <ul class="nav navbar-nav navbar-right">
-		 <?php if (isset($_SESSION["utente"])) { ?>
+		 <?php if (isset($_SESSION["mail"])) { ?>
 				 <li><a href="php/logout-exe.php"><span class="glyphicon glyphicon-log-out"></span> Logout
 
 		 <?php } else {?>

@@ -26,13 +26,13 @@ if ( $psw==$row[1] && $mail==$row[0])
 		setcookie('mail', null, -1, '/');
 	}
 
-  $query="SELECT Tipo FROM Utente WHERE Mail='".$mail."'";
+  $query="SELECT Nickname FROM Utente WHERE Mail='".$mail."'";
   $type=$cid->query($query) or die("<p>Impossibile eseguire query.</p>"
   														 ."<p>Codice di errore ".$cid->errno
   														 .":".$cid->error."</p>");
-  $tipo=$type->fetch_row();
+  $user=$type->fetch_row();
 	session_start();
-  $_SESSION[''.$tipo[0].'']=$mail;
+  $_SESSION['mail']=$user[0];
   $cid->close();
 
   header("Location:../main.php");
