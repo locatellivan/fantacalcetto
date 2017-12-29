@@ -1,5 +1,7 @@
+<html>
 <?php
 include_once("connessione.php");
+include_once("alert.html");
 $nickname=$_POST['nickname'];
 $psw1=$_POST['psw1'];
 $psw2=$_POST['psw2'];
@@ -14,9 +16,8 @@ $utente=$cid->query($sql) or die("<p>Impossibile eseguire query.</p>"
 
 $cid->close();
 }
-else{
-echo("le password non coincidono");
-
+else {
+	echo "Le password non coincidono";
 }
 
 header("Location:../main.php?status=ok");
@@ -27,3 +28,4 @@ header("Location:../main.php?status=ok");
 
 
  ?>
+</html>
