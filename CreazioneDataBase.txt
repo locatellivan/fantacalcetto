@@ -2,41 +2,41 @@ CREATE DATABASE FantaCalcettoStatale;
 USE FantaCalcettoStatale;
 
 CREATE TABLE Utente (
-	Mail varchar(30) PRIMARY KEY,
-	Nickname varchar(15) UNIQUE NOT NULL,
-	Password varchar(20) NOT NULL,
-	SquadraTifata varchar(15) DEFAULT NULL,
-	Nome varchar(15) DEFAULT NULL,
-	CognomeU varchar(15) DEFAULT NULL,
+	Mail varchar(40) PRIMARY KEY,
+	Nickname varchar(30) UNIQUE NOT NULL,
+	Password varchar(30) NOT NULL,
+	SquadraTifata varchar(20) DEFAULT NULL,
+	Nome varchar(20) DEFAULT NULL,
+	CognomeU varchar(20) DEFAULT NULL,
 	DataN DATE DEFAULT NULL,
-	LuogoN varchar(15) DEFAULT NULL,
+	LuogoN varchar(20) DEFAULT NULL,
 	Sesso char(1) DEFAULT NULL,
-	CittaAtt varchar(15) DEFAULT NULL,
+	CittaAtt varchar(20) DEFAULT NULL,
 	Tipo varchar(15) DEFAULT 'allenatore'
 );
 
 CREATE TABLE Squadra (
-	NomeSq varchar(15) PRIMARY KEY,
+	NomeSq varchar(20) PRIMARY KEY,
 	FantaMilioni int(3) UNSIGNED DEFAULT '300',
 	Motto varchar(30) DEFAULT NULL,
 	Stelle int(4) UNSIGNED DEFAULT '0',
-	Utente varchar(30),
+	Utente varchar(40),
 	INDEX (Utente),
-	FOREIGN KEY (Utente) REFERENCES Utente(mail) ON DELETE CASCADE ON UPDATE NO ACTION
+	FOREIGN KEY (Utente) REFERENCES Utente(Mail) ON DELETE CASCADE ON UPDATE NO ACTION
 );
 
 CREATE TABLE Campionato (
-	NomeCamp varchar(15) PRIMARY KEY,
+	NomeCamp varchar(20) PRIMARY KEY,
 	DataInizio DATE,
 	DataFine DATE,
-	Creatore varchar(30),
+	Creatore varchar(40),
 	INDEX (Creatore),	
 	FOREIGN KEY (Creatore) REFERENCES Utente(mail) ON DELETE CASCADE ON UPDATE NO ACTION
 );
 
 CREATE TABLE Vince (
-	Campionato varchar(15) NOT NULL,
-	Campione varchar(30) NOT NULL,
+	Campionato varchar(20) NOT NULL,
+	Campione varchar(40) NOT NULL,
 	INDEX (Campionato),
 	INDEX (Campione),
 	PRIMARY KEY (Campione, Campionato),
@@ -50,16 +50,16 @@ CREATE TABLE Giornata (
 );
 
 CREATE TABLE Giocatore (
-	Cognome varchar(15) PRIMARY KEY,
+	Cognome varchar(20) PRIMARY KEY,
 	Ruolo varchar(1) NOT NULL,
 	Prezzo int(3) UNSIGNED NOT NULL,
 	Squadra varchar(15),
-	Citta varchar(15)
+	Citta varchar(20)
 );
 
 CREATE TABLE Possiede (
-	Giocatore varchar(15),
-	SquadraGioc varchar(15),
+	Giocatore varchar(20),
+	SquadraGioc varchar(20),
 	INDEX (Giocatore),
 	INDEX (SquadraGioc),
 	PRIMARY KEY (Giocatore,SquadraGioc),
@@ -68,8 +68,8 @@ CREATE TABLE Possiede (
 );
 
 CREATE TABLE Partecipa (
-	Squadra varchar(15),
-	Campionato varchar(15),
+	Squadra varchar(20),
+	Campionato varchar(20),
 	PuntiTot int(5) UNSIGNED,
 	INDEX (Squadra),
 	INDEX (Campionato),
@@ -79,15 +79,15 @@ CREATE TABLE Partecipa (
 );
 
 CREATE TABLE Formazione (
-	IdForm varchar(15) PRIMARY KEY,
-	Squadra varchar(15) NOT NULL,
+	IdForm varchar(20) PRIMARY KEY,
+	Squadra varchar(20) NOT NULL,
 	INDEX (Squadra),
 	FOREIGN KEY (Squadra) REFERENCES Squadra(NomeSq) ON DELETE CASCADE ON UPDATE NO ACTION
 );
 
 CREATE TABLE Iscritta (
-	Formazione varchar(15),
-	Campionato varchar(15),
+	Formazione varchar(20),
+	Campionato varchar(20),
 	Giornata int(2) UNSIGNED,
 	PuntiGiornata int(2) UNSIGNED,
 	INDEX (Formazione),
@@ -101,9 +101,10 @@ CREATE TABLE Iscritta (
 
 
 CREATE TABLE Sta (
-	Giocatore varchar(15),
-	Formazione varchar(15),
+	Giocatore varchar(20),
+	Formazione varchar(20),
 	NumIngresso int(2) UNSIGNED,
+	TopCoach ENUM('0','1'),
 	INDEX (Giocatore),
 	INDEX (Formazione),
 	PRIMARY KEY (Giocatore, Formazione),
@@ -112,7 +113,7 @@ CREATE TABLE Sta (
 );
 
 CREATE TABLE Gioca (
-	Giocatore varchar(15), 
+	Giocatore varchar(20), 
 	Giornata int(2) UNSIGNED,
 	Punteggio int(2),
 	INDEX (Giocatore),

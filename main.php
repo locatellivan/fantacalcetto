@@ -35,7 +35,7 @@
 						}
 					}
 					else
-						echo "<h1>Ciao $_SESSION[mail] <br/>
+						echo "<h1 class='h1HOME'>Ciao $_SESSION[mail] <br/>
 										Puoi accedere alle funzionalità del sito</h1>";
 				}
 				else

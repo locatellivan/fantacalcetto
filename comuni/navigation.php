@@ -27,7 +27,7 @@
 							>Squadra<span class="caret"></span></a>
 					 <ul class="dropdown-menu">
 						 <li><a href="index.php?op=informazioni">Informazioni</a></li>
-						 <li><a href="index.php?op=calciomercato">Calciomercato</a></li>
+						 <li><a href="index.php?op=fantamercato">Fantamercato</a></li>
 						 <li role="separator" class="divider"></li>
 					 </ul>
 				 </li>
