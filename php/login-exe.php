@@ -4,7 +4,7 @@ include_once("connessione.php");
 $mail= $_POST["mail"];
 $psw = $_POST["password"];
 
-/*Inserire utenze dal database*/
+/*Iniziare la sessione dell'utente loggato*/
 
 $sql="SELECT Mail, Password FROM Utente WHERE Mail='$mail'";
 
@@ -16,7 +16,9 @@ $utente=$cid->query($sql) or die("<p>Impossibile eseguire query.</p>"
 
 $row=$utente->fetch_row();
 
-if ( $psw==$row[1] && $mail==$row[0])
+/* Gestione dei cookies */
+
+if ($mail==$row[0] && $psw==$row[1])
 {
   if (isset($_POST["ricordami"])){
 		setcookie ("mail",$mail,time()+43200,"/");
@@ -32,7 +34,7 @@ if ( $psw==$row[1] && $mail==$row[0])
   														 .":".$cid->error."</p>");
   $user=$type->fetch_row();
 	session_start();
-  $_SESSION['mail']=$user[0];
+  $_SESSION['nick']=$user[0];
   $cid->close();
 
   header("Location:../main.php");

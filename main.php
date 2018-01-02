@@ -25,7 +25,7 @@
 				$_errore = false;
 				$_err_msg="";
 
-				if (isset($_SESSION["mail"]))
+				if (isset($_SESSION["nick"]))
 				{
 						if (isset($_GET["op"]))
 					{
@@ -35,7 +35,7 @@
 						}
 					}
 					else
-						echo "<h1 class='h1HOME'>Ciao $_SESSION[mail] <br/>
+						echo "<h1 class='h1HOME'>Ciao $_SESSION[nick] <br/>
 										Puoi accedere alle funzionalità del sito</h1>";
 				}
 				else

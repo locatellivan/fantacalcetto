@@ -22,7 +22,7 @@ CREATE TABLE Squadra (
 	Stelle int(4) UNSIGNED DEFAULT '0',
 	Utente varchar(40),
 	INDEX (Utente),
-	FOREIGN KEY (Utente) REFERENCES Utente(Mail) ON DELETE CASCADE ON UPDATE NO ACTION
+	FOREIGN KEY (Utente) REFERENCES Utente(Mail) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
 CREATE TABLE Campionato (
@@ -30,8 +30,8 @@ CREATE TABLE Campionato (
 	DataInizio DATE,
 	DataFine DATE,
 	Creatore varchar(40),
-	INDEX (Creatore),	
-	FOREIGN KEY (Creatore) REFERENCES Utente(mail) ON DELETE CASCADE ON UPDATE NO ACTION
+	INDEX (Creatore),
+	FOREIGN KEY (Creatore) REFERENCES Utente(mail) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
 CREATE TABLE Vince (
@@ -41,7 +41,7 @@ CREATE TABLE Vince (
 	INDEX (Campione),
 	PRIMARY KEY (Campione, Campionato),
 	FOREIGN KEY (Campionato) REFERENCES Campionato(NomeCamp) ON DELETE CASCADE ON UPDATE NO ACTION,
-	FOREIGN KEY (Campione) REFERENCES Utente(Mail) ON DELETE CASCADE ON UPDATE NO ACTION
+	FOREIGN KEY (Campione) REFERENCES Utente(Mail) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
 CREATE TABLE Giornata (
@@ -75,7 +75,7 @@ CREATE TABLE Partecipa (
 	INDEX (Campionato),
 	PRIMARY KEY (Squadra, Campionato),
 	FOREIGN KEY (Squadra) REFERENCES Squadra(NomeSq) ON DELETE CASCADE ON UPDATE NO ACTION,
-	FOREIGN KEY (Campionato) REFERENCES Campionato(NomeCamp) ON DELETE CASCADE ON UPDATE NO ACTION	
+	FOREIGN KEY (Campionato) REFERENCES Campionato(NomeCamp) ON DELETE CASCADE ON UPDATE NO ACTION
 );
 
 CREATE TABLE Formazione (
@@ -113,7 +113,7 @@ CREATE TABLE Sta (
 );
 
 CREATE TABLE Gioca (
-	Giocatore varchar(20), 
+	Giocatore varchar(20),
 	Giornata int(2) UNSIGNED,
 	Punteggio int(2),
 	INDEX (Giocatore),
@@ -122,6 +122,3 @@ CREATE TABLE Gioca (
 	FOREIGN KEY (Giocatore) REFERENCES Giocatore(Cognome) ON DELETE CASCADE ON UPDATE NO ACTION,
 	FOREIGN KEY (Giornata) REFERENCES Giornata(NumGior) ON DELETE CASCADE ON UPDATE NO ACTION
 );
-	
-
-	

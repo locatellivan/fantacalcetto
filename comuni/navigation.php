@@ -16,19 +16,31 @@
 		 <div id="navbar" class="navbar-collapse collapse">
 			 <ul class="nav navbar-nav">
 				 <li class="active"><a href="main.php">HOME</a></li>
-				 			<li class="active"><a href="index.php">CLASSIFICA</a></li>
+				 			<li class="active"><a href="main.php?op=regolamento">REGOLAMENTO</a></li>
 
-				 <?php if (isset($_SESSION["mail"])) { ?>
-				 <li><a href="main.php?op=profilo">Profilo</a></li>
+				 <?php if (isset($_SESSION["nick"])) { ?>
+
+					 <li class="dropdown">
+						 <a href="#" class="dropdown-toggle" data-toggle="dropdown"
+			          role="button" aria-haspopup="true" aria-expanded="false"
+								>Account<span class="caret"></span></a>
+						 <ul class="dropdown-menu">
+							 <li><a href="main.php?op=profiloInfo">Dati Profilo</a></li>
+							 <li><a href="main.php?op=profiloModifica">Modifica Dati</a></li>
+							 <li role="separator" class="divider"></li>
+							 <li><a href="main.php?op=eliminaProfilo">Elimina Account</a></li>
+						 </ul>
+					 </li>
 
 				 <li class="dropdown">
 					 <a href="#" class="dropdown-toggle" data-toggle="dropdown"
 		          role="button" aria-haspopup="true" aria-expanded="false"
 							>Squadra<span class="caret"></span></a>
 					 <ul class="dropdown-menu">
-						 <li><a href="index.php?op=informazioni">Informazioni</a></li>
-						 <li><a href="index.php?op=fantamercato">Fantamercato</a></li>
+						 <li><a href="main.php?op=SquadraInfo">Dati Squadra</a></li>
+						 <li><a href="main.php?op=SquadraModifica">Modifica Motto</a></li>
 						 <li role="separator" class="divider"></li>
+						  <li><a href="index.php?op=fantamercato">Modifica Motto</a></li>
 					 </ul>
 				 </li>
 
@@ -45,7 +57,7 @@
 	 <?php } // end if?>
 			 </ul>
 			 <ul class="nav navbar-nav navbar-right">
-		 <?php if (isset($_SESSION["mail"])) { ?>
+		 <?php if (isset($_SESSION["nick"])) { ?>
 				 <li><a href="php/logout-exe.php"><span class="glyphicon glyphicon-log-out"></span> Logout
 
 		 <?php } else {?>

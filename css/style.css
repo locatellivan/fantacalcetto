@@ -60,6 +60,10 @@ footer {
   padding-right : 5px;
 }
 
+.navbar-nav > li > .dropdown-menu {
+  background-color: 	#c0c0c0;
+}
+
 .h1HOME {
   font-size: 55px;
   color: black;
@@ -72,6 +76,14 @@ footer {
   text-align: center;
 }
 
+.centrata {
+  margin-left:auto;
+  margin-right:auto;
+}
+
+th, td {
+    padding: 7px;
+}
 
 
 /****** LOGIN MODAL ******/
