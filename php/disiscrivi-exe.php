@@ -12,12 +12,15 @@ $squadra=$cid->query($sql) or die("<p>Impossibile eseguire query.</p>"
 															 ."<p>codice di errore ".$cid->errno
 															 .":".$cid->error."</p>");
 $nomeSq=$squadra->fetch_row();    // Salvo in una variabile il nome della squadra loggata
-
+$cid->close();
 
 // Elimino le tuple in "partecipa" coi campionati selezionati per quella squadra
+
 foreach($nomeCamp as $nomiCamp) {
 	$query="DELETE FROM partecipa
 	        WHERE Squadra='$nomeSq[0]' AND Campionato='$nomiCamp'";
 	$cid->query($query);
 }
+$cid->close();
+
 header("Location:../main.php?op=listaCampionati");

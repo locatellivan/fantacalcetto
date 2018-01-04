@@ -90,7 +90,7 @@
 															<td><center>$nomeCamp[1]</center></td>
 															<td><center>$nomeCamp[2]</center></td>
 															<td><center>$nomeCamp[3]</center></td>
-															<td><center><input type='checkbox' name='camp[]' value=$nomeCamp[0]/></center></td></tr>
+															<td><center><input type='checkbox' name='camp[]' value='".$nomeCamp[0]."'/></center></td></tr>
 															";
 												}
 												echo "<tr><td colspan='5'><center>----&nbsp;&nbsp;&nbsp;<input type='submit' class='btn btn-success' value='ISCRIVITI'></input>&nbsp;&nbsp;&nbsp;----</center></td>
@@ -101,7 +101,9 @@
 						} else {
 							echo "<p align='center'>ERRORE, SQUADRA NON TROVATO.</p>";
 						}
-						unset($res);
+
+
+						unset($camp);
 
 
 

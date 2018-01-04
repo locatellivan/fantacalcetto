@@ -13,14 +13,15 @@ $squadra=$cid->query($sql) or die("<p>Impossibile eseguire query.</p>"
 															 .":".$cid->error."</p>");
 $nomeSq=$squadra->fetch_row();    // Salvo in una variabile il nome della squadra loggata
 
+
 // Per ogni campionato selezionato inserisco una tupla in "partecipa".
 
 foreach($nomeCamp as $nomiCamp) {
-	$query="INSERT INTO partecipa (Squadra,Campionato,PuntiTot)
-	VALUES ('$nomeSq[0]','$nomiCamp','0')";
+	$query="INSERT INTO partecipa (Squadra, Campionato, PuntiTot)
+	         VALUES ('$nomeSq[0]','$nomiCamp',0)";
 	$cid->query($query);
 }
-
+$cid->close();
 
 header("Location:../main.php?op=listaCampionati");
 
