@@ -9,7 +9,7 @@
 		include_once("connessione.php");
 
 		$query = "SELECT NomeSq, FantaMilioni, Motto, Stelle
-			        FROM squadra JOIN utente ON Utente=Mail 
+			        FROM squadra JOIN utente ON Utente=Mail
 							WHERE Nickname='$nick'";
 
 		$res= $cid->query($query) or die("<p>Inpossibile eseguire query.</p>"

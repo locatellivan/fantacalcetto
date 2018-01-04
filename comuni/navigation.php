@@ -18,7 +18,6 @@
 				 <li class="active"><a href="main.php">HOME</a></li>
 				 <li class="active"><a href="main.php?op=regolamento">REGOLAMENTO</a></li>
 
-
 				 <?php if (isset($_SESSION["nick"])) { ?>
 
 					 <li class="dropdown">

@@ -40,7 +40,7 @@
 				}
 				else
 				{
-					if (isset($_GET["op"]) && $_GET["op"] == 'registrazione')
+					if (isset($_GET["op"]) && $_GET["op"] == 'registrazione' || isset($_GET["op"]) && $_GET["op"] == 'regolamento')
 							include_once "php/". $_GET["op"] . ".php";
 					 else
 						{
