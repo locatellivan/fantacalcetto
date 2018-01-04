@@ -40,7 +40,7 @@
 						 <li><a href="main.php?op=SquadraInfo">Dati Squadra</a></li>
 						 <li><a href="main.php?op=SquadraModifica">Modifica Motto</a></li>
 						 <li role="separator" class="divider"></li>
-						  <li><a href="index.php?op=fantamercato">Modifica Motto</a></li>
+						 <li><a href="main.php?op=fantamercato">Fantamercato</a></li>
 					 </ul>
 				 </li>
 
@@ -49,13 +49,15 @@
 						 role="button" aria-haspopup="true" aria-expanded="false"
 						 >Campionati<span class="caret"></span></a>
 					 <ul class="dropdown-menu">
-						<li><a href="index.php?op=iscrizionecampionati">Iscriviti</a></li>
-						<li><a href="index.php?op=consegnaformazione">Consegna Formazione</a></li>
+						<li><a href="main.php?op=listaCampionati">Lista</a></li>
+						<li><a href="main.php?op=consegnaformazione">Formazione?</a></li>
 						<li role="separator" class="divider"></li>
+						<li><a href="main.php?op=creaCampionato">Crea Campionato</a></li>
 					</ul>
 				</li>
 	 <?php } // end if?>
 			 </ul>
+
 			 <ul class="nav navbar-nav navbar-right">
 		 <?php if (isset($_SESSION["nick"])) { ?>
 				 <li><a href="php/logout-exe.php"><span class="glyphicon glyphicon-log-out"></span> Logout

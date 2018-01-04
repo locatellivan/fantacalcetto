@@ -81,10 +81,15 @@ footer {
   margin-right:auto;
 }
 
-th, td {
-    padding: 7px;
+td {
+  padding: 5px;
+  background-color: #fff8dc;
 }
 
+th {
+  background-color: #FFFFCC;
+  padding: 5px;
+}
 
 /****** LOGIN MODAL ******/
 .loginmodal-container {
