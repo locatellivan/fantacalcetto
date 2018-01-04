@@ -54,6 +54,7 @@
 						<li><a href="main.php?op=consegnaformazione">Formazione?</a></li>
 						<li role="separator" class="divider"></li>
 						<li><a href="main.php?op=creaCampionato">Crea Campionato</a></li>
+						<li><a href="main.php?op=eliminaCampionato">Elimina Campionato</a></li>
 					</ul>
 				</li>
 	 <?php } // end if?>
