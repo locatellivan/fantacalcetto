@@ -4,11 +4,10 @@ session_start();
 include_once("connessione.php");
 
 $nick=$_SESSION['nick'];
-
 $motto=$_POST['motto'];
 
 if(!empty($motto)) {
-	$query="UPDATE squadra NATURAL JOIN utente SET Motto='$motto' WHERE Nickname='$nick'";
+	$query="UPDATE squadra JOIN utente ON Utente=Mail SET Motto='$motto' WHERE Nickname='$nick'";
 	$cid->query($query);
 }
 

@@ -1,5 +1,5 @@
 <div class="well">
-	<h1 style="text-align:center;"><b>REGOLAMENTO</b></h1><br/>
+	<h1 align="center"><b>REGOLAMENTO</b></h1><br/>
 
 	<h4><b><i>1. REGISTRAZIONE E LOGIN</i></b></h4>
 	<p>Per accedere ai servizi è necessario registrarsi al database. Sarà necessario fornire una mail valida, un nickname,
@@ -27,6 +27,6 @@
 	 pagina si da un nome al campionato che si vuole creare, si scelgono le date tra le quali si giocherà il campionato. Si fa notare il fatto che quando si
 	 crea un campionato non si viene iscritti automaticamente. Nella sezione per iscriversi comparirà il campionato (se già in corso), e da li ci si potrà
 	 iscrivere. Nel menù è inserito ovviamente anche una pagina dalla quale si potranno eliminare i propri campionati. Cancellandoli tutte le squadre saranno
-	 automaticamente rimosse dal campionato, e non sarà più possibile avere traccia di informazioni ad esso collegate.
+	 automaticamente rimosse dal campionato, e non sarà più possibile avere traccia di informazioni ad esso collegate.</p>
 
 </div>
