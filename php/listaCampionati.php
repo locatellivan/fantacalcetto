@@ -19,7 +19,7 @@
 
 
 		// Query che mostra tutti i CAMPIONATI A CUI SI PARTECIPA
-		$query = "SELECT *
+		$query = "SELECT NomeCamp, DataInizio, DataFine, Creatore
 			        FROM campionato JOIN partecipa ON Campionato=NomeCamp JOIN squadra ON NomeSq=Squadra
 							WHERE CURDATE() BETWEEN DataInizio AND DataFine AND NomeSq IN ('$nomeSq[0]')
 							ORDER BY DataInizio";
@@ -82,7 +82,7 @@
 																						. ": " . $cid->error) . "</p>";
 						if($camp) {
 							if($camp->num_rows>=1) {
-									echo "<form role='form' method='POST' action='php/disiscrivi-exe.php'>
+									echo "<form role='form' method='POST' action='php/iscriviCamp-exe.php'>
 												<table align='center' border=1>
 												<tr><th><center>Nome Campionato</center></th><th>Data Inizio</th><th>Data Fine</th><th><center>Creatore</center></th><th><center> ✓</center></th></tr>";
 												while($nomeCamp=$camp->fetch_row()) {
