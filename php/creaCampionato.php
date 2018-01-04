@@ -28,9 +28,11 @@
 	// Se non si è commissari o amministratori
 	if($stelle[0]<3 && $tipo[0]=='allenatore') {
 		echo "<div class='well'>";
-		echo "<h3 align='center'><b>PER CREARE UN CAMPIONATO SONO NECESSARIE 3 O PIU STELLE.</b></h3><br/>";
+		echo "<h3 align='center'><b>PER CREARE UN CAMPIONATO E' NECESSARIO AVERE IL GRADO
+		       DI COMMISSARIO TECNICO. TOTALIZZA 3 O PIU STELLE!</b></h3><br/>";
 		echo "<br/><br/><br/>";
-		echo "<table align='center' border=5><tr><th><h4><b>&nbsp;STELLE OTTENUTE:&nbsp;&nbsp;&nbsp;</b></h4></th><td><h4><b>$stelle[0]</b></h4></td></tr></table></div>";
+		echo "<table align='center' border=5><tr><th><h4><b>&nbsp;STELLE OTTENUTE:&nbsp;&nbsp;&nbsp;</b></h4></th>
+		      <td><h4><b>&nbsp;$stelle[0]&nbsp;</b></h4></td></tr></table></div>";
 	}
   // Se si è CT o amministratori
 	else {

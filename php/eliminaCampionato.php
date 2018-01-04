@@ -36,13 +36,6 @@
 																 .":".$cid->error."</p>");
 	$tipo=$star->fetch_row();
 
-	if($tipo[0]=='allenatore') {
-		echo "<div class='well'>";
-		echo "<h3 align='center'><b>PER GESTIRE UN CAMPIONATO SONO NECESSARIE 3 O PIU STELLE.</b></h3><br/>";
-		echo "<br/><br/><br/>";
-		echo "<table align='center' border=5><tr><th><h4><b>&nbsp;STELLE OTTENUTE:&nbsp;&nbsp;&nbsp;</b></h4></th><td><h4><b>$stelle[0]</b></h4></td></tr></table></div>";
-	}
-
   $query = "SELECT NomeCamp, DataInizio, DataFine, Creatore
             FROM campionato WHERE Creatore='$mailU[0]'
             ORDER BY DataInizio";
@@ -67,7 +60,8 @@
                   </tr></form></table><br/><br/>";
     }
     else {
-      echo "<p align='center'>NON HAI CREATO NESSUN CAMPIONATO</p>";
+      echo "<p align='center'>NON HAI CREATO NESSUN CAMPIONATO.<br/> PER FARLO
+			       E' NECESSARIO AVERE IL GRADO DI COMMISSARIO TECNICO.</p>";
     }
   } else {
     echo "<p align='center'>ERRORE.</p>";

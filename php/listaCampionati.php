@@ -49,7 +49,7 @@
 		} else {
 			echo "<p align='center'>ERRORE.</p>";
 		}
-		unset($res);
+		unset($camp);
 ?>
 
 
@@ -77,34 +77,36 @@
 											ORDER BY DataInizio)
 						ORDER BY DataInizio";
 
-						$camp= $cid->query($query) or die("<p>Inpossibile eseguire query.</p>"
+	$camp= $cid->query($query) or die("<p>Inpossibile eseguire query.</p>"
 																						. "<p>Codice errore " . $cid->errno
 																						. ": " . $cid->error) . "</p>";
-						if($camp) {
-							if($camp->num_rows>=1) {
-									echo "<form role='form' method='POST' action='php/iscriviCamp-exe.php'>
+	if($camp) {
+		if($camp->num_rows>=1) {
+			echo "<form role='form' method='POST' action='php/iscriviCamp-exe.php'>
 												<table align='center' border=1>
 												<tr><th><center>Nome Campionato</center></th><th>Data Inizio</th><th>Data Fine</th><th><center>Creatore</center></th><th><center> ✓</center></th></tr>";
-												while($nomeCamp=$camp->fetch_row()) {
-													echo "<tr><td><center>$nomeCamp[0]</center></td>
+			while($nomeCamp=$camp->fetch_row()) {
+				echo "<tr><td><center>$nomeCamp[0]</center></td>
 															<td><center>$nomeCamp[1]</center></td>
 															<td><center>$nomeCamp[2]</center></td>
 															<td><center>$nomeCamp[3]</center></td>
 															<td><center><input type='checkbox' name='camp[]' value='".$nomeCamp[0]."'/></center></td></tr>
 															";
-												}
-												echo "<tr><td colspan='5'><center>----&nbsp;&nbsp;&nbsp;<input type='submit' class='btn btn-success' value='ISCRIVITI'></input>&nbsp;&nbsp;&nbsp;----</center></td>
+			}
+		  echo "<tr><td colspan='5'><center>----&nbsp;&nbsp;&nbsp;<input type='submit' class='btn btn-success' value='ISCRIVITI'></input>&nbsp;&nbsp;&nbsp;----</center></td>
 															</tr></form></table><br/><br/>";
-							} else {
-								echo "<p align='center'>NON C'E' NESSUN CAMPIONATO IN CORSO.</p>";
-							}
-						} else {
-							echo "<p align='center'>ERRORE, SQUADRA NON TROVATO.</p>";
-						}
+     } else {
+				echo "<p align='center'>NON C'E' NESSUN CAMPIONATO IN CORSO.</p>";
+		 }
+	} else {
+		echo "<p align='center'>ERRORE, SQUADRA NON TROVATO.</p>";
+	}
+  unset($camp);
+?>
 
+	<h2 align="center"><b>CAMPIONATI CONCLUSI</b></h3>
 
-						unset($camp);
-
+<?php
 
 
  ?>
