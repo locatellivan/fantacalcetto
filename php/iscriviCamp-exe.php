@@ -5,7 +5,7 @@ include_once("connessione.php");
 
 $nick=$_SESSION['nick'];
 
-$nomeCamp=$_POST['nick'];
+$nomeCamp=$_POST['camp'];
 
 $sql="SELECT nomeSq FROM squadra JOIN utente ON Mail=Utente WHERE Nickname='$nick'";
 $squadra=$cid->query($sql) or die("<p>Impossibile eseguire query.</p>"
@@ -23,6 +23,6 @@ foreach($nomeCamp as $nomiCamp) {
 }
 $cid->close();
 
-//header("Location:../main.php?op=listaCampionati");
+header("Location:../main.php?op=listaCampionati");
 
 ?>
