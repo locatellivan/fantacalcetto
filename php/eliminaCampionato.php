@@ -8,7 +8,7 @@
 	include_once("connessione.php");
 	$nick=$_SESSION['nick'];
 
-	// Salvo in una variabile la mail
+	// Salvo in una variabile la mail dell'utente loggato
 	$sql="SELECT Mail FROM utente WHERE  Nickname='$nick'";
 	$nomeU=$cid->query($sql) or die("<p>Impossibile eseguire query.</p>"
 																 ."<p>codice di errore ".$cid->errno
@@ -29,7 +29,14 @@
 																 .":".$cid->error."</p>");
 	$stelle=$star->fetch_row();
 
-	if($stelle[0]<3) {
+	// Salvo in una variabile il tipo dell'utente loggato
+	$query= "SELECT Tipo FROM utente WHERE Nickname='$nick'";
+	$star=$cid->query($query) or die("<p>Impossibile eseguire query.</p>"
+																 ."<p>codice di errore ".$cid->errno
+																 .":".$cid->error."</p>");
+	$tipo=$star->fetch_row();
+
+	if($tipo[0]=='allenatore') {
 		echo "<div class='well'>";
 		echo "<h3 align='center'><b>PER GESTIRE UN CAMPIONATO SONO NECESSARIE 3 O PIU STELLE.</b></h3><br/>";
 		echo "<br/><br/><br/>";
@@ -37,7 +44,7 @@
 	}
 
   $query = "SELECT NomeCamp, DataInizio, DataFine, Creatore
-            FROM campionato WHERE Creatore='$mailU[0]' 
+            FROM campionato WHERE Creatore='$mailU[0]'
             ORDER BY DataInizio";
 
   $camp= $cid->query($query) or die("<p>Impossibile eseguire query.</p>"
