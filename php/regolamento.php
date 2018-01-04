@@ -24,8 +24,9 @@
 	 ai vari campionati.<br/>
 	 La sezione "Crea Campionato" è riservata agli "amministratori" e a coloro che hanno raggiunto il grado di "CT", cioè commissario tecnico. Per diventare
 	 commissari è necessario ottenere almeno 3 stelle. Per ottenerne una serve che in una giornata, una formazione iscritta ottenga 35 punti o più. In questa
-	 pagina si da un nome al campionato che si vuole creare, si scelgono le date tra le quali si giocherà il campionato. Nel menù è inserito ovviamente anche
-	 una pagina dalla quale si potranno eliminare i propri campionati. Cancellandoli tutte le squadre saranno automaticamente rimosse dal campionato, e non
-	 sarà più possibile avere traccia di informazioni ad esso collegate.
+	 pagina si da un nome al campionato che si vuole creare, si scelgono le date tra le quali si giocherà il campionato. Si fa notare il fatto che quando si
+	 crea un campionato non si viene iscritti automaticamente. Nella sezione per iscriversi comparirà il campionato (se già in corso), e da li ci si potrà
+	 iscrivere. Nel menù è inserito ovviamente anche una pagina dalla quale si potranno eliminare i propri campionati. Cancellandoli tutte le squadre saranno
+	 automaticamente rimosse dal campionato, e non sarà più possibile avere traccia di informazioni ad esso collegate.
 
 </div>
