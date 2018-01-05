@@ -39,7 +39,7 @@ CREATE TABLE Vince (
 	Campione varchar(40),
 	INDEX (Campionato),
 	INDEX (Campione),
-	PRIMARY KEY (Campione, Campionato),
+	PRIMARY KEY (Campionato),
 	FOREIGN KEY (Campionato) REFERENCES Campionato(NomeCamp) ON DELETE NO ACTION ON UPDATE NO ACTION,
 	FOREIGN KEY (Campione) REFERENCES Utente(Mail) ON DELETE SET NULL ON UPDATE CASCADE
 );
@@ -122,3 +122,10 @@ CREATE TABLE Gioca (
 	FOREIGN KEY (Giocatore) REFERENCES Giocatore(Cognome) ON DELETE CASCADE ON UPDATE NO ACTION,
 	FOREIGN KEY (Giornata) REFERENCES Giornata(NumGior) ON DELETE CASCADE ON UPDATE NO ACTION
 );
+
+INSERT INTO utente (Mail, Nickname, Password, Tipo)
+VALUES ('admin@admin', 'Admin', 'admin', 'amministratore') ;
+INSERT INTO squadra (NomeSq, Utente)
+VALUES ('AdminTeam', 'admin@admin');
+INSERT INTO campionato (NomeCamp, DataInizio, DataFine, Creatore)
+VALUES ('CAMPIONATO GENERALE', CURDATE(), '2018-12-31', 'admin@admin');
