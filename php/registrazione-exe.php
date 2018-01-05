@@ -22,7 +22,6 @@
 																 ."<p>codice di errore ".$cid->errno
 																 .":".$cid->error."</p>");
 
-		// $cid->close();
 
 		// Inserisco la squadra nel Campionato Generale
 		$sql3="INSERT INTO partecipa (Squadra, Campionato, PuntiTot)
@@ -31,7 +30,7 @@
 																 ."<p>codice di errore ".$cid->errno
 																 .":".$cid->error."</p>");
 
-		$cid->close();  
+		$cid->close();
 
 		header("Location:../main.php?status=RegistrazioneAvvenutaConSuccesso");
 	}
