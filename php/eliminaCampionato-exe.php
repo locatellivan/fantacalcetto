@@ -7,7 +7,7 @@ $nick=$_SESSION['nick'];
 
 $nomeCamp=$_POST['camp'];
 
-$sql="SELECT NomeCamp FROM Campionato JOIN utente ON Nickname='$nick' and NomeCamp='$nomeCamp'";
+$sql="SELECT NomeCamp FROM Campionato, utente WHERE (Nickname='$nick'or Nickname='admin') and NomeCamp='$nomeCamp'";
 $campionato=$cid->query($sql) or die("<p>Imppossibile eseguire query.</p>"
 															 ."<p>codice di errore ".$cid->errno
 															 .":".$cid->error."</p>");
