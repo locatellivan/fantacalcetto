@@ -21,7 +21,7 @@
 	 <h4><b><i>4. CAMPIONATI</i></b></h4>
 	 <p>Nei campionati anzitutto abbiamo la lista dei campionati. Da qui è possibile osservare i campionati a cui si partecipa
 	 e quelli a cui non si partecipa, ancora in corso. Nelle tabelle mostrate vi è la possibilità di disiscriversi e iscriversi
-	 ai vari campionati.<br/>
+	 ai vari campionati. Sotto sono mostrati anche i campionati conclusi, con lo storico dei vincitori (se utenti ancora presenti).<br/>
 	 La sezione "Crea Campionato" è riservata agli "amministratori" e a coloro che hanno raggiunto il grado di "CT", cioè commissario tecnico. Per diventare
 	 commissari è necessario ottenere almeno 3 stelle. Per ottenerne una serve che in una giornata, una formazione iscritta ottenga 35 punti o più. In questa
 	 pagina si da un nome al campionato che si vuole creare, si scelgono le date tra le quali si giocherà il campionato. Si fa notare il fatto che quando si
