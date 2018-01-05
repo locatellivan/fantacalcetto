@@ -36,9 +36,17 @@
 																 .":".$cid->error."</p>");
 	$tipo=$star->fetch_row();
 
+	if ($mailU[0] == 'admin@admin'){
+
   $query = "SELECT NomeCamp, DataInizio, DataFine, Creatore
-            FROM campionato WHERE Creatore='$mailU[0]'
+            FROM campionato
             ORDER BY DataInizio";
+					}
+	else {
+		$query = "SELECT NomeCamp, DataInizio, DataFine, Creatore
+	            FROM campionato WHERE Creatore='$mailU[0]'
+	            ORDER BY DataInizio";
+	}
 
   $camp= $cid->query($query) or die("<p>Impossibile eseguire query.</p>"
                                   . "<p>Codice errore " . $cid->errno
