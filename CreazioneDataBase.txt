@@ -36,12 +36,12 @@ CREATE TABLE Campionato (
 
 CREATE TABLE Vince (
 	Campionato varchar(20) NOT NULL,
-	Campione varchar(40) NOT NULL,
+	Campione varchar(40),
 	INDEX (Campionato),
 	INDEX (Campione),
 	PRIMARY KEY (Campione, Campionato),
-	FOREIGN KEY (Campionato) REFERENCES Campionato(NomeCamp) ON DELETE CASCADE ON UPDATE NO ACTION,
-	FOREIGN KEY (Campione) REFERENCES Utente(Mail) ON DELETE CASCADE ON UPDATE CASCADE
+	FOREIGN KEY (Campionato) REFERENCES Campionato(NomeCamp) ON DELETE NO ACTION ON UPDATE NO ACTION,
+	FOREIGN KEY (Campione) REFERENCES Utente(Mail) ON DELETE SET NULL ON UPDATE CASCADE
 );
 
 CREATE TABLE Giornata (
