@@ -58,6 +58,18 @@
 						<li><a href="main.php?op=campionatiFantasma">Campionati Fantasma</a></li>
 					</ul>
 				</li>
+				<li class="dropdown">
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown"
+						role="button" aria-haspopup="true" aria-expanded="false"
+						>Formazioni<span class="caret"></span></a>
+					<ul class="dropdown-menu">
+					 <li><a href="main.php?op=consegnaFormazione">Consegna Formazione</a></li>
+
+				 </ul>
+			 </li>
+
+
+
 	 <?php } // end if?>
 			 </ul>
 
