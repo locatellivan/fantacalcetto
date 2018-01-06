@@ -87,7 +87,8 @@
 					class='btn btn-success' value='CONSEGNA FORMAZIONE'></input></center></td>
 							</tr></form></table><br/><br/>";
 
-
+		echo "<h1 align='center'><b>FORMAZIONI CONSEGNATE</b></h1><br/>";
+		
 
 	} else {
 		echo "<h3 align='center'>PER ISCRIVERE AD UNA GIORNATA LA FORMAZIONE E' NECESSARIO

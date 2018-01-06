@@ -16,16 +16,12 @@
 	$campionato=$_POST['campionato'];
 	$formazione=$_POST['formazione'];
 	$giornata=$_POST['giornata'];
-	$numOrdine=$_POST['numIngr'];
 
-	$query="INSERT INTO formazione (Formazione, Squadra)
-	        VALUES ('$formazione','$nomeSq[0]')";
+	$query="INSERT INTO iscritta (Formazione, Campionato, Giornata)
+	        VALUES ('$formazione','$campionato','$giornata')";
 	$cid->query($query);
 
-	$query="INSERT INTO iscritta (Formazione,Campionato,Giornata)
-					VALUES ('$formazione','$campionato','$giornata')";
-	$cid->query($query);
-
+	$cid->close();
 
 	header("Location:../main.php?op=consegnaFormazione");
 
