@@ -96,7 +96,7 @@
 		  echo "<tr><td colspan='5'><center>----&nbsp;&nbsp;&nbsp;<input type='submit' class='btn btn-success' value='ISCRIVITI'></input>&nbsp;&nbsp;&nbsp;----</center></td>
 															</tr></form></table><br/><br/>";
      } else {
-				echo "<p align='center'>NON C'E' NESSUN CAMPIONATO IN CORSO.</p>";
+				echo "<p align='center'>NON C'E' NESSUN CAMPIONATO IN CORSO A CUI NON SEI ISCRITTO.</p>";
 		 }
 	} else {
 		echo "<p align='center'>ERRORE, SQUADRA NON TROVATO.</p>";
