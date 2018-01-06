@@ -64,8 +64,10 @@
 						role="button" aria-haspopup="true" aria-expanded="false"
 						>Formazioni<span class="caret"></span></a>
 					<ul class="dropdown-menu">
-					 <li><a href="main.php?op=consegnaFormazione">Consegna Formazione</a></li>
-
+					<li><a href="main.php?op=creaFormazione">Crea Formazione</a></li>
+					<li><a href="main.php?op=consegnaFormazione">Consegna Formazione</a></li>
+					<li role="separator" class="divider"></li>
+					<li><a href="main.php?op=eliminaFormazione">Elimina Formazione</a></li>
 				 </ul>
 			 </li>
 
