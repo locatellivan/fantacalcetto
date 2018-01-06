@@ -55,7 +55,11 @@ else if ($nGioc[0]<11) {
 			echo "<form role='form' method='POST' action='php/creaFormazione-exe.php' class='form-inline'>";
 			echo "<tr><th><center><b>NOME FORMAZIONE</b></center></th>";
 			echo "<td><input type='text' name='formazione' placeholder='&nbsp;max. 20 caratteri'/></td></tr>";
-			echo "</form></table><br/><br/>";
+
+
+
+			echo "<tr><td colspan='2'><center><input type='submit' class='btn btn-success' value='CREA FORMAZIONE'></input></center></td>
+						</tr></form></table><br/><br/>";
 
 			echo "<h1 align='center'><b>LE TUE FORMAZIONI</b></h1><br/>";
 

@@ -39,7 +39,8 @@
 <?php
 			$query = "SELECT Cognome, Ruolo, Squadra
 				        FROM utente JOIN squadra ON Mail=utente JOIN possiede ON NomeSq=SquadraGioc JOIN Giocatore ON Giocatore=Cognome
-								WHERE Nickname='$nick'";
+								WHERE Nickname='$nick'
+								ORDER BY Ruolo DESC";
 
 			$res= $cid->query($query) or die("<p>Inpossibile eseguire query.</p>"
 																			. "<p>Codice errore " . $cid->errno
