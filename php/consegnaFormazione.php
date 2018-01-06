@@ -52,6 +52,14 @@
 																 .":".$cid->error."</p>");
 	$data=$date->fetch_row();
 
+	// Salvo le formazioni gia iscritte nei campionati
+	$sql="SELECT Giornata, Campionato, Formazione
+	      FROM iscritta JOIN Formazione ON Formazione=IdForm
+				WHERE Squadra='$nomeSq[0]'
+				ORDER BY Giornata DESC, Campionato";
+	$iscr=$cid->query($sql) or die("<p>Impossibile eseguire query.</p>"
+																 ."<p>codice di errore ".$cid->errno
+																 .":".$cid->error."</p>");
 
 	// Se il giocatore non possiede formaioni non puo iscriversi alle giornate di campionato.
 	if($nForm[0]>=1) {
@@ -67,14 +75,14 @@
 				echo "<option value='$formazioni[0]'>$formazioni[0]</option>";
 		}
 		echo "</select></center></td></tr>";
-		echo "<tr><th><center><b>CAMPIONATO</b></center></th>";
+		echo "<tr><th><center><b>Campionato</b></center></th>";
 		echo "<td><center><select name='campionato'>";
 
 					while($nomeCa=$campionato->fetch_row()) {
 							echo "<option value='$nomeCa[0]'>$nomeCa[0]</option>";
 					}
 		echo "</select></center></td></tr>";
-		echo "<tr><th><center><b>GIORNATA</b></center></th>";
+		echo "<tr><th><center><b>Giornata</b></center></th>";
 		echo "<td><center><select name='giornata'>";
 
 					while($gior=$giornate->fetch_row()) {
@@ -88,7 +96,12 @@
 							</tr></form></table><br/><br/>";
 
 		echo "<h1 align='center'><b>FORMAZIONI CONSEGNATE</b></h1><br/>";
-		
+		echo "<table align='center' border='1'>";
+		echo "<tr><th><center>Giornata</center></th><th><center>Campionato</center></th><th><center>Formazione</center></th></tr>";
+		while($isc=$iscr->fetch_row()) {
+			echo "<tr><td><center><b>$isc[0]</b></center></td><td><center>$isc[1]</center></td><td><center>$isc[2]</center></td></tr>";
+		}
+		echo "</table><br/><br/>";
 
 	} else {
 		echo "<h3 align='center'>PER ISCRIVERE AD UNA GIORNATA LA FORMAZIONE E' NECESSARIO
