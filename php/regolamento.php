@@ -33,10 +33,10 @@
 	 <h4><b><i>5. FORMAZIONI</i></b></h4>
 	 <p>Qui potremo iscrivere le formazioni alle giornate dei campionati in cui partecipiamo. Una squadra puo avere massimo tre formazioni salvate.
 	 Le formazioni create vengono mostrate. Nel momento in cui si raggiunge il massimo numero di formazioni, fino a che non se ne elimina una non
-   viene più data possibilità di crearne altre. Per salvare una formazione sarà necessario avere tutti gli 11 giocatori in squadra, che devono essere
-   numerati dall'1 all 11. I giocatori con numero d'ingresso dal 1 al 5 saranno i titolari. tra questi devono essere presenti 1 portiere, almeno un difensore,
-   almeno un centrocampista e almeno un portiere. L'unica limitazione sul quinto giocatore è che non sia portiere. Se un giocatore in una giornata non gioca
-   verrà automaticamente sostituito dal giocatore con lo stesso ruolo col numero d'ingresso minore.
+   viene più data possibilità di crearne altre. Per salvare una formazione sarà necessario avere tutti gli 11 giocatori in squadra.
+	 Oltre a scegliere la posizione di ingresso dei giocatori è necassario scegliere uno schema di gioco tra quelli a disposizione in modo da determinare
+	 i cinque giocatori che partiranno in campo, in caso uno dei giocatori non giochi viene sostituito con il successivo dello stesso ruolo, se nessun giocatore per quel ruolo
+	 gioca quella gionata non si prenderanno punti per quel ruolo.
    I giocatori in una formazione per prendere punti devono essere iscritti ad una giornata di campionato. Per iscriversi c'è un apposita pagina, dove è necessario
    scegliere la formazione tra quelle salvate, scegliere un campionato tra quelli a cui si è iscritti e scegliere la gionata per la quale si vuole giocare. Viene tenuta
    traccia delle formazioni salvate che si sono utilizzate negli ultimi campionati. Per eliminare la formazione basta selezionarla e cliccare il pulsante "ELIMINA FORMAZIONE".
