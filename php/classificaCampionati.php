@@ -31,7 +31,9 @@
 		$sql="SELECT DISTINCT NomeCamp
 		      FROM campionato
 					WHERE CURDATE() BETWEEN DataInizio AND DataFine";
-		$campionati=$cid->query($sql);
+		$campionati=$cid->query($sql) or die("<p>Impossibile eseguire query.</p>"
+																		."<p>codice di errore ".$cid->errno
+																		.":".$cid->error."</p>");
 
 		// Se esistono classifiche da mostrare
 		if($campionati->num_rows>=1) {

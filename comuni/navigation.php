@@ -17,9 +17,8 @@
 			 <ul class="nav navbar-nav">
 				 <li class="active"><a href="main.php">HOME</a></li>
 				 <li class="active"><a href="main.php?op=regolamento">REGOLAMENTO</a></li>
-
 				 <?php if (isset($_SESSION["nick"])) { ?>
-
+					 <li class="active"><a href="main.php?op=amministraGiornate">AMMINISTRA GIORNATE</a></li>
 					 <li class="dropdown">
 						 <a href="#" class="dropdown-toggle" data-toggle="dropdown"
 			          role="button" aria-haspopup="true" aria-expanded="false"
@@ -56,6 +55,7 @@
 						<li><a href="main.php?op=creaCampionato">Crea Campionato</a></li>
 						<li><a href="main.php?op=eliminaCampionato">Elimina Campionato</a></li>
 						<li role="separator" class="divider"></li>
+						<li><a href="main.php?op=storicoCampioni">Storico Campioni</a></li>
 						<li><a href="main.php?op=campionatiFantasma">Campionati Fantasma</a></li>
 					</ul>
 				</li>
@@ -68,8 +68,8 @@
 					<li><a href="main.php?op=consegnaFormazione">Consegna Formazione</a></li>
 					<li role="separator" class="divider"></li>
 					<li><a href="main.php?op=eliminaFormazione">Elimina Formazione</a></li>
-				 </ul>
-			 </li>
+				</ul>
+			</li>
 
 
 
