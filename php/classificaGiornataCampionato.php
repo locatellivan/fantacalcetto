@@ -38,8 +38,11 @@
                     <td><center><input type='checkbox' name='camp[]' value='".$giornata[0]."'/></center></td></tr>
 										";
 							}
-              }
-              }
+							echo "</form></table><br/><br/>";
+      } else {
+				echo "NESSUNA GIORNATA ANCORA PRESENTE";
+			}
+    }
 
 
 		$query = "SELECT NomeCamp, DataInizio, DataFine, Creatore
@@ -61,7 +64,7 @@
 										<td><center><input type='checkbox' name='camp[]' value='".$nomeCamp[0]."'/></center></td></tr>
 										";
 							}
-							echo "<tr><td colspan='5'><center>----&nbsp;&nbsp;&nbsp;<input type='submit' class='btn btn-danger' value='CERCA'></input>&nbsp;&nbsp;&nbsp;----</center></td>
+							echo "<tr><td colspan='5'><center><input type='submit' class='btn btn-primary' value='CERCA'></input></center></td>
 										</tr></form></table><br/><br/>";
 			}
 			else {
