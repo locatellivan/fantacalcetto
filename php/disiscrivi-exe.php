@@ -21,6 +21,13 @@ foreach($nomeCamp as $nomiCamp) {
 	        WHERE Squadra='$nomeSq[0]' AND Campionato='$nomiCamp'";
 	$cid->query($query);
 }
+
+foreach($nomeCamp as $nomiCamp) {
+	$query="DELETE FROM Iscritta
+	        WHERE Formazione=(SELECT IdForm FROM formazione WHERE Squadra.formazione='$nomeSq[0]' ) AND Campionato='$nomiCamp'";
+	$cid->query($query);
+}
+
 $cid->close();
 
 header("Location:../main.php?op=listaCampionati");
