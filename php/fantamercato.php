@@ -59,7 +59,7 @@
 		$soldiRestanti=$soldi->fetch_row();
 
 		echo "<table border=4 align='center'>
-		     	<tr><th><h3>Budget:&nbsp;&nbsp;".$soldiRestanti[0]." fantamilioni.</h3></th></tr></table>
+		     	<tr><th><h3 >Budget:&nbsp;&nbsp;".$soldiRestanti[0]." fantamilioni.</h3></th></tr></table>
 		    	<br/><br/><br/>";
 
 		$sql="SELECT nomeSq FROM squadra JOIN utente ON Mail=Utente WHERE Nickname='".$nick."'";

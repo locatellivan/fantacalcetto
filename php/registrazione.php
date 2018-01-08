@@ -1,3 +1,14 @@
+<script>
+	function errRegistrazione()  {
+		var nick = document.getElementById("nick").value;
+		if(nick.length>30)
+			alert("Il Nickname deve essere di massimo 30 caratteri.");
+	}
+
+
+
+</script>
+
 <div class="well">
 	<form role="form" method="POST" action="php/registrazione-exe.php">
 		<div class="form-group">
@@ -5,7 +16,7 @@
 		      <input class="form-control" type="email" name="email" placeholder="Email"/>
 		</div>
 		<div class="form-group">
-		      <label>Nickname (non potrà essere modificato)</label>
+		      <label id="nick">Nickname (non potrà essere modificato)</label>
 		      <input class="form-control" type="text" name="nickname" placeholder="Nickname"/>
 		</div>
 		<div class="form-group">
@@ -22,7 +33,7 @@
 		</div>
 
 		<input type="submit" class="btn btn-success" value="Registra"></input>
-		<input type="reset" class="btn btn-warning" value="Annulla"></input>
+		<input type="reset" class="btn btn-warning" onclick="errRegistrazione()" value="Annulla"></input>
 
 	</form>
 </div>
