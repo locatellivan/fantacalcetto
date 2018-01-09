@@ -9,8 +9,8 @@
 	$email=trim(addslashes(htmlspecialchars($_POST['email'])));
 
 	if($psw1==$psw2 && (!empty($nickname)) && (!empty($nomeSq)) && (!empty($psw1))
-	   && (!empty($psw2)) && $nickname.length<30 && $nomeSq.lenght<20 && $email.length<40
-	   && $psw1.lenght<30) {
+	   && (!empty($psw2)) && strlen($nickname)<30 && strlen($nomeSq)<20 && strlen($mail)<40
+	   && strlen($psw1)<30) {
 
 		// Creo l'utente
 		$sql="INSERT INTO utente(Nickname,Mail,Password) VALUES ('$nickname','$email','$psw1')";

@@ -73,7 +73,7 @@
 						alert(msgVuoto+msgMail+msgNick+msgNomeSq+msgPsw+msgPswConf);
 					}
 					else {
-							alert("Registrazione avvenuta con successo.\nLoggati per accedere ai servizi");
+						alert("Registrazione avvenuta con successo.\nLoggati per accedere ai servizi");
 					}
 
 	}
