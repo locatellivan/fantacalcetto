@@ -4,10 +4,10 @@
 
 		<div class="form-group">
 					<label>Motto della Squadra (max. 30 caratteri)</label>
-					<input class="form-control" type="text" name="motto" placeholder="inserisci un motto"/>
+					<input class="form-control" type="text" id='motto' name="motto" placeholder="inserisci un motto"/>
 		</div>
 
-		<input type="submit" class="btn btn-success" value="Aggiorna Motto"></input>
+		<input type="submit" class="btn btn-success" onclick="errModificaSquadra()" value="Aggiorna Motto"></input>
 		<input type="reset" class="btn btn-warning" value="Annulla"></input>
 
 

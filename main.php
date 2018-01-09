@@ -3,7 +3,9 @@
 <!DOCTYPE html>
 <html>
 
-	<?php include_once "comuni/head.html"; ?>
+	<?php include_once "comuni/head.html";
+				include_once "php/funzioni.php"
+	 ?>
 
 	<body>
 
