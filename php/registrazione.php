@@ -62,10 +62,19 @@
 			 	}
 				else { var msgPswConf = "";
 		}
-		if((mail.length>40) || (nick.length>30) || (nomeSq.length>20) || (psw1.length>30) || (psw1.val!=psw2.val)) {
-			alert(msgMail+msgNick+msgNomeSq+msgPsw+msgPswConf);
-		} else {
-				alert("Registrazione avvenuta con successo.\nLoggati per accedere ai servizi");
-		}
+		if((mail.length==0)|| (nick.length==0) || (nomeSq.length==0) || (psw1.length==0) || (psw2.length==0)){
+			var msgVuoto = "i campi non possono essere vuoti.\n";
+			 }
+			 else { var msgVuoto = "";
+	 }
+
+					if((mail.length>40) || (nick.length>30) || (nomeSq.length>20) || (psw1.length>30) || (psw1.val!=psw2.val)||
+				(mail.length==0)|| (nick.length==0) || (nomeSq.length==0) || (psw1.length==0) || (psw2.length==0)) {
+						alert(msgVuoto+msgMail+msgNick+msgNomeSq+msgPsw+msgPswConf);
+					}
+					else {
+							alert("Registrazione avvenuta con successo.\nLoggati per accedere ai servizi");
+					}
+
 	}
 </script>
