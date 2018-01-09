@@ -14,12 +14,16 @@ $utente=$cid->query($sql) or die("<p>Impossibile eseguire query.</p>"
 															 .":".$cid->error."</p>");
 $mailUtente=$utente->fetch_row();
 
+
+if(strlen($nomeCamp)<=20) {
 	$query="INSERT INTO `campionato`(`NomeCamp`, `DataInizio`, `DataFine`, `Creatore`)
    VALUES ('$nomeCamp', '$dataInizio', '$dataFine','$mailUtente[0]')";
 	$cid->query($query);
 
-
-
-header("Location:../main.php?op=listaCampionati");
+	header("Location:../main.php?op=listaCampionati");
+}
+else {
+	header("Location:../main.php?op=creaCampionato");
+}
 
 ?>
