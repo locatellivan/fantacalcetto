@@ -1,7 +1,9 @@
 <script>
-//gestione alert in registrazione
+
+  //gestione alert in registrazione
   function errRegistrazione()  {
-		var nick = document.getElementById("nick").value;
+
+    var nick = document.getElementById("nick").value;
 		var nomeSq = document.getElementById("squadra").value;
 		var mail = document.getElementById("mail").value;
 		var psw1 = document.getElementById("psw1").value;
@@ -38,42 +40,36 @@
 			 else { var msgVuoto = "";
 	 }
 
-					if((mail.length>40) || (nick.length>30) || (nomeSq.length>20) || (psw1.length>30) || (psw1.val!=psw2.val)||
-				(mail.length==0)|| (nick.length==0) || (nomeSq.length==0) || (psw1.length==0) || (psw2.length==0)) {
-						alert(msgVuoto+msgMail+msgNick+msgNomeSq+msgPsw+msgPswConf);
-					}
-					else {
-						alert("Registrazione avvenuta con successo.\nLoggati per accedere ai servizi");
-					}
+	 if((mail.length>40) || (nick.length>30) || (nomeSq.length>20) || (psw1.length>30) || (psw1.val!=psw2.val)||
+			(mail.length==0)|| (nick.length==0) || (nomeSq.length==0) || (psw1.length==0) || (psw2.length==0)) {
+			alert(msgVuoto+msgMail+msgNick+msgNomeSq+msgPsw+msgPswConf);
+	 }
+	 else {
+			alert("Registrazione avvenuta con successo.\nLoggati per accedere ai servizi");
+		}
 
 	}
 
-
-//Gestione alert in modifica squadra
-
-
+  //Gestione alert in modifica squadra
 	function errModificaSquadra()  {
 		var motto = document.getElementById("motto").value;
 
-    if(motto.length>30){
-     var msgMotto = "Il motto deve essere di massimo 30 caratteri.\n";
-      }
-      else {
-        var msgMotto = "";
-  }
+    if(motto.length>30) {
+       var msgMotto = "Il motto deve essere di massimo 30 caratteri.\n";
+    }
+    else {
+       var msgMotto = "";
+    }
     if(motto.length>30)  {
-    alert(msgMotto);
+      alert(msgMotto);
+    }
+    else {
+      alert("Modifica avvenuta con successo.\n");
+    }
+
   }
-  else {
-    alert("Modifica avvenuta con successo.\n");
-  }
 
-}
-
-
-// Alert per gestione errori del modifica squadra
-
-
+  // Alert per gestione errori del modifica profilo
 	function errModificaProfilo()  {
 		var mail = document.getElementById("mail").value;
 		var nome = document.getElementById("nome").value;
@@ -134,20 +130,4 @@
 		}
 	}
 
-  function msgErrCampionato() {
-    var nomeCamp=document.getElementById("nomeCamp").value;
-    if(nomeCamp.length>20) {
-      var msgNomeCamp = "Il nome del campionato deve essere di massimo 20 caratteri.\n";
-    }
-    else {
-      var msgNomeCamp="";
-    }
-    if(nomeCamp.length>20) {
-      alert(msgNomeCamp);
-    }
-    else {
-      alert("Operazione avvenuta con successo.")
-    }
-  }
-
-	</script>
+</script>

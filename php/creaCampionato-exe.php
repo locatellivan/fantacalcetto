@@ -4,7 +4,7 @@ session_start();
 include_once("connessione.php");
 
 $nick=$_SESSION['nick'];
-$nomeCamp=$_POST['nomeCamp'];
+$nomeCamp=addslashes(htmlspecialchars($_POST['nomeCamp']));
 $dataInizio=$_POST['dataInizio'];
 $dataFine=$_POST['dataFine'];
 
