@@ -9,7 +9,7 @@
 	$email=trim(addslashes(htmlspecialchars($_POST['email'])));
 
 	if($psw1==$psw2 && (!empty($nickname)) && (!empty($nomeSq)) && (!empty($psw1))
-	   && (!empty($psw2)) && $nickname.length<30 && $nomeSq.lenght<20 && email.length<40
+	   && (!empty($psw2)) && $nickname.length<30 && $nomeSq.lenght<20 && $email.length<40
 	   && $psw1.lenght<30) {
 
 		// Creo l'utente
