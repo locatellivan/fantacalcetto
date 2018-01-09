@@ -78,17 +78,18 @@
 		var mail = document.getElementById("mail").value;
 		var nome = document.getElementById("nome").value;
 		var cognome = document.getElementById("cognome").value;
-//		var dataNasc = document.getElementById("dataNasc").value;
+    var dataNasc = document.getElementById("dataNasc").value;
 		var luogoNasc = document.getElementById("luogoNascita").value;
 		var cittaAtt = document.getElementById("cittaAtt").value;
 		var squadraTifata = document.getElementById("squadraTifata").value;
 
-		// Variabili per il controllo dela data di nascita
-	/**	var today = new date();
-		var dataN = new String(dataNasc);
-		dataN = dataN.replace(/-/,",");
-		dataNascitaConf=new Date(dataN);
-		var diff = dataNascitaConf.getTime()  - today.getTime();**/
+    var today = new Date();
+    var giorno = dataNasc.slice(8);
+    var mese = dataNasc.substring(5,7);
+    var anno = dataNasc.substring(0 ,4);
+    var newDataNasc = new Date(anno, mese,giorno);
+    var diff = today.getTime() - newDataNasc.getTime();
+
 
 		if(mail.length>40) {
 			 var msgMail = "La mail deve essere di massimo 40 caratteri.\n";
@@ -96,7 +97,7 @@
 				else { var msgMail = "";
 		}
 		if(nome.length>20) {
-			var msgNome="La squadra deve essere di massimo 20 caratteri.\n";
+			var msgNome="Il nome deve essere di massimo 20 caratteri.\n";
 		}
 		else {
 			var msgNome="";
@@ -106,11 +107,11 @@
 			 	}
 				else { var msgCognome="";
 		}
-		/**if(diff<0) {
-			 var msgDataNasc = "La data di nascita deve essere valida.\n";
+		if(diff<0) {
+			 var msgDataNasc = "La data di nascita deve essere valida (almeno un mese prima)\n";
 			 	}
 				else { var msgDataNasc="";
-		}**/
+		}
 		if(luogoNasc.length>20) {
 			 var msgLuogoNasc = "La città di nascita deve essere di massimo 20 caratteri.\n";
 			 	}
@@ -126,8 +127,8 @@
 			 	}
 				else { var msgSquadraTifata="";
 		}
-		if ((nome.length>20) || (cognome.length>20) || (luogoNasc.length>20)  || (cittaAtt.length>20) || (squadraTifata.length>15)) {
-			alert(msgMail+msgNome+msgCognome+/**msgDataNasc+**/msgLuogoNasc+msgCittaAtt+msgSquadraTifata);
+		if ((nome.length>20) || (cognome.length>20) || (luogoNasc.length>20)  || (cittaAtt.length>20) || (squadraTifata.length>15) || (diff<0)) {
+			alert(msgMail+msgNome+msgCognome+msgDataNasc+msgLuogoNasc+msgCittaAtt+msgSquadraTifata);
 		} else {
 			alert("Modifica effettuata con successo.");
 		}
