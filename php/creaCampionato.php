@@ -43,7 +43,7 @@
 
 			<div class='form-group'>
 						<label>Nome del Campionato</label>
-						<input class='form-control' type='text' name='nomeCamp' placeholder='Nome Campionato (max. 20 caratteri)'/>
+						<input class='form-control' type='text' id='nomeCamp' name='nomeCamp' placeholder='Nome Campionato (max. 20 caratteri)'/>
 			</div>
 			<div class='form-group'>
 						<label>Data di Inizio del Campionato</label>
@@ -54,7 +54,7 @@
 						<input class='form-control' type='date' name='dataFine' placeholder='Data Fine Campionato'/>
 			</div>
 
-			<input type='submit' class='btn btn-success' value='Crea Campionato'></input>
+			<input type='submit' class='btn btn-success' onclick='msgErrCampionato()' value='Crea Campionato'></input>
 			<input type='reset' class='btn btn-warning' value='Annulla'></input>";
 
 

@@ -55,13 +55,13 @@
 	function errModificaSquadra()  {
 		var motto = document.getElementById("motto").value;
 
-  if(motto.length>30){
+    if(motto.length>30){
      var msgMotto = "Il motto deve essere di massimo 30 caratteri.\n";
       }
       else {
         var msgMotto = "";
   }
-  if(motto.length>30)  {
+    if(motto.length>30)  {
     alert(msgMotto);
   }
   else {
@@ -132,5 +132,21 @@
 			alert("Modifica effettuata con successo.");
 		}
 	}
+
+  function msgErrCampionato() {
+    var nomeCamp=document.getElementById("nomeCamp").value;
+    if(nomeCamp.length>20) {
+      var msgNomeCamp = "Il nome del campionato deve essere di massimo 20 caratteri.\n";
+    }
+    else {
+      var msgNomeCamp="";
+    }
+    if(nomeCamp.length>20) {
+      alert(msgNomeCamp);
+    }
+    else {
+      alert("Operazione avvenuta con successo.")
+    }
+  }
 
 	</script>
