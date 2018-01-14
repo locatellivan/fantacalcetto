@@ -4,12 +4,23 @@
       <title>Prova ajax</title>
   </head>
   <body>
-    <p id="testo"></p>
-    <p><input type="button" onclick="funzione()"></p>
+    <p id="testo">SOLDI CORRENTI</p>
+    <p><input name=check id="spunta" type="checkbox" onclick="controlloCheck()"></p>
+
 
     <script>
 
-    function ajaxRequest(){
+    function controlloCheck(){
+      if(document.getElementById('spunta').checked==true) {
+        funzione();
+      } else {
+          funzione2();
+        }
+
+    }
+
+
+    function ajaxRequest() {
     var request=false;
     try{ request = new XMLHttpRequest()}catch(e1){
     try{ request = new ActiveXObject("Msxml2.XMLHTTP")}catch(e2){
@@ -29,6 +40,19 @@
         xhttp.open("GET","provaAjax.php", true);
         xhttp.send();
       }
+
+      function funzione2(){
+        var xhttp=new ajaxRequest();
+        xhttp.onreadystatechange=function(){
+          if(this.readyState==4 && this.status==200){
+            document.getElementById("testo").innerHTML=this.responseText;
+          }
+        }
+        xhttp.open("GET","provaAjax2.php", true);
+        xhttp.send();
+      }
+
+
       </script>
   </body>
 </html>
