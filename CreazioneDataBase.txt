@@ -46,8 +46,7 @@ CREATE TABLE Vince (
 
 CREATE TABLE Giornata (
 	NumGior int(2) UNSIGNED PRIMARY KEY,
-	Giocata ENUM('0','1') DEFAULT '0',
-	Aperta ENUM('0','1')
+	Stato ENUM('GC','NGC','NGA')
 );
 
 CREATE TABLE Giocatore (
