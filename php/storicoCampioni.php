@@ -2,27 +2,40 @@
 
 		<h1 align="center"><b>STORICO CAMPIONI FANTACALCETTO</b></h1><br/>
 
-<?php
+	<?php
 
-include_once("connessione.php");
+		include_once("connessione.php");
 
-$sql="SELECT DISTINCT Nickname, vince.Campionato
-			FROM vince JOIN utente ON Campione=Mail
-			ORDER BY Nickname ASC";
-$res=$cid->query($sql) or die("<p>Impossibile eseguire query.</p>"
-																."<p>codice di errore ".$cid->errno
-																.":".$cid->error."</p>");
+		// Seleziono i nickname e i campionati vinti dagli utenti ancora registrati al sito
+		$sql="SELECT DISTINCT Nickname, vince.Campionato
+					FROM vince JOIN utente ON Campione=Mail
+					ORDER BY Nickname ASC";
+		$res=$cid->query($sql) or die("<p>Impossibile eseguire query.</p>"
+																		."<p>codice di errore ".$cid->errno
+																		.":".$cid->error."</p>");
 
-$cid->close();
+		// Controllo che vi siano già dei CAMPIONI
+		$sql="SELECT COUNT(*)
+					FROM vince";
+		$res=$cid->query($sql) or die("<p>Impossibile eseguire query.</p>"
+																																		."<p>codice di errore ".$cid->errno
+																																		.":".$cid->error."</p>");
+		$nCamp=$res->fetch_row();
+		$cid->close();
 
-echo "<table border='3' align='center'>
-			<tr><th><center>CAMPIONE</center></th><th><center>CAMPIONATO</center></th></tr>";
-	while($campione=$res->fetch_row()) {
-		echo "<tr><td><center>$campione[0]</center></td><td><center>$campione[1]</center></td></tr>";
-	}
-echo "</table><br/><br/>";
 
-?>
+		if($nCamp[0]==0) {
+			echo "<h4 align='center'>NON SONO ANCORA PRESENTI DEI CAMPIONI!</h4>";
+		}
+		else {
+			echo "<table border='3' align='center'>
+						<tr><th><center>CAMPIONE</center></th><th><center>CAMPIONATO</center></th></tr>";
+				while($campione=$res->fetch_row()) {
+					echo "<tr><td><center>$campione[0]</center></td><td><center>$campione[1]</center></td></tr>";
+				}
+			echo "</table><br/><br/>";
+		}
+	?>
 
 
 </div>
