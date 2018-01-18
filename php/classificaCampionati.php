@@ -30,7 +30,7 @@
 		// Salvo i nomi dei campionati presenti in corso
 		$sql="SELECT DISTINCT NomeCamp
 		      FROM campionato
-					WHERE CURDATE() BETWEEN DataInizio AND DataFine";
+					WHERE CURDATE() BETWEEN DataInizio AND DataFine AND NomeCamp!='CAMPIONATO GENERALE'";
 		$campionati=$cid->query($sql) or die("<p>Impossibile eseguire query.</p>"
 																		."<p>codice di errore ".$cid->errno
 																		.":".$cid->error."</p>");

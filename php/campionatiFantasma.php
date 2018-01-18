@@ -3,8 +3,7 @@
 	<h2 align="center"><b>CAMPIONATI FANTASMA</b></h3>
 	<br/>
 	<p align="center"><i>Di seguito, i campionati giocati, conclusi e vinti da utenti che si sono
-		                eliminati dal sistema.<br/> Ogni campionato che fù, non viene dimenticato,<br/>
-										ma qui ricordato.</i></p><br/><br/>
+		                eliminati dal sistema.<br/></i></p><br/><br/>
 	<?php
 
 		include_once("connessione.php");
@@ -31,7 +30,7 @@
 							echo "</table><br/><br/>";
 			}
 			else {
-				echo "<p align='center'>NESSUN VINCITORE SI E' ELIMATO DAL SISTEMA.</p>";
+				echo "<p align='center'>NESSUN VINCITORE, SE PRESENTE, SI E' ELIMATO DAL SISTEMA.</p>";
 			}
 		}
 		unset($campFant);

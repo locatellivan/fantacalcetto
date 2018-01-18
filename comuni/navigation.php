@@ -49,8 +49,8 @@
 						 >Campionati<span class="caret"></span></a>
 					 <ul class="dropdown-menu">
 						<li><a href="main.php?op=listaCampionati">Lista</a></li>
-						<li><a href="main.php?op=classificaCampionati">Classifiche</a></li>
-						<li><a href="main.php?op=classificaGiornataCampionato">Classifica Giornata di Campionato</a></li>
+						<li><a href="main.php?op=classificaCampionati">Classifiche Generali</a></li>
+						<li><a href="main.php?op=classificaGiornataCampionato">Classifiche Giornaliere</a></li>
 						<li role="separator" class="divider"></li>
 						<li><a href="main.php?op=creaCampionato">Crea Campionato</a></li>
 						<li><a href="main.php?op=eliminaCampionato">Elimina Campionato</a></li>
