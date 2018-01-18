@@ -109,7 +109,7 @@
 <?php
 
 		// Query che mostra tutti i CAMPIONATI che sono conclusi
-		$query = "SELECT NomeCamp, DataInizio, DataFine, Creatore, Nickname, PuntiTot
+		$query = "SELECT DISTINCT NomeCamp, DataInizio, DataFine, Creatore, Nickname
 							FROM partecipa JOIN campionato ON partecipa.Campionato=NomeCamp
 							JOIN vince ON vince.Campionato=NomeCamp JOIN utente ON Campione=Mail
 							WHERE CURDATE() > DataFine
@@ -123,14 +123,15 @@
 	   if($campConclusi) {
 				if($campConclusi->num_rows>=1) {
 						echo "<table align='center' border=1>
-									<tr><th><center>Nome Campionato</center></th><th>Data Inizio</th><th>Data Fine</th><th><center>Creatore</center></th><th><center>Campione</center></th><th>Punti</th></tr>";
+									<tr><th><center>Nome Campionato</center></th><th>Data Inizio</th><th><center>Data Fine</center>
+									</th><th><center>Creatore</center></th><th><center>Campione</center></th></tr>";
 						while($nomeCamp=$campConclusi->fetch_row()) {
 							echo "<tr><td><center>$nomeCamp[0]</center></td>
 										<td><center>$nomeCamp[1]</center></td>
 					  				<td><center>$nomeCamp[2]</center></td>
 										<td><center>$nomeCamp[3]</center></td>
 										<td><center>$nomeCamp[4]</center></td>
-										<td><center>$nomeCamp[5]</center></td></tr>";
+										</tr>";
 					  }
 						echo "</table><br/><br/>";
 				 } else {

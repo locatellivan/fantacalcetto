@@ -19,8 +19,9 @@
 
 
 		// Query che mostra tutti i CAMPIONATI A CUI SI PARTECIPA
-    $query = "SELECT NumGior, DataPartite
-              FROM giornata";
+    $query = "SELECT NumGior
+              FROM giornata
+							WHERE Stato='GC'";
 
     $numeroGiornata= $cid->query($query) or die("<p>Inpossibile eseguire query.</p>"
                                     . "<p>Codice errore " . $cid->errno
@@ -31,16 +32,15 @@
 			if($numeroGiornata->num_rows>=1) {
 				echo "<form role='form' method='POST' action='php/ClassificaGiornataCampionato-exe.php'>
 							<table align='center' border=1>
-							<tr><th><center>Numero Giornata</center></th><th><center>Data</center></th><th><center> ✓</center></th></tr>";
+							<tr><th><center>Numero Giornata</center></th><th><center>✓</center></th></tr>";
 							while($giornata=$numeroGiornata->fetch_row()) {
 								echo "<tr><td><center>$giornata[0]</center></td>
-										<td><center>$giornata[1]</center></td>
                     <td><center><input type='checkbox' name='camp[]' value='".$giornata[0]."'/></center></td></tr>
 										";
 							}
 							echo "</form></table><br/><br/>";
       } else {
-				echo "NESSUNA GIORNATA ANCORA PRESENTE";
+				echo "<h3 align='center'>NESSUNA GIORNATA ANCORA PRESENTE</h3><br/><br/>";
 			}
     }
 
