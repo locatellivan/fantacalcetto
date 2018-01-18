@@ -130,4 +130,36 @@
 		}
 	}
 
+//funzioni ajax èer la gestione del fatamencato
+    function controlloCheck(){
+      if(document.getElementById('spunta').checked==true) {
+        funzione();
+      } else {
+          funzione2();
+        }
+
+    }
+
+    function ajaxRequest() {
+    var request=false;
+    try{ request = new XMLHttpRequest()}catch(e1){
+    try{ request = new ActiveXObject("Msxml2.XMLHTTP")}catch(e2){
+        try{ request = new ActiveXObject("Microsoft.XMLHTTP")
+        }catch(e3){request = false}
+      }
+    }
+    return request;
+  } 
+      function funzione(){
+        var xhttp=new ajaxRequest();
+        xhttp.onreadystatechange=function(){
+          if(this.readyState==4 && this.status==200){
+            document.getElementById("soldi").innerHTML=this.responseText;
+          }
+        }
+        xhttp.open("GET","php/provaAjax.php", true);
+        xhttp.send();
+      }
+
+
 </script>
