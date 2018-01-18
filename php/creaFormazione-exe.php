@@ -106,7 +106,8 @@ switch ($schema) {
 		$cid->query($query) or die("<p>Impossibile eseguire query.</p>"
 															."<p>codice di errore ".$cid->errno
 															.":".$cid->error."</p>");
-	case '2':
+	 break;
+	 case '2':
 		$query="INSERT INTO sta(Formazione,Giocatore,NumIngresso)
 						VALUES ('$nomeForm','$dif2',7)";
 		$cid->query($query) or die("<p>Impossibile eseguire query.</p>"
@@ -122,6 +123,7 @@ switch ($schema) {
 		$cid->query($query) or die("<p>Impossibile eseguire query.</p>"
 															."<p>codice di errore ".$cid->errno
 															.":".$cid->error."</p>");
+	break;
 	case '3':
 		$query="INSERT INTO sta(Formazione,Giocatore,NumIngresso)
 						VALUES ('$nomeForm','$dif2',7)";
@@ -138,8 +140,9 @@ switch ($schema) {
 		$cid->query($query) or die("<p>Impossibile eseguire query.</p>"
 															."<p>codice di errore ".$cid->errno
 															.":".$cid->error."</p>");
+	break;
+}
 
-  }
 
 	header("Location:../main.php?op=creaFormazione");
 	$cid->close();
