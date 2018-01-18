@@ -31,7 +31,7 @@
 																 .":".$cid->error."</p>");
 
   // Variabile per le giornate a cui ci si puo iscrivere a cui partecipa l'utente
-	$sql="SELECT NumGior, DataPartite FROM giornata
+	$sql="SELECT NumGior FROM giornata
 				ORDER BY NumGior";
 	$giornate=$cid->query($sql) or die("<p>Imppossibile eseguire query.</p>"
 																 ."<p>codice di errore ".$cid->errno
@@ -87,7 +87,7 @@
 
 					while($gior=$giornate->fetch_row()) {
 							if ($data[0]<$gior[1]) {
-									echo "<option value='$gior[0]'>$gior[0], il $gior[1]</option>";
+									echo "<option value='$gior[0]'>$gior[0]</option>";
 							}
 					}
 		echo "</select></center></td></tr>";
