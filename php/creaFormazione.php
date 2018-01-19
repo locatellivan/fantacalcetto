@@ -116,77 +116,76 @@
 	} else {
 				echo "<table align='center' border=1>";
 				echo "<form role='form' method='POST' action='php/creaFormazione-exe.php' class='form-inline'>";
-				echo "<tr><th><center><b>NOME FORMAZIONE</b></center></th>";
-				echo "<td><input type='text' name='formazione' placeholder='&nbsp;max. 20 caratteri'/></td></tr>";
-				echo "</table><br/><table border='1' align='center'>";
 
-				// Tabella per scegliere lo schema
-				echo "<table align='center' border=1>";
-				echo "<tr><th><center><b>SCHEMA</b></center></th>";
-				echo "<td><center><select name='schema'>;
+				// Riga per inserire il nome della formazione
+				echo "<tr><th style='background-color:#bdb76b;'><center><b>NOME FORMAZIONE</b></center></th>";
+				echo "<td style='background-color:#bdb76b;'><input type='text' id='nomeForm' name='formazione' placeholder='&nbsp;max. 20 caratteri'/></td></tr>";
+
+				// Riga per la scelta dello schema desiderato
+				echo "<tr><th style='background-color:#7fffd4;'><center><b>SCHEMA</b></center></th>";
+				echo "<td style='background-color:#7fffd4;'><center><select name='schema'>;
 					<option value='1'>2 - 1 - 1</option>;
 					<option value='2'>1 - 2 - 1</option>;
 					<option value='3'>1 - 1 - 2</option>;
 					</center></td></tr>";
-				echo "</table><br/><table border='1' align='center'>";
 
 				//
-				echo "<table border=1 align='center'><tr><th>RUOLO FORMAZIONE</th><th>GIOCATORE</th></tr>";
-				echo "<tr><td><center>Portiere 1</center></td><td><center><select name='por1'>";
+				echo "<tr><th><center>RUOLO FORMAZIONE</center></th><th><center>GIOCATORE</center></th></tr>";
+				echo "<tr><td><center>Portiere 1</center></td><td><center><select id='por1' name='por1'>";
 				while($por1=$portieri1->fetch_row()) {
 						echo "<option value='$por1[0]'>$por1[0]</option>";
 				}
 
-				echo "<tr><td><center>Portiere 2</center></td><td><center><select name='por2'>";
+				echo "<tr><td><center>Portiere 2</center></td><td><center><select id='por2' name='por2'>";
 				while($por2=$portieri2->fetch_row()) {
 						echo "<option value='$por2[0]'>$por2[0]</option>";
 				}
 
-				echo "<tr><td><center>Difensore 1</center></td><td><center><select name='dif1'>";
+				echo "<tr><td><center>Difensore 1</center></td><td><center><select id='dif1' name='dif1'>";
 				while($dif1=$difensori1->fetch_row()) {
 						echo "<option value='$dif1[0]'>$dif1[0]</option>";
 				}
 
-				echo "<tr><td><center>Difensore 2</center></td><td><center><select name='dif2'>";
+				echo "<tr><td><center>Difensore 2</center></td><td><center><select id='dif2' name='dif2'>";
 				while($dif2=$difensori2->fetch_row()) {
 						echo "<option value='$dif2[0]'>$dif2[0]</option>";
 				}
 
-				echo "<tr><td><center>Difensore 3</center></td><td><center><select name='dif3'>";
+				echo "<tr><td><center>Difensore 3</center></td><td><center><select id='dif3' name='dif3'>";
 				while($dif3=$difensori3->fetch_row()) {
 						echo "<option value='$dif3[0]'>$dif3[0]</option>";
 				}
 
-				echo "<tr><td><center>Centrocampista 1</center></td><td><center><select name='cen1'>";
+				echo "<tr><td><center>Centrocampista 1</center></td><td><center><select id='cen1' name='cen1'>";
 				while($cent1=$centr1->fetch_row()) {
 						echo "<option value='$cent1[0]'>$cent1[0]</option>";
 				}
 
-				echo "<tr><td><center>Centrocampista 2</center></td><td><center><select name='cen2'>";
+				echo "<tr><td><center>Centrocampista 2</center></td><td><center><select id='cen2' name='cen2'>";
 				while($cent2=$centr2->fetch_row()) {
 						echo "<option value='$cent2[0]'>$cent2[0]</option>";
 				}
 
-				echo "<tr><td><center>Centrocampista 3</center></td><td><center><select name='cen3'>";
+				echo "<tr><td><center>Centrocampista 3</center></td><td><center><select id='cen3' name='cen3'>";
 				while($cent3=$centr3->fetch_row()) {
 						echo "<option value='$cent3[0]'>$cent3[0]</option>";
 				}
 
-				echo "<tr><td><center>Attaccante 1</center></td><td><center><select name='att1'>";
+				echo "<tr><td><center>Attaccante 1</center></td><td><center><select id='att1' name='att1'>";
 				while($att1=$attaccanti1->fetch_row()) {
 						echo "<option value='$att1[0]'>$att1[0]</option>";
 				}
 
-				echo "<tr><td><center>Attaccante 2</center></td><td><center><select name='att2'>";
+				echo "<tr><td><center>Attaccante 2</center></td><td><center><select id='att2' name='att2'>";
 				while($att2=$attaccanti2->fetch_row()) {
 						echo "<option value='$att2[0]'>$att2[0]</option>";
 				}
 
-				echo "<tr><td><center>Attaccante 3</center></td><td><center><select name='att3'>";
+				echo "<tr><td><center>Attaccante 3</center></td><td><center><select id='att3' name='att3'>";
 				while($att3=$attaccanti3->fetch_row()) {
 						echo "<option value='$att3[0]'>$att3[0]</option>";
 				}
-				echo "<tr><th colspan='3'><center><input type='submit' class='btn btn-success' value='CREA FORMAZIONE'></input></center></th>
+				echo "<tr><th style='background-color:#dcdcdc;'colspan='3'><center><input type='submit' class='btn btn-success' onclick='errCreaFormazione()' value='CREA FORMAZIONE'></input></center></th>
 							</tr></form></table><br/><br/>";
 			}
 
@@ -198,24 +197,44 @@
 				else {
 					while($nomeForm=$formazioni->fetch_row()) {
 						echo "<table align='center' border=1>";
-						echo "<tr><th colspan='3'><center>$nomeForm[0]</center></th></tr>";
-						echo "<tr><th><center>Giocatore</center></th><th><center>Ruolo</center></th><th><center>Numero Ingresso</center></th></tr>";
+						echo "<tr><th style='background-color:#bdb76b;' colspan='3'><center><h4><b>$nomeForm[0]</b></h4></center></th></tr>";
+						echo "<tr><th colspan='3'><center>____TITOLARI____</center></th></tr>";
 
-						// Salvo i giocatori per le formazioni esistenti dell'utente loggato
-						$sql="SELECT Cognome, Ruolo, NumIngresso
+						// Salvo i giocatori titolari della formazione
+						$sql="SELECT Cognome, Ruolo, Squadra
 									FROM sta JOIN giocatore ON Cognome=Giocatore
-									WHERE Formazione='$nomeForm[0]'
-									ORDER BY NumIngresso";
-						$giocatoriForm=$cid->query($sql)  or die("<p>Impossibile eseguire query.</p>"
+									WHERE Formazione='$nomeForm[0]' AND NumIngresso<=5
+									ORDER BY Ruolo DESC";
+						$giocatoriTit=$cid->query($sql)  or die("<p>Impossibile eseguire query.</p>"
 																					 ."<p>codice di errore ".$cid->errno
 																					 .":".$cid->error."</p>");
 
-						while ($giocForm=$giocatoriForm->fetch_row()) {
+						// Salvo i giocatori riserve della formazione
+						$sql="SELECT Cognome, Ruolo, Squadra
+									FROM sta JOIN giocatore ON Cognome=Giocatore
+									WHERE Formazione='$nomeForm[0]' AND NumIngresso>5
+									ORDER BY Ruolo DESC";
+						$giocatoriRis=$cid->query($sql) or die("<p>Impossibile eseguire query.</p>"
+																					 ."<p>codice di errore ".$cid->errno
+																					 .":".$cid->error."</p>");
 
-							echo "<tr><td><center>$giocForm[0]</center></td>
-							          <td><center>$giocForm[1]</center></td>
-												<td><center>$giocForm[2]</center></td></tr>";
+						while ($giocTit=$giocatoriTit->fetch_row()) {
+
+							echo "<tr><td><center>$giocTit[0]</center></td>
+							          <td><center>$giocTit[2]</center></td>
+												<td><center>$giocTit[1]</center></td>
+												</tr>";
 						}
+
+						echo "<tr><th COLSPAN='3'><center>____RISERVE____</center></th></tr>";
+
+						while ($giocRis=$giocatoriRis->fetch_row()) {
+							echo "<tr><td><center>$giocRis[0]</center></td>
+							          <td><center>$giocRis[2]</center></td>
+												<td><center>$giocRis[1]</center></td>
+												</tr>";
+						}
+
 						echo "</table><br/><br/>";
 					}
 				}

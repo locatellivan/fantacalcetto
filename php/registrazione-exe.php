@@ -8,6 +8,7 @@
 	$psw2=trim(addslashes(htmlspecialchars($_POST['psw2'])));
 	$email=trim(addslashes(htmlspecialchars($_POST['email'])));
 
+	// Eseguo il controllo sugli input
 	if($psw1==$psw2 && (!empty($nickname)) && (!empty($nomeSq)) && (!empty($psw1))
 	   && (!empty($psw2)) && strlen($nickname)<30 && strlen($nomeSq)<20 && strlen($mail)<40
 	   && strlen($psw1)<30) {
@@ -34,7 +35,7 @@
 
 		$cid->close();
 
-		header("Location:../main.php?=statusOK");
+		header("Location:../main.php?status=OK");
 	}
 	else {
 		header("Location:../main.php?op=registrazione");

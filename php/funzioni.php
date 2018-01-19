@@ -130,6 +130,63 @@
 		}
 	}
 
+  // Funzione per l'alert nella pagina per creare la formazione.
+  function errCreaFormazione() {
+    
+		var nomeForm = document.getElementById("nomeForm").value;
+		var por1 = document.getElementById("por1").value;
+		var por2 = document.getElementById("por2").value;
+		var dif1 = document.getElementById("dif1").value;
+		var dif2 = document.getElementById("dif2").value;
+		var dif3 = document.getElementById("dif3").value;
+		var cen1 = document.getElementById("cen1").value;
+		var cen2 = document.getElementById("cen2").value;
+		var cen3 = document.getElementById("cen3").value;
+		var att1 = document.getElementById("att1").value;
+		var att2 = document.getElementById("att2").value;
+		var att3 = document.getElementById("att3").value;
+
+		if(nomeForm.length>20) {
+			 var msgNomeForm = "Il nome della formazione deve essere di massimo 20 caratteri.\n";
+			 	}
+				else { var msgNomeForm = "";
+		}
+		if(nomeForm.length==0) {
+			 var msgFormVuota = "E' necessario inserire un nome per la formazione.\n";
+			 	}
+				else { var msgFormVuota = "";
+		}
+		if(por1==por2) {
+			 var msgPor = "I portieri devono essere diversi.\n";
+			 	}
+				else { var msgPor = "";
+		}
+		if(dif1==dif2 || dif2==dif3 || dif1==dif3) {
+			 var msgDif = "I difensori devono essere diversi.\n";
+			 	}
+				else { var msgDif = "";
+		}
+		if(cen1==cen2 || cen2==cen3 || cen1==cen3) {
+			 var msgCen = "I centrocampisti devono essere diversi.\n";
+			 	}
+				else { var msgCen = "";
+		}
+		if(att1==att2 || att2==att3 || att1==att3) {
+			 var msgAtt = "Gli attaccanti devono essere diversi.\n";
+			 	}
+				else { var msgAtt = "";
+		}
+		if((nomeForm.length>20) || nomeForm.length==0 || por1==por2 || dif1==dif2 || dif2==dif3 || dif1==dif3
+				|| cen1==cen2 || cen2==cen3 || cen1==cen3 || att1==att2 || att2==att3 || att1==att3) {
+ 			alert(msgFormVuota+msgNomeForm+msgPor+msgDif+msgCen+msgAtt);
+ 	 }
+ 	 else {
+ 			alert("La formazione è stata registrata con successo.");
+ 		}
+	}
+
+
+
 //funzioni ajax èer la gestione del fatamencato
     function controlloCheck(){
       if(document.getElementById('spunta').checked==true) {
@@ -149,7 +206,7 @@
       }
     }
     return request;
-  } 
+  }
       function funzione(){
         var xhttp=new ajaxRequest();
         xhttp.onreadystatechange=function(){
