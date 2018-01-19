@@ -201,7 +201,7 @@
  	 }
 	}
 
-  /*
+
   // Gestione alert per il crea campionato
   function errCreaCampionato() {
 
@@ -220,9 +220,7 @@
     var newDataFine = new Date(annoFine, meseFine, giornoFine);
     var diff = newDataFine.getTime() - newDataFine.getTime();
 
-    var annoIn = newDataInizio.getFullYear();
-    var annoFi = newDataFine.getFullYear();
-    var diffAnni = annoFi-annoIn;
+    var diffAnni = annoFine-annoInizio;
 
     if(nomeCamp.length==0) {
 			 var msgCampVuoto = "E' necessario inserire un nome per il campionato.\n";
@@ -253,15 +251,13 @@
     else {
       var msgDataInizio = "";
     }
-    if(nomeCamp.length==0 || nomeCamp.length>20 || diff<=0 || diffAnni>1 || newDataInizio<today)) {
+    if(nomeCamp.length==0 || nomeCamp.length>20 || diff<=0 || diffAnni>1 || newDataInizio<today) {
       alert(msgCampVuoto+msgCamp+msgDate+msgAnni+msgDataInizio);
     }
     else {
       alert("Campionato registrato con successo.");
     }
   }
-
-*/
 
     // Funzioni AJAX per la gestione del fatamercato
     function controlloCheck() {
