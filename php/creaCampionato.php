@@ -47,14 +47,14 @@
 			</div>
 			<div class='form-group'>
 						<label>Data di Inizio del Campionato</label>
-						<input class='form-control' type='date' name='dataInizio' placeholder='Data Inizio Campionato'/>
+						<input class='form-control' type='date' id='dataInizio' name='dataInizio'/>
 			</div>
 			<div class='form-group'>
 						<label>Data di Fine del Campionato</label>
-						<input class='form-control' type='date' name='dataFine' placeholder='Data Fine Campionato'/>
+						<input class='form-control' type='date' id='dataFine' name='dataFine'/>
 			</div>
 
-			<input type='submit' class='btn btn-success' onclick='msgErrCampionato()' value='Crea Campionato'></input>
+			<input type='submit' class='btn btn-success' onclick='errCreaCampionato()' value='CREA CAMPIONATO'></input>
 			<input type='reset' class='btn btn-warning' value='Annulla'></input>";
 
 

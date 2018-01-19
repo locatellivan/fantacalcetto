@@ -1,6 +1,6 @@
 <script>
 
-  //gestione alert in registrazione
+  // Gestione alert in registrazione
   function errRegistrazione()  {
 
     var nick = document.getElementById("nick").value;
@@ -31,14 +31,16 @@
 		}
 		if(psw1!=psw2) {
 			 var msgPswConf = "Le password devono coincidere.\n";
-			 	}
-				else { var msgPswConf = "";
+		}
+		else {
+      var msgPswConf = "";
 		}
 		if((mail.length==0)|| (nick.length==0) || (nomeSq.length==0) || (psw1.length==0) || (psw2.length==0)){
 			var msgVuoto = "i campi non possono essere vuoti.\n";
-			 }
-			 else { var msgVuoto = "";
-	 }
+		}
+		else {
+      var msgVuoto = "";
+	  }
 
 	 if((mail.length>40) || (nick.length>30) || (nomeSq.length>20) || (psw1.length>30) || (psw1.val!=psw2.val)||
 			(mail.length==0)|| (nick.length==0) || (nomeSq.length==0) || (psw1.length==0) || (psw2.length==0)) {
@@ -50,7 +52,7 @@
 
 	}
 
-  //Gestione alert in modifica squadra
+  // Gestione alert in modifica squadra
 	function errModificaSquadra()  {
 		var motto = document.getElementById("motto").value;
 
@@ -60,8 +62,14 @@
     else {
        var msgMotto = "";
     }
-    if(motto.length>30)  {
-      alert(msgMotto);
+    if(motto.length==0) {
+      var msgMottoVuoto = "Il motto non può essere vuoto.\n";
+    }
+    else {
+      var msgMottoVuoto = "";
+    }
+    if(motto.length>30 || motto.length==0)  {
+      alert(msgMotto+msgMottoVuoto);
     }
     else {
       alert("Modifica avvenuta con successo.\n");
@@ -69,7 +77,7 @@
 
   }
 
-  // Alert per gestione errori del modifica profilo
+  // Gestione alert in modifica profilo
 	function errModificaProfilo()  {
 		var mail = document.getElementById("mail").value;
 		var nome = document.getElementById("nome").value;
@@ -78,6 +86,7 @@
 		var luogoNasc = document.getElementById("luogoNascita").value;
 		var cittaAtt = document.getElementById("cittaAtt").value;
 		var squadraTifata = document.getElementById("squadraTifata").value;
+
 
     var today = new Date();
     var giorno = dataNasc.slice(8);
@@ -123,16 +132,23 @@
 			 	}
 				else { var msgSquadraTifata="";
 		}
-		if ((nome.length>20) || (cognome.length>20) || (luogoNasc.length>20)  || (cittaAtt.length>20) || (squadraTifata.length>15) || (diff<0)) {
-			alert(msgMail+msgNome+msgCognome+msgDataNasc+msgLuogoNasc+msgCittaAtt+msgSquadraTifata);
+    if(mail.length==0 && nome.length==0 && cognome.length==0 && luogoNasc.length==0 && cittaAtt.length==0 && squadraTifata.length==0) {
+      var msgVuoto ="Tutti i campi di testo sono vuoti, se presenti sono state salvate le modifiche al sesso e alla data di nascita.\n"
+    }
+    else {
+      var msgVuoto = "";
+    }
+		if ((mail.length>40 || nome.length>20) || (cognome.length>20) || (luogoNasc.length>20)  || (cittaAtt.length>20) || (squadraTifata.length>15) || (diff<0)
+         || (mail.length==0 && nome.length==0 && cognome.length==0 && luogoNasc.length==0 && cittaAtt.length==0 && squadraTifata.length==0)) {
+			alert(msgMail+msgNome+msgCognome+msgDataNasc+msgLuogoNasc+msgCittaAtt+msgSquadraTifata+msgVuoto);
 		} else {
 			alert("Modifica effettuata con successo.");
 		}
 	}
 
-  // Funzione per l'alert nella pagina per creare la formazione.
-  function errCreaFormazione() {
-    
+  // Gestione alert per il crea formazione
+  function errCreaFormazione()  {
+
 		var nomeForm = document.getElementById("nomeForm").value;
 		var por1 = document.getElementById("por1").value;
 		var por2 = document.getElementById("por2").value;
@@ -182,13 +198,73 @@
  	 }
  	 else {
  			alert("La formazione è stata registrata con successo.");
- 		}
+ 	 }
 	}
 
+  /*
+  // Gestione alert per il crea campionato
+  function errCreaCampionato() {
 
+    var nomeCamp = document.getElementById("nomeCamp").value;
+		var dataInizio = document.getElementById("dataInizio").value;
+		var dataFine = document.getElementById("dataFine").value;
 
-//funzioni ajax èer la gestione del fatamencato
-    function controlloCheck(){
+    var today = new Date();
+    var giornoInizio = dataInizio.slice(8);
+    var meseInizio = dataInizio.substring(5,7);
+    var annoInizio = dataInizio.substring(0 ,4);
+    var newDataInizio = new Date(annoInizio, meseInizio, giornoInizio);
+    var giornoFine = dataFine.slice(8);
+    var meseFine = dataFine.substring(5,7);
+    var annoFine = dataFine.substring(0 ,4);
+    var newDataFine = new Date(annoFine, meseFine, giornoFine);
+    var diff = newDataFine.getTime() - newDataFine.getTime();
+
+    var annoIn = newDataInizio.getFullYear();
+    var annoFi = newDataFine.getFullYear();
+    var diffAnni = annoFi-annoIn;
+
+    if(nomeCamp.length==0) {
+			 var msgCampVuoto = "E' necessario inserire un nome per il campionato.\n";
+		}
+		else { var msgCampVuoto = "";
+		}
+    if(nomeCamp.length>20) {
+			 var msgCamp = "Il nome del campionato può essere lungo massimo 20 caratteri.\n";
+		}
+		else {
+      var msgCamp = "";
+		}
+    if(diff<=0) {
+      var msgDate = "La data di fine campionato deve essere maggiore della data di inizio.\n";
+    }
+    else {
+      var msgDate = "";
+    }
+    if(diffAnni>1) {
+      var msgAnni = "Un campionato può svolgersi massimo nell'arco di due anni (ex: 01/01/2018 - 31/12/2019).\n";
+    }
+    else {
+      var msgAnni = "";
+    }
+    if(newDataInizio<today) {
+      var msgDataInizio = "La data di inizio non può essere minore della data corrente.\n";
+    }
+    else {
+      var msgDataInizio = "";
+    }
+    if(nomeCamp.length==0 || nomeCamp.length>20 || diff<=0 || diffAnni>1 || newDataInizio<today)) {
+      alert(msgCampVuoto+msgCamp+msgDate+msgAnni+msgDataInizio);
+    }
+    else {
+      alert("Campionato registrato con successo.");
+    }
+  }
+
+*/
+
+    // Funzioni AJAX per la gestione del fatamercato
+    function controlloCheck() {
       if(document.getElementById('spunta').checked==true) {
         funzione();
       } else {
@@ -198,25 +274,26 @@
     }
 
     function ajaxRequest() {
-    var request=false;
-    try{ request = new XMLHttpRequest()}catch(e1){
-    try{ request = new ActiveXObject("Msxml2.XMLHTTP")}catch(e2){
-        try{ request = new ActiveXObject("Microsoft.XMLHTTP")
-        }catch(e3){request = false}
-      }
-    }
-    return request;
-  }
-      function funzione(){
-        var xhttp=new ajaxRequest();
-        xhttp.onreadystatechange=function(){
-          if(this.readyState==4 && this.status==200){
-            document.getElementById("soldi").innerHTML=this.responseText;
-          }
+      var request=false;
+      try{ request = new XMLHttpRequest()}catch(e1){
+      try{ request = new ActiveXObject("Msxml2.XMLHTTP")}catch(e2){
+          try{ request = new ActiveXObject("Microsoft.XMLHTTP")
+          }catch(e3){request = false}
         }
-        xhttp.open("GET","php/provaAjax.php", true);
-        xhttp.send();
       }
+      return request;
+    }
+
+    function funzione() {
+      var xhttp=new ajaxRequest();
+      xhttp.onreadystatechange=function(){
+        if(this.readyState==4 && this.status==200){
+          document.getElementById("soldi").innerHTML=this.responseText;
+        }
+      }
+      xhttp.open("GET","php/provaAjax.php", true);
+      xhttp.send();
+    }
 
 
 </script>
