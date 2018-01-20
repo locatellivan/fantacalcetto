@@ -1,5 +1,6 @@
 <div class="well">
-	<h1 align="center"><b>CREA LE TUE FORMAZIONI</b></h1><br/>
+	<h1 align="center"><b>CREA FORMAZIONE</b></h1>
+	<h4 align="center">(sono consentite massimo 3 formazioni)</h4><br/>
 
 
 	<?php

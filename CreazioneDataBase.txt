@@ -10,9 +10,9 @@ CREATE TABLE Utente (
 	CognomeU varchar(20) DEFAULT NULL,
 	DataN DATE DEFAULT NULL,
 	LuogoN varchar(20) DEFAULT NULL,
-	Sesso char(1) DEFAULT NULL,
+	Sesso ENUM('M','F') DEFAULT NULL,
 	CittaAtt varchar(20) DEFAULT NULL,
-	Tipo varchar(15) DEFAULT 'allenatore'
+	Tipo ENUM('Allenatore','CT','Amministratore') DEFAULT 'Allenatore'
 );
 
 CREATE TABLE Squadra (
@@ -45,7 +45,7 @@ CREATE TABLE Vince (
 );
 
 CREATE TABLE Giornata (
-	NumGior int(2) UNSIGNED PRIMARY KEY,
+	NumGior int(4) UNSIGNED PRIMARY KEY,
 	Stato ENUM('GC','NGC','NGA')
 );
 
@@ -124,8 +124,12 @@ CREATE TABLE Gioca (
 );
 
 INSERT INTO utente (Mail, Nickname, Password, Tipo)
-VALUES ('admin@admin', 'Admin', 'admin', 'amministratore') ;
+VALUES ('admin@admin', 'Admin', 'admin', 'Amministratore') ;
 INSERT INTO squadra (NomeSq, Utente)
 VALUES ('AdminTeam', 'admin@admin');
 INSERT INTO campionato (NomeCamp, DataInizio, DataFine, Creatore)
 VALUES ('CAMPIONATO GENERALE', CURDATE(), '2018-12-31', 'admin@admin');
+INSERT INTO giornata (NumGior, Stato)
+VALUES ('1','NGA');
+INSERT INTO giornata (NumGior, Stato)
+VALUES ('2','NGC');

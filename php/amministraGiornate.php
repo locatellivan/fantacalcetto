@@ -14,7 +14,7 @@
 		$tipo=$utente->fetch_row();
 
 
-		if($tipo[0]!='amministratore') {
+		if($tipo[0]!='Amministratore') {
 			echo "<h3 align='center'>PER ACCEDERE ALLE FUNZIONALITA' DI QUESTA PAGINA E' NECESSARIO ESSERE AMMINISTRATORI.</h3><br/>";
 
 		} else {

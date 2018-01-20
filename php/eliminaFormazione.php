@@ -37,6 +37,9 @@
 		echo "<br/><br/><br/>";
 	}
 	else {
+		echo "<h3 align='center'><b>ATTENZIONE</b></h3>";
+		echo "<h4 align='center'>Eliminando una formazione verranno eliminate anche le informazioni ad essa collegate,<br/>
+		      come le iscrizioni alle giornate di campionato e il punteggio nella classifica giornaliera.</h4><br/><br/>";
 		echo"<table align='center' border='1'>";
 		echo "<form role='form' method='POST' action='php/eliminaFormazione-exe.php'>";
 		echo "<tr><th><center>Nome Formazione</center></th><th><center></center><b>✓</b></th>";
