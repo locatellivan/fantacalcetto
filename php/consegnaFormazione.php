@@ -83,21 +83,28 @@
 					class='btn btn-success' value='CONSEGNA FORMAZIONE'></input></center></td>
 							</tr></form></table><br/><br/>";
 
-		// Storico formazioni consegnate
-		echo "<h1 align='center'><b>FORMAZIONI CONSEGNATE</b></h1><br/>";
-		echo "<table align='center' border='1'>";
-		echo "<tr><th><center>Giornata</center></th><th><center>Campionato</center></th><th><center>Formazione</center></th></tr>";
-		while($isc=$iscr->fetch_row()) {
-			echo "<tr><td><center><b>$isc[0]</b></center></td><td><center>$isc[1]</center></td><td><center>$isc[2]</center></td></tr>";
 		}
-		echo "</table><br/><br/>";
+		else {
+			echo "<h3 align='center'>PER ISCRIVERE AD UNA GIORNATA LA FORMAZIONE E' NECESSARIO
+			       AVERNE CREATA UNA. <br/>LO PUOI FARE NELLA PAGINA DEL <a href='main.php?op=creaFormazione'>CREA FORMAZIONE</a>.</h3><br/>
+						 <p align='center'>Per ulteriori informazioni leggi il <a href='main.php?op=regolamento'>regolamento</a>!";
+			echo "<br/><br/><br/>";
+		}
 
-	} else {
-		echo "<h3 align='center'>PER ISCRIVERE AD UNA GIORNATA LA FORMAZIONE E' NECESSARIO
-		       AVERNE CREATA UNA. <br/>LO PUOI FARE NELLA PAGINA DEL <a href='main.php?op=creaFormazione'>CREA FORMAZIONE</a>.</h3><br/>
-					 <p align='center'>Per ulteriori informazioni leggi il <a href='main.php?op=regolamento'>regolamento</a>!";
-		echo "<br/><br/><br/>";
-	}
+		echo "<h1 align='center'><b>FORMAZIONI CONSEGNATE</b></h1><br/>";
+		// Formazioni attualmente consegnate
+		if($iscr->num_rows>=1) {
+			echo "<table align='center' border='1'>";
+			echo "<tr><th><center>Giornata</center></th><th><center>Campionato</center></th><th><center>Formazione</center></th></tr>";
+			while($isc=$iscr->fetch_row()) {
+				echo "<tr><td><center><b>$isc[0]</b></center></td><td><center>$isc[1]</center></td><td><center>$isc[2]</center></td></tr>";
+			}
+			echo "</table><br/><br/>";
+
+		} else {
+			echo "<h3 align='center'>Nessuna formazione presente è stata consegnata.</h3>";
+		}
+
 
 
 	 ?>
