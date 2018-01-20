@@ -26,7 +26,7 @@
 	$stelle=$star->fetch_row();
 
 	// Se non si è commissari o amministratori
-	if($stelle[0]<3 && $tipo[0]=='allenatore') {
+	if($stelle[0]<3 && $tipo[0]=='Allenatore') {
 		echo "<div class='well'>";
 		echo "<h3 align='center'><b>PER CREARE UN CAMPIONATO E' NECESSARIO AVERE IL GRADO
 		       DI COMMISSARIO TECNICO. TOTALIZZA 3 O PIU STELLE!</b></h3><br/>";

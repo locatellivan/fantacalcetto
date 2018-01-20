@@ -29,7 +29,7 @@ $utente=$cid->query($sql) or die("<p>Impossibile eseguire query.</p>"
 $mailUtente=$utente->fetch_row();
 
 // Controllo degli input
-if(strlen($nomeCamp)<=20 && strlen($nomeCamp)!=0 && $dataInizio_New<$dataFine_New && $diffAnni<=1 && $today<=$data1) {
+if(strlen($nomeCamp)<=20 && strlen($nomeCamp)!=0 && $dataInizio_New<$dataFine_New && $diffAnni<=1 && $today<=$dataInizio_New) {
 	$query="INSERT INTO `campionato`(`NomeCamp`, `DataInizio`, `DataFine`, `Creatore`)
    				VALUES ('$nomeCamp', '$dataInizio', '$dataFine','$mailUtente[0]')";
 	$cid->query($query);
