@@ -5,42 +5,34 @@
   <?php
 
     include_once("connessione.php");
-		// $nick=$_SESSION['nick'];
+		$nick=$_SESSION['nick'];
 
-    //creo classifica campionato GENERALE
-    $sql="SELECT Nickname, NomeSq, PuntiTot FROM utente JOIN squadra on Mail=utente
-    JOIN partecipa on Squadra=NomeSq  WHERE Campionato='CAMPIONATO GENERALE' ORDER BY PuntiTot DESC";
+		// Salvo in una variabile il nome della squadra loggata
+		$sql="SELECT nomeSq FROM squadra JOIN utente ON Mail=Utente WHERE Nickname='".$nick."'";
+		$squadra=$cid->query($sql) or die("<p>Impossibile eseguire query.</p>"
+																	 ."<p>codice di errore ".$cid->errno
+																	 .":".$cid->error."</p>");
+		$nomeSq=$squadra->fetch_row();
 
-    $res=$cid->query($sql) or die("<p>Impossibile eseguire query.</p>"
-                                   ."<p>codice di errore ".$cid->errno
-                                   .":".$cid->error."</p>");
+		// Variabile per i campionati in corso a cui partecipa l'utente loggato
+		$sql="SELECT DISTINCT Campionato
+					FROM partecipa JOIN campionato ON Campionato=NomeCamp
+		      WHERE Squadra='$nomeSq[0]' AND CURDATE() BETWEEN DataInizio AND DataFine
+					ORDER BY Campionato";
+		$campionati=$cid->query($sql) or die("<p>Imppossibile eseguire query.</p>"
+																		  	 ."<p>codice di errore ".$cid->errno
+																				 .":".$cid->error."</p>");
 
-    echo "<table border=1 align='center'>
-          <tr><th colspan='3'><center><h3><b>- CAMPIONATO GENERALE -</b></h3></center></th></tr>
-          <tr><th><center> Nickname</center></th>
-          <th><center>Nome Squadra</center></th>
-          <th><center>Punti Totali</center></th></tr>";
-		while($nomeCamp=$res->fetch_row()) {
-				echo "<tr><td><center>$nomeCamp[0]</center></td>
-							<td><center>$nomeCamp[1]</center></td>
-						  <td><center>$nomeCamp[2]</center></td></tr>";
-		}
-		echo "</table><br/><br/>";
-
-		// Salvo i nomi dei campionati presenti in corso
-		$sql="SELECT DISTINCT NomeCamp
-		      FROM campionato
-					WHERE CURDATE() BETWEEN DataInizio AND DataFine AND NomeCamp!='CAMPIONATO GENERALE'";
-		$campionati=$cid->query($sql) or die("<p>Impossibile eseguire query.</p>"
-																		."<p>codice di errore ".$cid->errno
-																		.":".$cid->error."</p>");
+		// Inizializzo variabile per la Posizione
+		$pos=0;
 
 		// Se esistono classifiche da mostrare
 		if($campionati->num_rows>=1) {
         while ($campionato=$campionati->fetch_row()) {
 					echo "<table align='center' border=1>
-						    <tr><th colspan='3'><center><h4><b>$campionato[0]</b></h4></center></th></tr>
-			 					<tr><th><center>Nickname</center></th>
+						    <tr><th colspan='4'><center><h4><b>$campionato[0]</b></h4></center></th></tr>
+			 					<tr><th><center>Posizione</center></th>
+								<th><center>Nickname</center></th>
 								<th><center>Nome Squadra</center></th>
 								<th><center>Punti totali</center></th></tr>";
 
@@ -51,11 +43,14 @@
 																					."<p>codice di errore ".$cid->errno
 																				  .":".$cid->error."</p>");
 			 		while($ut=$utente->fetch_row()) {
-			 				echo "<tr><td><center>$ut[0]</center></td>
+							$pos++;
+			 				echo "<tr><td><center>$pos</center></td>
+												<td><center>$ut[0]</center></td>
 			 								  <td><center>$ut[1]</center></td>
 			 									<td><center>$ut[2]</center></td></tr>";
 					}
 			 		echo "</table><br/><br/>";
+					$pos=0;
 				}
 		} else {
 			 echo "<p align='center'>NON C'E' NESSUN CAMPIONATO IN CORSO.</p>";
@@ -68,17 +63,18 @@
 
 <?php
 
-	$sql="SELECT DISTINCT NomeCamp
-				FROM campionato
-				WHERE CURDATE()>DataFine";
+	$sql="SELECT DISTINCT Campionato
+				FROM partecipa JOIN campionato ON NomeCamp=Campionato
+				WHERE CURDATE()>DataFine AND Squadra='$nomeSq[0]'";
 	$campionatiConc=$cid->query($sql);
 
 	// Se esistono classifiche da mostrare
 	if($campionatiConc->num_rows>=1) {
 			while ($campConc=$campionatiConc->fetch_row()) {
 				echo "<table align='center' border=1>
-							<tr><th colspan='3'><center><h4><b>$campConc[0]</b></h4></center></th></tr>
-							<tr><th><center>Nickname</center></th>
+							<tr><th colspan='4'><center><h4><b>$campConc[0]</b></h4></center></th></tr>
+							<tr><th><center>Posizione</center></th>
+							<th><center>Nickname</center></th>
 							<th><center>Nome Squadra</center></th>
 							<th><center>Punti totali</center></th></tr>";
 
@@ -89,14 +85,17 @@
 																				."<p>codice di errore ".$cid->errno
 																				.":".$cid->error."</p>");
 				while($ut=$utente->fetch_row()) {
-						echo "<tr><td><center>$ut[0]</center></td>
+					  $pos++;
+						echo "<tr><td><center>$pos</center></td>
+											<td><center>$ut[0]</center></td>
 											<td><center>$ut[1]</center></td>
 											<td><center>$ut[2]</center></td></tr>";
 				}
 				echo "</table><br/><br/>";
+				$pos=0;
 			}
 	} else {
-		 echo "<p align='center'>NON C'E' NESSUN CAMPIONATO CONCLUSO.</p>";
+		 echo "<p align='center'>NON SI E' CONCLUSO ALCUN CAMPIONATO A CUI SI PARTECIPA.</p>";
 	}
 
 ?>

@@ -32,10 +32,12 @@
 
   // Variabile per le giornate a cui ci si puo iscrivere a cui partecipa l'utente
 	$sql="SELECT NumGior FROM giornata
+				WHERE Stato='NGA'
 				ORDER BY NumGior";
-	$giornate=$cid->query($sql) or die("<p>Imppossibile eseguire query.</p>"
+	$giornateGiocate=$cid->query($sql) or die("<p>Imppossibile eseguire query.</p>"
 																 ."<p>codice di errore ".$cid->errno
 																 .":".$cid->error."</p>");
+
 	// Salvo il numero di formazioni disponibili
 	$cont="SELECT COUNT(IdForm)
 				 FROM formazione
@@ -44,13 +46,6 @@
 																 ."<p>codice di errore ".$cid->errno
 																 .":".$cid->error."</p>");
 	$nForm=$form->fetch_row();
-
-	// Salvo la data corrente in una Variabile
-	$sql="SELECT CURRENT_DATE";
-	$date=$cid->query($sql) or die("<p>Impossibile eseguire query.</p>"
-																 ."<p>codice di errore ".$cid->errno
-																 .":".$cid->error."</p>");
-	$data=$date->fetch_row();
 
 	// Salvo le formazioni gia iscritte nei campionati
 	$sql="SELECT Giornata, Campionato, Formazione
@@ -63,10 +58,6 @@
 
 	// Se il giocatore non possiede formaioni non puo iscriversi alle giornate di campionato.
 	if($nForm[0]>=1) {
-
-		$res=$cid->query($sql) or die("<p>Impossibile eseguire query.</p>"
-																	 ."<p>codice di errore ".$cid->errno
-																	 .":".$cid->error."</p>");
 
 		echo "<form role='form' method='POST' action='php/consegnaFormazione-exe.php' class='form-inline'>
 					<table border=1 align='center'>";
@@ -84,17 +75,15 @@
 		echo "</select></center></td></tr>";
 		echo "<tr><th><center><b>Giornata</b></center></th>";
 		echo "<td><center><select name='giornata'>";
-
-					while($gior=$giornate->fetch_row()) {
-							if ($data[0]<$gior[1]) {
-									echo "<option value='$gior[0]'>$gior[0]</option>";
-							}
-					}
+		while($gior=$giornateGiocate->fetch_row()) {
+			echo "<option value='$gior[0]'>$gior[0]</option>";
+		}
 		echo "</select></center></td></tr>";
 		echo "<tr><td colspan='2'><center><input type='submit'
 					class='btn btn-success' value='CONSEGNA FORMAZIONE'></input></center></td>
 							</tr></form></table><br/><br/>";
 
+		// Storico formazioni consegnate
 		echo "<h1 align='center'><b>FORMAZIONI CONSEGNATE</b></h1><br/>";
 		echo "<table align='center' border='1'>";
 		echo "<tr><th><center>Giornata</center></th><th><center>Campionato</center></th><th><center>Formazione</center></th></tr>";
