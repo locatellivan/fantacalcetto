@@ -60,15 +60,16 @@
 	if($campionatiIscr->num_rows>=1) {
 			while ($camp=$campionatiIscr->fetch_row()) {
 				echo "<table align='center' border=1>
-							<tr><th colspan='4'><center><h4><b>$camp[0]</b></h4></center></th></tr>
+							<tr><th colspan='5'><center><h4><b>$camp[0]</b></h4></center></th></tr>
 							<tr><th><center>Nickname</center></th>
 							<th><center>Nome Squadra</center></th>
 							<th><center>Formazione</center></th>
-							<th><center>Punti giornata</center></th></tr>";
+							<th><center>Punti giornata</center></th>
+							<th><center>TopCoach<center></th></tr>";
 
 				// Informazioni da stampare nella tabella
 
-				$sql="SELECT Nickname, NomeSq, Formazione, PuntiGiornata
+				$sql="SELECT Nickname, NomeSq, Formazione, PuntiGiornata, TopCoach
 							FROM utente JOIN squadra on Mail=utente JOIN formazione on Squadra=NomeSq
 							JOIN iscritta ON Formazione=IdForm
 							WHERE Campionato='$camp[0]'
@@ -77,10 +78,12 @@
 																				."<p>codice di errore ".$cid->errno
 																				.":".$cid->error."</p>");
 				while($ut=$utente->fetch_row()) {
+						if($ut[4]=="1") $top="✓"; else $top="";
 						echo "<tr><td><center>$ut[0]</center></td>
 											<td><center>$ut[1]</center></td>
 											<td><center>$ut[2]</center></td>
-											<td><center>$ut[3]</center></td></tr>";
+											<td><center>$ut[3]</center></td>
+											<td><center><b>$top</b><center></td></tr>";
 				}
 				echo "</table><br/><br/>";
 			}
