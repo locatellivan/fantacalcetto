@@ -19,6 +19,7 @@
 		$cid->query($sql) or die("<p>Impossibile eseguire query.</p>"
 																 ."<p>codice di errore ".$cid->errno
 																 .":".$cid->error."</p>");
+																 if(errno==1062){ echo "duplicato";}
 		// Creo la squadra
 		$sql2="INSERT INTO squadra(NomeSq, Utente) VALUES ('$nomeSq','$email')";
 		$cid->query($sql2) or die("<p>Impossibile eseguire query.</p>"

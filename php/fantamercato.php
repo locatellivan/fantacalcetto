@@ -19,6 +19,7 @@
 
             echo "<table border=4 align='center'>
         		     	<tr><th  id='soldi'><h3>&nbsp;&nbsp;Budget:&nbsp;&nbsp;".$soldiRestanti[0]." fantamilioni&nbsp;&nbsp;</h3></th>
+                  <form role='form' method='POST' action='php/compravendi-exe.php'>
                   <th colspan='4'><center><input type='submit' class='btn btn-success' value='COMPRAVENDI \n GIOCATORI'>
                   </input></center></th></tr>
           							</tr></table>";
@@ -33,6 +34,7 @@
   		<h2 align="center"><b>VENDI GIOCATORI</b></h2><br/><br/>
 
       <?php
+      //salvo i giocatoriche ho in rosa
       		$sql="SELECT Cognome, Ruolo, Prezzo
       					FROM possiede JOIN giocatore ON (Giocatore=Cognome)
       					WHERE SquadraGioc='".$nomeSq[0]."' ORDER BY Ruolo DESC, Cognome ASC";
@@ -41,20 +43,26 @@
       																	 ."<p>codice di errore ".$cid->errno
       																	 .":".$cid->error."</p>");
       		if($res->num_rows>=1) {
-      			echo "<form role='form' method='POST' onchange='javascript:xmlhttpPost('vendi_ajax.php');' class='form-inline'>
-      				    <table border=1 align='center'>
+      			echo "
+      				    <table  align='center' border=1>
       						<tr><th><center>COGNOME</center></th><th><center>RUOLO</center></th><th><center>PREZZO</center></th><th><center>✓</center></th></tr>";
 
       			while ($gioc=$res->fetch_row()) {
-      				echo "<tr><td><center>$gioc[0]</center></td><td><center>$gioc[1]</center></td><td><center>$gioc[2]</center></td>
-      				<td><center><input type='checkbox' id='spunta' onClick='controlloCheck()' name='vendi[]' value='".$gioc[0]."'/>
-      				</center></td></tr><br/>";
+
+      				echo "<tr><td><center>$gioc[0]</center></td>
+                        <td><center>$gioc[1]</center></td>
+                        <td><center>$gioc[2]</center></td>
+      				          <td><center><input type='checkbox'  name='vendi[]' value='".$gioc[0]."'/>
+      				              </center></td></tr><br/>";
+
       			}
+
             echo"</table>";
            }
            else {
       			echo "<p align='center'>NESSUN GIOCATORE ANCORA PRESENTE. COMPRALI NELLA SEZIONE APPOSITA!</p><br/>";
       		}
+          unset($res);
       ?>
 
  <h2 align="center"><b>COMPRA GIOCATORI</b></h2><br/><br/>
@@ -96,7 +104,7 @@
 																	 .":".$cid->error."</p>");
 		$nAtt=$res->fetch_row();
 
-echo "<table border=1 align='center' class='table table-striped'>
+echo "<table border='1' align='center' class='table table-striped'>
       <tr><th>";
 
 
@@ -114,16 +122,18 @@ echo "<table border=1 align='center' class='table table-striped'>
 																					."<p>codice di errore ".$cid->errno
 																					.":".$cid->error."</p>");
 
-			echo "<form role='form' method='POST' onsumbit='javascript:xmlhttpPost('compra_ajax.php');' class='form-inline'>
-						<table align='center' border=1 class='table table-striped'>
+			echo "<table align='center' border='1' class='table table-striped'>
 						<tr><th colspan='4'><center><h4><b>- PORTIERI -</b></h4></center></th></tr>
 						<tr><th><center>Cognome</center></th><th>Squadra</th><th>Prezzo</th><th id='spunta'><center>✓</center></th></tr>";
+            $y=4;
 						while($gioc=$listaPortiere->fetch_row()) {
 							echo "<tr><td><center>$gioc[0]</center></td><td><center>$gioc[2]</center></td><td><center>$gioc[1]</center></td>
-							<td><center><input type='checkbox' id='spunta' onClick='controlloCheck()' name='compra[]' value='".$gioc[0]."'/>
+							<td><center><input type='checkbox' id='$y' onClick='controlloCheck()' name='compra[]' value='".$gioc[0]."'/>
 							</center></td></tr>";
+              $y++;
+						}
 
-						}echo"</table>";
+            echo"</table>";
 echo"</th><th>";
 		}
 
@@ -138,8 +148,7 @@ echo"</th><th>";
                                           ."<p>codice di errore ".$cid->errno
                                           .":".$cid->error."</p>");
 
-      echo "<form role='form' method='POST' onsumbit='javascript:xmlhttpPost('compra_ajax.php');' class='form-inline'>
-            <table align='center' border=1 class='table table-striped'>
+      echo "<table align='center' border='1' class='table table-striped'>
             <tr><th colspan='4'><center><h4><b>- DIFENSORI -</b></h4></center></th></tr>
             <tr><th><center>Cognome</center></th><th>Squadra</th><th>Prezzo</th><th id='spunta'><center>✓</center></th></tr>";
             while($gioc=$listaDifensori->fetch_row()) {
@@ -164,7 +173,7 @@ echo"</th><th>";
                                               .":".$cid->error."</p>");
 
           echo "<form role='form' method='POST' onsumbit='javascript:xmlhttpPost('compra_ajax.php');' class='form-inline'>
-                <table align='center' border=1 class='table table-striped'>
+                <table align='center' border='1' class='table table-striped'>
                 <tr><th colspan='4'><center><h4><b>- DIFENSORI -</b></h4></center></th></tr>
                 <tr><th><center>Cognome</center></th><th>Squadra</th><th>Prezzo</th><th id='spunta'><center>✓</center></th></tr>";
                 while($gioc=$listaCentrocampisti->fetch_row()) {
@@ -189,7 +198,7 @@ echo"</th><th>";
                                                   .":".$cid->error."</p>");
 
               echo "<form role='form' method='POST' onsumbit='javascript:xmlhttpPost('compra_ajax.php');' class='form-inline'>
-                    <table align='center' border=1 class='table table-striped'>
+                    <table align='center' border='1' class='table table-striped'>
                     <tr><th colspan='4'><center><h4><b>- DIFENSORI -</b></h4></center></th></tr>
                     <tr><th><center>Cognome</center></th><th>Squadra</th><th>Prezzo</th><th id='spunta'><center>✓</center></th></tr>";
                     while($gioc=$listaAttaccanti->fetch_row()) {
@@ -201,5 +210,5 @@ echo"</th><th>";
             }
     echo"</th></tr></table>";
 ?>
-
+<!-- <td style="border: 1; align: center" -->
 </div>
