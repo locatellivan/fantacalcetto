@@ -87,7 +87,7 @@
 		var cittaAtt = document.getElementById("cittaAtt").value;
 		var squadraTifata = document.getElementById("squadraTifata").value;
 
-
+    // Gestione date: in Javascript i mesi partono da 0!
     var today = new Date();
     var giorno = dataNasc.slice(8);
     var mese = dataNasc.substring(5,7);
@@ -208,6 +208,7 @@
 		var dataInizio = document.getElementById("dataInizio").value;
 		var dataFine = document.getElementById("dataFine").value;
 
+    // Gestione date: in Javascript i mesi partono da 0!
     var today = new Date();
     var giornoInizio = dataInizio.slice(8);
     var meseInErr = dataInizio.substring(5,7);
