@@ -13,14 +13,21 @@
 																	 .":".$cid->error."</p>");
 		$tipo=$utente->fetch_row();
 
+		// Seleziono la giornata da giocare
+		$sql="SELECT NumGior FROM giornata WHERE Stato='NGA'";
+		$giorDaGiocare=$cid->query($sql) or die("<p>Impossibile eseguire query.</p>"
+																	 ."<p>codice di errore ".$cid->errno
+																	 .":".$cid->error."</p>");
+		$gior=$giorDaGiocare->fetch_row();
 
+		// Se l'utente loggato è amministratore avrà accesso alla pagina.
 		if($tipo[0]!='Amministratore') {
 			echo "<h3 align='center'>PER ACCEDERE ALLE FUNZIONALITA' DI QUESTA PAGINA E' NECESSARIO ESSERE AMMINISTRATORI.</h3><br/>";
-
 		} else {
 				echo "<h3 align='center'>Aggiornando la giornata verranno aggiornati i punteggi di tutti i giocatori,<br/>
 							conseguentemente anche le stelle degli utenti e le classifiche giornaliere e totali.<br/><br/>
-							<b>QUESTO PROCEDIMENTO NON E' REVERSIBILE.</b></h3><br/><br/>";
+							<b>QUESTO PROCEDIMENTO NON E' REVERSIBILE.<br/><br/>SI AGGIORNERANNO I PUNTEGGI
+							RELATIVI ALLA GIORNATA:&nbsp;$gior[0]</b></h3><br/><br/>";
 
 				echo "<form role='form' method='POST' action='php/aggiornaGiornata-exe.php'>";
 				echo "<h1 align='center'><input type='submit' class='btn-lg btn-success' value='AGGIORNA GIORNATA'></input></h1>";
