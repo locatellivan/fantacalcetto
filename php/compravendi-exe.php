@@ -148,10 +148,11 @@ foreach($nuoviAtt as $NA) {
 																	 ."<p>codice di errore ".$cid->errno
 																	 .":".$cid->error."</p>");
 	$soldi=$denaro->fetch_row();
-	$soldiAquistoAttaccanti=$soldiAquistoAttaccanti
+	$soldiAquistoAttaccanti=$soldiAquistoAttaccanti+$soldi[0];
 
 	+$soldi[0];
 }
+
 
 					if((300
 							-$fantasoldi[0]
@@ -247,22 +248,26 @@ foreach($nuoviAtt as $NA) {
 								else {
 										$msgAttaccanti="Non puoi avere più di tre attaccanti nella tua squadra \n";
 								}
+
+								$query="UPDATE Squadra SET FantaMilioni='$fantamilioni'
+												WHERE nomeSq='$nomeSq[0]'";
+								$cid->query($query);
+
 					$cid->close();
 
 
 					}
+
 					else {
 						$msgEccesso="Non puoi avere più di 11 giocatori nella tua squadra \n bilancia le tue scelte!";
 					}
-					$query="UPDATE Squadra SET FantaMilioni='$fantamilioni'
-									WHERE nomeSq=ivan";
-					$cid->query($query);
+
 	}
 
 	else {
 		$msgFineSoldi="Non puoi spendere più di 300 milioni per la tua squadra \n bilancia le tue scelte!";
 	}
 
-
+$msgGenerale="mi piace il cazzo";
 
 header("Location:../main.php?op=fantamercato");
