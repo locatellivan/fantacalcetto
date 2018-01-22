@@ -17,6 +17,12 @@ $nuoviDif =$_POST['compraDifensori'];
 $nuoviCent=$_POST['compraCentrocampisti'];
 $nuoviAtt =$_POST['compraAttaccanti'];
 
+//CANCELLO FORMAZIONI SE CAMBIO QUALCOSA
+if($vecchioPort!=0 || $vecchioDif!=0 ||$vecchioCent!=0 ||$vecchioAtt!=0){
+	$query="DELETE FROM formazione
+					WHERE Squadra='$nomeSq[0]'";
+	$cid->query($query);
+}
 
  // Salvo in una variabile il nome della squadra loggata
 $sql="SELECT nomeSq FROM squadra JOIN utente ON Mail=Utente WHERE Nickname='".$nick."'";
@@ -24,6 +30,13 @@ $squadra=$cid->query($sql) or die("<p>Impossibile eseguire query.</p>"
 															 ."<p>codice di errore ".$cid->errno
 															 .":".$cid->error."</p>");
 $nomeSq=$squadra->fetch_row();
+
+//CANCELLO FORMAZIONI SE CAMBIO QUALCOSA
+if($vecchioPort!=0 || $vecchioDif!=0 ||$vecchioCent!=0 ||$vecchioAtt!=0){
+	$query="DELETE FROM formazione
+					WHERE Squadra='$nomeSq[0]'";
+	$cid->query($query);
+}
 
 //calcolo il numero portieri (e poi tutti i ruoli) che ho in rosa
 $sql="SELECT COUNT(*)
@@ -150,7 +163,6 @@ foreach($nuoviAtt as $NA) {
 	$soldi=$denaro->fetch_row();
 	$soldiAquistoAttaccanti=$soldiAquistoAttaccanti+$soldi[0];
 
-	+$soldi[0];
 }
 
 
@@ -251,7 +263,7 @@ foreach($nuoviAtt as $NA) {
 											$cid->query($query);
 										}
 											$fantamilioni=$fantamilioni-$soldiAquistoAttaccanti;
-										
+
 								}
 								else {
 										$msgAttaccanti="Non puoi avere più di tre attaccanti nella tua squadra \n";
@@ -278,4 +290,9 @@ foreach($nuoviAtt as $NA) {
 
 $msgGenerale="mi piace il cazzo";
 
+
+
 header("Location:../main.php?op=fantamercato");
+
+
+ ?>

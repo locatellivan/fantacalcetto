@@ -23,8 +23,8 @@
                   <th  id='soldi'><center><h3>$soldiRestanti[0]</h3></center></th>
                   <form role='form' method='POST' action='php/compravendi-exe.php'>
                   <th colspan='4'><center><input type='submit' class='btn btn-success' onClick='Fantacontrollo()' value='COMPRAVENDI \n GIOCATORI'>
-                  </input></center></th></tr>
-          							</tr></table>";
+                  </input></center></th>
+                  </table>";
 
   		$sql="SELECT nomeSq FROM squadra JOIN utente ON Mail=Utente WHERE Nickname='".$nick."'";
   		$squadra=$cid->query($sql) or die("<p>Impossibile eseguire query.</p>"
@@ -36,7 +36,7 @@
   		<h2 align="center"><b>VENDI GIOCATORI</b></h2><br/><br/>
 
       <?php
-      
+
 //salvo i giocatoriche ho in rosa e se non è vuota creo una tabella
       		$sql="SELECT Cognome, Ruolo, Prezzo
       					FROM possiede JOIN giocatore ON (Giocatore=Cognome)
