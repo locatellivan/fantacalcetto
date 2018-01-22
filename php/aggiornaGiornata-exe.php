@@ -94,6 +94,8 @@
 					}
 				}
 				else {
+					// Controllo se la prima riserva per quel ruolo ha voto diverso da "-1",
+					// Se si sommo, altrimenti prendo il voto della seconda e lo controllo a sua volta
 					for($i=0;$i<2;$i++) {
 						$sql="SELECT Punteggio FROM gioca WHERE Giocatore='$riserve[$i]'";
 						$ptSost=$cid->query($sql) or die("<p>Impossibile eseguire query.</p>"
@@ -158,6 +160,46 @@
 
 			// Inserisco una stella alla squadra della formazione considerata
 			$sql="UPDATE squadra SET Stelle='$newStelle' WHERE NomeSq='$nomeSqForm'";
+			$cid->query($sql) or die("<p>Impossibile eseguire query.</p>"
+																			 ."<p>codice di errore ".$cid->errno
+																			 .":".$cid->error."</p>");
+		}
+
+
+		/*         ----- CONTROLLI PER TOP COACH ----           */
+		// Salvo i voti dei 5 titolari della formazione considerata
+		$sql="SELECT Punteggio
+					FROM gioca JOIN Giocatore ON gioca.Giocatore=Cognome JOIN sta ON Cognome=sta.Giocatore
+					JOIN Formazione ON sta.Formazione=IdForm JOIN iscritta ON IdForm=iscritta.Formazione
+					WHERE iscritta.Formazione='$form[0]' AND iscritta.Giornata='$gior[0]'
+					AND NumIngresso BETWEEN 1 AND 5";
+		$votiTitolari=$cid->query($sql) or die("<p>Impossibile eseguire query.</p>"
+																		 ."<p>codice di errore ".$cid->errno
+																		 .":".$cid->error."</p>");
+
+		// Calcolo la media dei punteggi dei titolari di quella Giornata
+		$sql="SELECT AVG(Punteggio)
+					FROM gioca JOIN giocatore ON gioca.Giocatore=Cognome JOIN sta ON Cognome=sta.Giocatore
+					JOIN Formazione ON sta.Formazione=IdForm JOIN iscritta ON IdForm=iscritta.Formazione
+					WHERE NumIngresso BETWEEN 1 AND 5 AND iscritta.Giornata='$gior[0]'";
+		$mediaGiocatori=$cid->query($sql) or die("<p>Impossibile eseguire query.</p>"
+																		 ."<p>codice di errore ".$cid->errno
+																		 .":".$cid->error."</p>");
+		$mediaVoti=$mediaGiocatori->fetch_row();
+		// Variabile che conteggia i giocatori che superano la media
+		$topCoach=0;
+		// Valuto se tutti e cinque i giocatori hanno punteggio maggiore della media
+		while($votiTit=$votiTitolari->fetch_row()) {
+			if($votiTit[0]>$mediaVoti[0]) {
+				$topCoach=$topCoach+1;
+			}
+			else {
+				break;
+			}
+		}
+		// Se la variabile vale 5 significa che l'utente è TopCoach con la formazione considerata per la giornata
+		if($topCoach==5) {
+			$sql="UPDATE iscritta SET TopCoach='1' WHERE Formazione='$form[0]'";
 			$cid->query($sql) or die("<p>Impossibile eseguire query.</p>"
 																			 ."<p>codice di errore ".$cid->errno
 																			 .":".$cid->error."</p>");
