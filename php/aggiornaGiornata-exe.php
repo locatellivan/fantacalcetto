@@ -170,7 +170,13 @@
 																	 .":".$cid->error."</p>");
 
 		while($campAgg=$campionatiDaAggiornare->fetch_row()) {
-
+			// Inserisco automaticamente le formazioni nei campionati
+			$nextGior=$gior[0]+1;
+			$sql="INSERT INTO iscritta (Formazione,Campionato,Giornata)
+						VALUES ('$form[0]','$campAgg[0]','$nextGior')";
+			$cid->query($sql) or die("<p>Impossibile eseguire query.</p>"
+																		 ."<p>codice di errore ".$cid->errno
+																		 .":".$cid->error."</p>");
 			// Salvo i vecchi puntiTotali
 			$sql="SELECT PuntiTot FROM partecipa WHERE Squadra='$nomeSqForm' AND Campionato='$campAgg[0]'";
 			$puntiVecchi=$cid->query($sql) or die("<p>Impossibile eseguire query.</p>"
@@ -209,6 +215,12 @@
 	$cid->query($sql) or die("<p>Impossibile eseguire query.</p>"
 													 ."<p>codice di errore ".$cid->errno
 													 .":".$cid->error."</p>");
+
+
+
+
+
+
 
 	header("Location:../main.php?op=classificaGiornata");
 
