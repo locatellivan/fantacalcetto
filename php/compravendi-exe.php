@@ -178,14 +178,16 @@ foreach($nuoviAtt as $NA) {
 											$query="DELETE FROM possiede
 										          WHERE Giocatore='$VP' AND SquadraGioc='$nomeSq[0]'";
 											$cid->query($query);
-											$fantamilioni=$fantamilioni+$soldiVenditaPortieri;
 										}
+											$fantamilioni=$fantamilioni+$soldiVenditaPortieri;
+
 										foreach($nuoviPort as $NP) {
 											$query="INSERT INTO possiede (Giocatore,	SquadraGioc)
 															VALUES ('$NP','$nomeSq[0]')";
 											$cid->query($query);
-											$fantamilioni=$fantamilioni-$soldiAquistoPortieri;
 										}
+											$fantamilioni=$fantamilioni-$soldiAquistoPortieri;
+
 								}
 								else {
 										$msgPortieri="Non puoi avere più di due portieri nella tua squadra \n";
@@ -197,15 +199,17 @@ foreach($nuoviAtt as $NA) {
 											$query="DELETE FROM possiede
 										          WHERE Giocatore='$VD' AND SquadraGioc='$nomeSq[0]'";
 											$cid->query($query);
-											$fantamilioni=$fantamilioni+$soldiVenditaDifensori;
 										}
+											$fantamilioni=$fantamilioni+$soldiVenditaDifensori;
+
 
 										foreach($nuoviDif as $ND) {
 											$query="INSERT INTO possiede (Giocatore,	SquadraGioc)
 															VALUES ('$ND','$nomeSq[0]')";
 											$cid->query($query);
-    									$fantamilioni=$fantamilioni-$soldiAquistoDifensori;
 										}
+    									$fantamilioni=$fantamilioni-$soldiAquistoDifensori;
+
 								}
 								else {
 										$msgDifensori="Non puoi avere più di tre difensori nella tua squadra \n";
@@ -217,14 +221,16 @@ foreach($nuoviAtt as $NA) {
 											$query="DELETE FROM possiede
 										          WHERE Giocatore='$VC' AND SquadraGioc='$nomeSq[0]'";
 											$cid->query($query);
-											$fantamilioni=$fantamilioni+$soldiVenditaCentrocampisti;
 										}
+											$fantamilioni=$fantamilioni+$soldiVenditaCentrocampisti;
+
 										foreach($nuoviCent as $NC) {
 											$query="INSERT INTO possiede (Giocatore,	SquadraGioc)
 															VALUES ('$NC','$nomeSq[0]')";
 											$cid->query($query);
-											$fantamilioni=$fantamilioni-$soldiAquistoCentrocampisti;
 										}
+											$fantamilioni=$fantamilioni-$soldiAquistoCentrocampisti;
+
 							   }
 						  	else{
 								  	$msgCentrocampisti="Non puoi avere più di tre centrocampisti nella tua squadra \n";
@@ -235,15 +241,17 @@ foreach($nuoviAtt as $NA) {
 											$query="DELETE FROM possiede
 										          WHERE Giocatore='$VA' AND SquadraGioc='$nomeSq[0]'";
 											$cid->query($query);
-  										$fantamilioni=$fantamilioni+$soldiVenditaAttaccanti;
 										}
+  										$fantamilioni=$fantamilioni+$soldiVenditaAttaccanti;
+
 
 										foreach($nuoviAtt as $NA) {
 											$query="INSERT INTO possiede (Giocatore,	SquadraGioc)
 															VALUES ('$NA','$nomeSq[0]')";
 											$cid->query($query);
-											$fantamilioni=$fantamilioni-$soldiAquistoAttaccanti;
 										}
+											$fantamilioni=$fantamilioni-$soldiAquistoAttaccanti;
+										
 								}
 								else {
 										$msgAttaccanti="Non puoi avere più di tre attaccanti nella tua squadra \n";
