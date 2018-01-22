@@ -18,9 +18,11 @@
   		$soldiRestanti=$soldi->fetch_row();
 
             echo "<table border=4 align='center'>
-        		     	<tr><th  id='soldi'><h3>&nbsp;&nbsp;Budget:&nbsp;&nbsp;".$soldiRestanti[0]." fantamilioni&nbsp;&nbsp;</h3></th>
+        		     	<tr>
+                  <th><h3>&nbsp;&nbsp;Budget:&nbsp;&nbsp;\nfantamilioni&nbsp;&nbsp;</h3></th>
+                  <th  id='soldi'><center><h3>$soldiRestanti[0]</h3></center></th>
                   <form role='form' method='POST' action='php/compravendi-exe.php'>
-                  <th colspan='4'><center><input type='submit' class='btn btn-success' value='COMPRAVENDI \n GIOCATORI'>
+                  <th colspan='4'><center><input type='submit' class='btn btn-success' onClick='Fantacontrollo()' value='COMPRAVENDI \n GIOCATORI'>
                   </input></center></th></tr>
           							</tr></table>";
 
@@ -34,31 +36,114 @@
   		<h2 align="center"><b>VENDI GIOCATORI</b></h2><br/><br/>
 
       <?php
-      //salvo i giocatoriche ho in rosa
+      
+//salvo i giocatoriche ho in rosa e se non è vuota creo una tabella
       		$sql="SELECT Cognome, Ruolo, Prezzo
       					FROM possiede JOIN giocatore ON (Giocatore=Cognome)
-      					WHERE SquadraGioc='".$nomeSq[0]."' ORDER BY Ruolo DESC, Cognome ASC";
+      					WHERE SquadraGioc='$nomeSq[0]'
+                ORDER BY Ruolo DESC, Cognome ASC";
 
       		$res=$cid->query($sql) or die("<p>Impossibile eseguire query.</p>"
       																	 ."<p>codice di errore ".$cid->errno
       																	 .":".$cid->error."</p>");
       		if($res->num_rows>=1) {
-      			echo "
-      				    <table  align='center' border=1>
-      						<tr><th><center>COGNOME</center></th><th><center>RUOLO</center></th><th><center>PREZZO</center></th><th><center>✓</center></th></tr>";
+      			echo "<table  align='center' border=1>
+      						<tr><th><center>COGNOME</center></th>
+                  <th><center>RUOLO</center></th>
+                  <th><center>PREZZO</center>
+                  </th><th><center>✓</center></th></tr>";
+///portirei
+            $sql="SELECT Cognome, Ruolo, Prezzo
+        					FROM possiede JOIN giocatore ON (Giocatore=Cognome)
+        					WHERE SquadraGioc='$nomeSq[0]'
+                  AND Ruolo='P'
+                  ORDER BY Ruolo DESC, Cognome ASC";
 
-      			while ($gioc=$res->fetch_row()) {
+        		$res=$cid->query($sql) or die("<p>Impossibile eseguire query.</p>"
+        																	 ."<p>codice di errore ".$cid->errno
+        																	 .":".$cid->error."</p>");
 
-      				echo "<tr><td><center>$gioc[0]</center></td>
-                        <td><center>$gioc[1]</center></td>
-                        <td><center>$gioc[2]</center></td>
-      				          <td><center><input type='checkbox'  name='vendi[]' value='".$gioc[0]."'/>
-      				              </center></td></tr><br/>";
+      			while ($por=$res->fetch_row()){
+
+                echo "<tr><td><center>$por[0]</center></td>
+                          <td><center>$por[1]</center></td>
+                          <td><center>$por[2]</center></td>
+                         <td><center><input type='checkbox'  name='vendiPortieri[]' value='".$por[0]."'/></center></td>
+                          </tr>";
+                        }
+//difensori
+             $sql="SELECT Cognome, Ruolo, Prezzo
+         					FROM possiede JOIN giocatore ON (Giocatore=Cognome)
+         					WHERE SquadraGioc='$nomeSq[0]'
+                  AND Ruolo='D'
+                  ORDER BY Ruolo DESC, Cognome ASC";
+
+         		$res=$cid->query($sql) or die("<p>Impossibile eseguire query.</p>"
+         																	 ."<p>codice di errore ".$cid->errno
+         																	 .":".$cid->error."</p>");
+
+
+
+            while ($dif=$res->fetch_row()) {
+
+
+              echo "<tr><td><center>$dif[0]</center></td>
+                        <td><center>$dif[1]</center></td>
+                        <td><center>$dif[2]</center></td>
+      				          <td><center><input type='checkbox'  name='vendiDifensori[]' value='".$dif[0]."'/></center></td>
+                        </tr>";
+
+      			}
+//centrocampisti
+             $sql="SELECT Cognome, Ruolo, Prezzo
+         					FROM possiede JOIN giocatore ON (Giocatore=Cognome)
+         					WHERE SquadraGioc='$nomeSq[0]'
+                  AND Ruolo='C'
+                  ORDER BY Ruolo DESC, Cognome ASC";
+
+         		$res=$cid->query($sql) or die("<p>Impossibile eseguire query.</p>"
+         																	 ."<p>codice di errore ".$cid->errno
+         																	 .":".$cid->error."</p>");
+
+
+
+            while ($cent=$res->fetch_row()) {
+
+
+              echo "<tr><td><center>$cent[0]</center></td>
+                        <td><center>$cent[1]</center></td>
+                        <td><center>$cent[2]</center></td>
+      				          <td><center><input type='checkbox'  name='vendiCentrocampisti[]' value='".$cent[0]."'/></center></td>
+                        </tr>";
+
+      			}
+
+//attacanti
+             $sql="SELECT Cognome, Ruolo, Prezzo
+         					FROM possiede JOIN giocatore ON (Giocatore=Cognome)
+         					WHERE SquadraGioc='$nomeSq[0]'
+                  AND Ruolo='A'
+                  ORDER BY Ruolo DESC, Cognome ASC";
+
+         		$res=$cid->query($sql) or die("<p>Impossibile eseguire query.</p>"
+         																	 ."<p>codice di errore ".$cid->errno
+         																	 .":".$cid->error."</p>");
+
+
+
+            while ($att=$res->fetch_row()) {
+
+
+              echo "<tr><td><center>$att[0]</center></td>
+                        <td><center>$att[1]</center></td>
+                        <td><center>$att[2]</center></td>
+      				          <td><center><input type='checkbox'  name='vendiAttaccanti[]' value='".$att[0]."'/></center></td>
+                        </tr>";
 
       			}
 
             echo"</table>";
-           }
+          }
            else {
       			echo "<p align='center'>NESSUN GIOCATORE ANCORA PRESENTE. COMPRALI NELLA SEZIONE APPOSITA!</p><br/>";
       		}
@@ -71,39 +156,6 @@
 
 
 
-	//   Salvo in delle variabili il numero di giocatori per ruolo */
-	$sql="SELECT COUNT(*)
-					FROM possiede JOIN giocatore ON (Giocatore=Cognome)
-					WHERE Ruolo='P' AND SquadraGioc='".$nomeSq[0]."'  ";
-		$res=$cid->query($sql) or die("<p>Impossibile eseguire query.</p>"
-																	 ."<p>codice di errore ".$cid->errno
-																	 .":".$cid->error."</p>");
-		$nPor=$res->fetch_row();
-
-		$sql="SELECT COUNT(*)
-					FROM possiede JOIN giocatore ON (Giocatore=Cognome)
-					WHERE Ruolo='D' AND SquadraGioc='".$nomeSq[0]."' ";
-		$res=$cid->query($sql) or die("<p>Impossibile eseguire query.</p>"
-																	 ."<p>codice di errore ".$cid->errno
-																	 .":".$cid->error."</p>");
-		$nDif=$res->fetch_row();
-
-		$sql="SELECT COUNT(*)
-					FROM possiede JOIN giocatore ON (Giocatore=Cognome)
-					WHERE Ruolo='C' AND SquadraGioc='".$nomeSq[0]."' ";
-		$res=$cid->query($sql) or die("<p>Impossibile eseguire query.</p>"
-																	 ."<p>codice di errore ".$cid->errno
-																	 .":".$cid->error."</p>");
-		$nCen=$res->fetch_row();
-
-		$sql="SELECT COUNT(*)
-					FROM possiede JOIN giocatore ON (Giocatore=Cognome)
-					WHERE Ruolo='A' AND SquadraGioc='".$nomeSq[0]."' ";
-		$res=$cid->query($sql) or die("<p>Impossibile eseguire query.</p>"
-																	 ."<p>codice di errore ".$cid->errno
-																	 .":".$cid->error."</p>");
-		$nAtt=$res->fetch_row();
-
 echo "<table border='1' align='center' class='table table-striped'>
       <tr><th>";
 
@@ -114,8 +166,8 @@ echo "<table border='1' align='center' class='table table-striped'>
             FROM giocatore
 						WHERE Ruolo='P'
             AND Cognome NOT IN (SELECT Cognome
-             FROM possiede JOIN giocatore ON (Giocatore=Cognome)
-             WHERE SquadraGioc='$nomeSq[0]')
+            FROM possiede JOIN giocatore ON (Giocatore=Cognome)
+            WHERE SquadraGioc='$nomeSq[0]')
             ORDER BY Cognome ASC  ";
 
 			$listaPortiere=$cid->query($sql) or die("<p>Impossibile eseguire query.</p>"
@@ -124,18 +176,17 @@ echo "<table border='1' align='center' class='table table-striped'>
 
 			echo "<table align='center' border='1' class='table table-striped'>
 						<tr><th colspan='4'><center><h4><b>- PORTIERI -</b></h4></center></th></tr>
-						<tr><th><center>Cognome</center></th><th>Squadra</th><th>Prezzo</th><th id='spunta'><center>✓</center></th></tr>";
+						<tr><th><center>Cognome</center></th><th>Squadra</th><th>Prezzo</th><th><center>✓</center></th></tr>";
             $y=4;
 						while($gioc=$listaPortiere->fetch_row()) {
 							echo "<tr><td><center>$gioc[0]</center></td><td><center>$gioc[2]</center></td><td><center>$gioc[1]</center></td>
-							<td><center><input type='checkbox' id='$y' onClick='controlloCheck()' name='compra[]' value='".$gioc[0]."'/>
+							<td><center><input type='checkbox' id='$y' onClick='controllod()' name='compraPortieri[]' value='".$gioc[0]."'/>
 							</center></td></tr>";
               $y++;
 						}
 
             echo"</table>";
-echo"</th><th>";
-		}
+            echo"<h3></h3></th><th>";
 
     if(true) {
       $sql="SELECT Cognome, Prezzo, Squadra  FROM giocatore
@@ -150,15 +201,16 @@ echo"</th><th>";
 
       echo "<table align='center' border='1' class='table table-striped'>
             <tr><th colspan='4'><center><h4><b>- DIFENSORI -</b></h4></center></th></tr>
-            <tr><th><center>Cognome</center></th><th>Squadra</th><th>Prezzo</th><th id='spunta'><center>✓</center></th></tr>";
+            <tr><th><center>Cognome</center></th><th>Squadra</th><th>Prezzo</th><th><center>✓</center></th></tr>";
             while($gioc=$listaDifensori->fetch_row()) {
               echo "<tr><td><center>$gioc[0]</center></td><td><center>$gioc[2]</center></td><td><center>$gioc[1]</center></td>
-              <td><center><input type='checkbox' onclick='loadDocBuy()' name='compra[]' value='".$gioc[0]."'/>
+              <td><center><input type='checkbox' onclick='loadDocBuy()' name='compraDifensori[]' value='".$gioc[0]."'/>
               </center></td></tr>";
 
             }echo"</table>";
     }
     echo"</th><th>";
+  }
 
     //seeziono e visulizzzo centrocampisti
         if(true) {
@@ -174,11 +226,11 @@ echo"</th><th>";
 
           echo "<form role='form' method='POST' onsumbit='javascript:xmlhttpPost('compra_ajax.php');' class='form-inline'>
                 <table align='center' border='1' class='table table-striped'>
-                <tr><th colspan='4'><center><h4><b>- DIFENSORI -</b></h4></center></th></tr>
+                <tr><th colspan='4'><center><h4><b>- CENTROCAMPISTI -</b></h4></center></th></tr>
                 <tr><th><center>Cognome</center></th><th>Squadra</th><th>Prezzo</th><th id='spunta'><center>✓</center></th></tr>";
                 while($gioc=$listaCentrocampisti->fetch_row()) {
                   echo "<tr><td><center>$gioc[0]</center></td><td><center>$gioc[2]</center></td><td><center>$gioc[1]</center></td>
-                  <td><center><input type='checkbox' onclick='loadDocBuy()' name='compra[]' value='".$gioc[0]."'/>
+                  <td><center><input type='checkbox' onclick='loadDocBuy()' name='compraCentrocampisti[]' value='".$gioc[0]."'/>
                   </center></td></tr>";
 
                 }echo"</table>";
@@ -199,11 +251,11 @@ echo"</th><th>";
 
               echo "<form role='form' method='POST' onsumbit='javascript:xmlhttpPost('compra_ajax.php');' class='form-inline'>
                     <table align='center' border='1' class='table table-striped'>
-                    <tr><th colspan='4'><center><h4><b>- DIFENSORI -</b></h4></center></th></tr>
+                    <tr><th colspan='4'><center><h4><b>- ATTACCANTI -</b></h4></center></th></tr>
                     <tr><th><center>Cognome</center></th><th>Squadra</th><th>Prezzo</th><th id='spunta'><center>✓</center></th></tr>";
                     while($gioc=$listaAttaccanti->fetch_row()) {
                       echo "<tr><td><center>$gioc[0]</center></td><td><center>$gioc[2]</center></td><td><center>$gioc[1]</center></td>
-                      <td><center><input type='checkbox' onclick='loadDocBuy()' name='compra[]' value='".$gioc[0]."'/>
+                      <td><center><input type='checkbox' onclick='loadDocBuy()' name='compraAttaccanti[]' value='".$gioc[0]."'/>
                       </center></td></tr>";
 
                     }echo"</table>";
