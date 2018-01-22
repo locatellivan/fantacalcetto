@@ -72,7 +72,7 @@
 				$sql="SELECT Nickname, NomeSq, Formazione, PuntiGiornata, TopCoach
 							FROM utente JOIN squadra on Mail=utente JOIN formazione on Squadra=NomeSq
 							JOIN iscritta ON Formazione=IdForm
-							WHERE Campionato='$camp[0]'
+							WHERE Campionato='$camp[0]' AND Giornata='$gior[0]'
 							ORDER BY PuntiGiornata DESC";
 				$utente=$cid->query($sql) or die("<p>Impossibile eseguire query.</p>"
 																				."<p>codice di errore ".$cid->errno
