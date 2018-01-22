@@ -39,7 +39,7 @@
 		echo "<h3 align='center'>Cliccando il bottone sottostante verranno conclusi i campionati con data di fine minore o uguale
 					alla data corrente. Concludendo il campionato verrà inserito nello storico dei campioni il vincitore.<br/><br/><b>DATA
 					CORRENTE:&nbsp;$dataOdierna</b></h3><br/><br/>";
-		echo "<form role='form' method='POST' action='php/concludiCampionato-exe.php'>";
+		echo "<form role='form' method='POST' action='php/concludiCampionati-exe.php'>";
 		echo "<h1 align='center'><input type='submit' class='btn-lg btn-primary' value='CONCLUDI CAMPIONATI'></input></h1></form>";
 		}
 ?>
