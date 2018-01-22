@@ -17,7 +17,7 @@
 	// Salvo i campionati ai quali sono già iscritto per la prossima giornata.
 	$sql="SELECT Campionato
 				FROM iscritta JOIN formazione ON IdForm=Formazione
-				WHERE Campionato='$campionato' AND Giornata='$giornata'";
+				WHERE Campionato='$campionato' AND Giornata='$giornata' AND Squadra='$nomeSq[0]'";
 	$campGiaIsc=$cid->query($sql);
 
 	if($campGiaIsc->num_rows==0) {

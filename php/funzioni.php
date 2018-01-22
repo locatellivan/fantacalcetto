@@ -87,7 +87,7 @@
 		var cittaAtt = document.getElementById("cittaAtt").value;
 		var squadraTifata = document.getElementById("squadraTifata").value;
 
-
+    // Gestione date: in Javascript i mesi partono da 0!
     var today = new Date();
     var giorno = dataNasc.slice(8);
     var mese = dataNasc.substring(5,7);
@@ -148,7 +148,6 @@
 
   // Gestione alert per il crea formazione
   function errCreaFormazione()  {
-
 		var nomeForm = document.getElementById("nomeForm").value;
 		var por1 = document.getElementById("por1").value;
 		var por2 = document.getElementById("por2").value;
@@ -162,7 +161,7 @@
 		var att2 = document.getElementById("att2").value;
 		var att3 = document.getElementById("att3").value;
 
-		if(nomeForm.length>20) {
+    if(nomeForm.length>20) {
 			 var msgNomeForm = "Il nome della formazione deve essere di massimo 20 caratteri.\n";
 			 	}
 				else { var msgNomeForm = "";
@@ -209,18 +208,29 @@
 		var dataInizio = document.getElementById("dataInizio").value;
 		var dataFine = document.getElementById("dataFine").value;
 
+    // Gestione date: in Javascript i mesi partono da 0!
     var today = new Date();
     var giornoInizio = dataInizio.slice(8);
-    var meseInizio = dataInizio.substring(5,7);
+    var meseInErr = dataInizio.substring(5,7);
+    var meseInizio = meseInErr - 1;
     var annoInizio = dataInizio.substring(0 ,4);
     var newDataInizio = new Date(annoInizio, meseInizio, giornoInizio);
     var giornoFine = dataFine.slice(8);
-    var meseFine = dataFine.substring(5,7);
+    var meseFiErr = dataFine.substring(5,7);
+    var meseFine = meseFiErr - 1;
     var annoFine = dataFine.substring(0 ,4);
     var newDataFine = new Date(annoFine, meseFine, giornoFine);
-    var diff = newDataFine.getTime() - newDataFine.getTime();
-
+    var diff = newDataFine.getTime() - newDataInizio.getTime();
     var diffAnni = annoFine-annoInizio;
+    var diffInizio = newDataInizio.getTime() - today.getTime();
+    // Booleana per capire se la data inserita è quella odierna
+    if(today.getDate()==newDataInizio.getDate() && today.getMonth()==newDataInizio.getMonth()
+       && today.getFullYear()==newDataInizio.getFullYear()) {
+      var dataOggi=true;
+    }
+    else {
+      var dataOggi=false;
+    }
 
     if(nomeCamp.length==0) {
 			 var msgCampVuoto = "E' necessario inserire un nome per il campionato.\n";
@@ -240,19 +250,19 @@
       var msgDate = "";
     }
     if(diffAnni>1) {
-      var msgAnni = "Un campionato può svolgersi massimo nell'arco di due anni (ex: 01/01/2018 - 31/12/2019).\n";
+      var msgAnni = "Un campionato può svolgersi massimo in un certo anno e nel successivo (ex: 01/01/2018 - 31/12/2019).\n";
     }
     else {
       var msgAnni = "";
     }
-    if(newDataInizio<today) {
+    if(diffInizio<0 && !(dataOggi)) {
       var msgDataInizio = "La data di inizio non può essere minore della data corrente.\n";
     }
     else {
       var msgDataInizio = "";
     }
-    if(nomeCamp.length==0 || nomeCamp.length>20 || diff<=0 || diffAnni>1 || newDataInizio<today) {
-      alert(msgCampVuoto+msgCamp+msgDate+msgAnni+msgDataInizio);
+    if(nomeCamp.length==0 || nomeCamp.length>20 || diff<=0 || diffAnni>1 || (diffInizio<0 && !(dataOggi))) {
+      alert(msgCampVuoto+msgCamp+msgDataInizio+msgAnni+msgDate);
     }
     else {
       alert("Campionato registrato con successo.");
