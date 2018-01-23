@@ -22,6 +22,7 @@
 	$annoFi=$data2[0];
 	$diffAnni=$annoFi-$annoIn;
 	$today=strtotime("now");
+	$errDB2=0;
 
 	// Salvo una booleana per capire se si è inserita la dataInizio uguale a quella attuale
 	if($data1[0]==$annoCor && $data1[1]==$meseCor && $data1[2]==$giornoCor) {
@@ -39,6 +40,18 @@
 	$mailUtente=$utente->fetch_row();
 
 	// Controllo degli input
+	$sql="SELECT NomeCamp FROM campionato";
+		$elencoCamp=$cid->query($sql) or die("<p>Impossibile eseguire query.</p>"
+																	 ."<p>codice di errore ".$cid->errno
+																	 .":".$cid->error."</p>");
+
+
+while($elenco=$elencoCamp->fetch_row()){
+		if($elenco[0]==$nomeCamp){
+		$errDB2++;
+	}
+}
+if($errDB2==0){
 	if(strlen($nomeCamp)<=20 && strlen($nomeCamp)!=0 && $dataInizio_New<$dataFine_New && $diffAnni<=1 && ($dataInizio>=$today || $dataOdierna)) {
 		$query="INSERT INTO `campionato`(`NomeCamp`, `DataInizio`, `DataFine`, `Creatore`)
 	   				VALUES ('$nomeCamp', '$dataInizio', '$dataFine','$mailUtente[0]')";
@@ -51,5 +64,8 @@
 	else {
 		header("Location:../main.php?op=creaCampionato");
 	}
-
+}
+else {
+	header("Location:../main.php?op=creaCampionato&err2=ALERT2");
+}
 ?>

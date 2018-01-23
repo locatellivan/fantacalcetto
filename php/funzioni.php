@@ -2,6 +2,8 @@
 
   // Gestione alert in registrazione
   function errRegistrazione()  {
+    var duplicazione = getUrlVars()["err"];
+    if(duplicazione!='ALERT'){
 
     var nick = document.getElementById("nick").value;
 		var nomeSq = document.getElementById("squadra").value;
@@ -49,7 +51,10 @@
 	 else {
 			alert("Registrazione avvenuta con successo.\nLoggati per accedere ai servizi");
 		}
-
+  }
+  else{
+    alert("email e/o nickname e/o nome della squadra in uso da un'altro utente\ncambili per registrarti");
+  }
 	}
 
   // Gestione alert in modifica squadra
@@ -203,6 +208,8 @@
 
   // Gestione alert per il crea campionato
   function errCreaCampionato() {
+    var doppioNomeCamp = getUrlVars()["err2"];
+    if(doppioNomeCamp!='ALERT2'){
 
     var nomeCamp = document.getElementById("nomeCamp").value;
 		var dataInizio = document.getElementById("dataInizio").value;
@@ -269,6 +276,10 @@
     }
   }
 
+else {
+        alert("Questo nome campionato è già in uso");
+      }
+}
     // Funzioni AJAX per la gestione del fatamercato
     function controlloCheck() {
       if(document.getElementById('spunta').checked==true) {

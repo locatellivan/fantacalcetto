@@ -7,9 +7,28 @@
 	$psw1=trim(addslashes(htmlspecialchars($_POST['psw1'])));
 	$psw2=trim(addslashes(htmlspecialchars($_POST['psw2'])));
 	$email=trim(addslashes(htmlspecialchars($_POST['email'])));
+	$errDB=0;
 
+		$sql="SELECT Mail, Nickname, NomeSq FROM Utente JOIN squadra ON Mail=utente";
+			$elencoUtenti=$cid->query($sql) or die("<p>Impossibile eseguire query.</p>"
+																		 ."<p>codice di errore ".$cid->errno
+																		 .":".$cid->error."</p>");
+
+
+while($elenco=$elencoUtenti->fetch_row()){
+			if($elenco[0]==$email){
+			$errDB++;
+		}
+			if($elenco[1]==$nickname){
+				$errDB++;
+			}
+			if($elenco[2]==$nomeSq){
+				$errDB++;
+			}
+		}
+	if($errDB==0){
 	// Eseguo il controllo sugli input
-	if($psw1==$psw2 && (!empty($nickname)) && (!empty($nomeSq)) && (!empty($psw1))
+	if($psw1==$psw2 && (!empty($nickname))&& (!empty($mail)) && (!empty($nomeSq)) && (!empty($psw1))
 	   && (!empty($psw2)) && strlen($nickname)<30 && strlen($nomeSq)<20 && strlen($mail)<40
 	   && strlen($psw1)<30) {
 
@@ -19,7 +38,7 @@
 		$cid->query($sql) or die("<p>Impossibile eseguire query.</p>"
 																 ."<p>codice di errore ".$cid->errno
 																 .":".$cid->error."</p>");
-																 if(errno==1062){ echo "duplicato";}
+
 		// Creo la squadra
 		$sql2="INSERT INTO squadra(NomeSq, Utente) VALUES ('$nomeSq','$email')";
 		$cid->query($sql2) or die("<p>Impossibile eseguire query.</p>"
@@ -41,5 +60,8 @@
 	else {
 		header("Location:../main.php?op=registrazione");
 	}
-
+}
+else{
+	header("Location:../main.php?op=registrazione&err=ALERT");
+}
 ?>

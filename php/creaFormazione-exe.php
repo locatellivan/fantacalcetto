@@ -33,8 +33,10 @@
      && $dif2!=$dif3 && $dif1!=$dif3 && $cen1!=$cen2 && $cen2!=$cen3 && $cen1!=$cen3
 	   && $att1!=$att2 && $att2!=$att3 && $att1!=$att3) {
 
+			 $nomeFormSquadra=$nomeForm."_".$nomeSq[0];
+
 			$query="INSERT INTO formazione(IdForm, Squadra)
-		   				VALUES ('$nomeForm', '$nomeSq[0]')";
+		   				VALUES ('$nomeFormSquadra', '$nomeSq[0]')";
 			$cid->query($query) or die("<p>Impossibile eseguire query.</p>"
 																	 ."<p>codice di errore ".$cid->errno
 																	 .":".$cid->error."</p>");
@@ -44,42 +46,42 @@
 			e il primo attaccante (4), il terzo attaccante (11), il terzo centrocampista (10)
 			e il terzo difensore (9) */
 			$query="INSERT INTO sta(Formazione,Giocatore,NumIngresso)
-							VALUES ('$nomeForm','$por1',1)";
+							VALUES ('$nomeFormSquadra','$por1',1)";
 			$cid->query($query) or die("<p>Impossibile eseguire query.</p>"
 																		 ."<p>codice di errore ".$cid->errno
 																		 .":".$cid->error."</p>");
 			$query="INSERT INTO sta(Formazione,Giocatore,NumIngresso)
-				   		VALUES ('$nomeForm','$por2',6)";
+				   		VALUES ('$nomeFormSquadra','$por2',6)";
 			$cid->query($query) or die("<p>Impossibile eseguire query.</p>"
 																."<p>codice di errore ".$cid->errno
 																.":".$cid->error."</p>");
 			$query="INSERT INTO sta(Formazione,Giocatore,NumIngresso)
-							VALUES ('$nomeForm','$dif1',2)";
+							VALUES ('$nomeFormSquadra','$dif1',2)";
 			$cid->query($query) or die("<p>Impossibile eseguire query.</p>"
 																."<p>codice di errore ".$cid->errno
 																.":".$cid->error."</p>");
 			$query="INSERT INTO sta(Formazione,Giocatore,NumIngresso)
-							VALUES ('$nomeForm','$cen1',3)";
+							VALUES ('$nomeFormSquadra','$cen1',3)";
 			$cid->query($query) or die("<p>Impossibile eseguire query.</p>"
 																."<p>codice di errore ".$cid->errno
 																.":".$cid->error."</p>");
 			$query="INSERT INTO sta(Formazione,Giocatore,NumIngresso)
-							VALUES ('$nomeForm','$att1',4)";
+							VALUES ('$nomeFormSquadra','$att1',4)";
 			$cid->query($query) or die("<p>Impossibile eseguire query.</p>"
 																."<p>codice di errore ".$cid->errno
 																.":".$cid->error."</p>");
 			$query="INSERT INTO sta(Formazione,Giocatore,NumIngresso)
-							VALUES ('$nomeForm','$att3',11)";
+							VALUES ('$nomeFormSquadra','$att3',11)";
 			$cid->query($query) or die("<p>Impossibile eseguire query.</p>"
 																."<p>codice di errore ".$cid->errno
 																.":".$cid->error."</p>");
 			$query="INSERT INTO sta(Formazione,Giocatore,NumIngresso)
-							VALUES ('$nomeForm','$cen3',10)";
+							VALUES ('$nomeFormSquadra','$cen3',10)";
 			$cid->query($query) or die("<p>Impossibile eseguire query.</p>"
 																."<p>codice di errore ".$cid->errno
 																.":".$cid->error."</p>");
 			$query="INSERT INTO sta(Formazione,Giocatore,NumIngresso)
-							VALUES ('$nomeForm','$dif3',9)";
+							VALUES ('$nomeFormSquadra','$dif3',9)";
 			$cid->query($query) or die("<p>Impossibile eseguire query.</p>"
 																."<p>codice di errore ".$cid->errno
 																.":".$cid->error."</p>");
@@ -90,51 +92,51 @@
 
 				case '1':
 					$query="INSERT INTO sta(Formazione,Giocatore,NumIngresso)
-									VALUES ('$nomeForm','$dif2',5)";
+									VALUES ('$nomeFormSquadra','$dif2',5)";
 					$cid->query($query) or die("<p>Impossibile eseguire query.</p>"
 																		."<p>codice di errore ".$cid->errno
 																		.":".$cid->error."</p>");
 					$query="INSERT INTO sta(Formazione,Giocatore,NumIngresso)
-									VALUES ('$nomeForm','$cen2',7)";
+									VALUES ('$nomeFormSquadra','$cen2',7)";
 					$cid->query($query) or die("<p>Impossibile eseguire query.</p>"
 																		."<p>codice di errore ".$cid->errno
 																		.":".$cid->error."</p>");
 					$query="INSERT INTO sta(Formazione,Giocatore,NumIngresso)
-									VALUES ('$nomeForm','$att2',8)";
+									VALUES ('$nomeFormSquadra','$att2',8)";
 					$cid->query($query) or die("<p>Impossibile eseguire query.</p>"
 																		."<p>codice di errore ".$cid->errno
 																		.":".$cid->error."</p>");
 				break;
 				case '2':
 					$query="INSERT INTO sta(Formazione,Giocatore,NumIngresso)
-									VALUES ('$nomeForm','$dif2',7)";
+									VALUES ('$nomeFormSquadra','$dif2',7)";
 					$cid->query($query) or die("<p>Impossibile eseguire query.</p>"
 																		."<p>codice di errore ".$cid->errno
 																		.":".$cid->error."</p>");
 					$query="INSERT INTO sta(Formazione,Giocatore,NumIngresso)
-									VALUES ('$nomeForm','$cen2',5)";
+									VALUES ('$nomeFormSquadra','$cen2',5)";
 					$cid->query($query) or die("<p>Impossibile eseguire query.</p>"
 																		."<p>codice di errore ".$cid->errno
 																		.":".$cid->error."</p>");
 					$query="INSERT INTO sta(Formazione,Giocatore,NumIngresso)
-									VALUES ('$nomeForm','$att2',8)";
+									VALUES ('$nomeFormSquadra','$att2',8)";
 					$cid->query($query) or die("<p>Impossibile eseguire query.</p>"
 																		."<p>codice di errore ".$cid->errno
 																		.":".$cid->error."</p>");
 				break;
 				case '3':
 					$query="INSERT INTO sta(Formazione,Giocatore,NumIngresso)
-									VALUES ('$nomeForm','$dif2',7)";
+									VALUES ('$nomeFormSquadra','$dif2',7)";
 					$cid->query($query) or die("<p>Impossibile eseguire query.</p>"
 																		."<p>codice di errore ".$cid->errno
 																		.":".$cid->error."</p>");
 					$query="INSERT INTO sta(Formazione,Giocatore,NumIngresso)
-									VALUES ('$nomeForm','$cen2',8)";
+									VALUES ('$nomeFormSquadra','$cen2',8)";
 					$cid->query($query) or die("<p>Impossibile eseguire query.</p>"
 																		."<p>codice di errore ".$cid->errno
 																		.":".$cid->error."</p>");
 					$query="INSERT INTO sta(Formazione,Giocatore,NumIngresso)
-									VALUES ('$nomeForm','$att2',5)";
+									VALUES ('$nomeFormSquadra','$att2',5)";
 					$cid->query($query) or die("<p>Impossibile eseguire query.</p>"
 																		."<p>codice di errore ".$cid->errno
 																		.":".$cid->error."</p>");
