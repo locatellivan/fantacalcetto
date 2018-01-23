@@ -18,7 +18,7 @@
 				 <li class="active"><a href="index.php">HOME</a></li>
 				 <li class="active"><a href="index.php?op=regolamento">REGOLAMENTO</a></li>
 				 <?php if (isset($_SESSION["nick"])) { ?>
-					 <li class="active"><a href="index.php?op=amministraGiornate">AMMINISTRA GIORNATE</a></li>
+					 <li class="active"><a href="index.php?op=amministrazione">AMMINISTRAZIONE</a></li>
 					 <li class="dropdown">
 						 <a href="#" class="dropdown-toggle" data-toggle="dropdown"
 			          role="button" aria-haspopup="true" aria-expanded="false"
@@ -67,7 +67,7 @@
 					<li><a href="index.php?op=creaFormazione">Crea Formazione</a></li>
 					<li><a href="index.php?op=consegnaFormazione">Consegna Formazione</a></li>
 					<li role="separator" class="divider"></li>
-					<li><a href="index.php?op=formazioniAvversarie">Formazioni Iscritte</a></li>
+					<li><a href="index.php?op=formazioniIscritte">Formazioni Iscritte</a></li>
 					<li role="separator" class="divider"></li>
 					<li><a href="index.php?op=eliminaFormazione">Elimina Formazione</a></li>
 				</ul>

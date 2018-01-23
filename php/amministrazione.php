@@ -1,5 +1,5 @@
 <div class="well">
-		<h1 align="center"><b>GESTISCI GIORNATE</b></h1><br/>
+
 
 <?php
 
@@ -22,9 +22,10 @@
 
 		// Se l'utente loggato è amministratore avrà accesso alla pagina.
 		if($tipo[0]!='Amministratore') {
-			echo "<h3 align='center'>PER ACCEDERE ALLE FUNZIONALITA' DI QUESTA PAGINA E' NECESSARIO ESSERE AMMINISTRATORI.</h3><br/>";
+			echo "<br/><br/><h3 align='center'>PER ACCEDERE ALLE FUNZIONALITA' DI QUESTA PAGINA E' NECESSARIO ESSERE AMMINISTRATORI.</h3><br/>";
 		}
 		else {
+				echo "<h1 align='center'><b>GESTISCI GIORNATE</b></h1><br/>";
 				echo "<h3 align='center'>Aggiornando la giornata verranno aggiornati i punteggi di tutti i giocatori,<br/>
 							conseguentemente anche le stelle degli utenti e le classifiche giornaliere e totali.<br/><br/>
 							<b>QUESTO PROCEDIMENTO NON E' REVERSIBILE.<br/><br/>SI AGGIORNERANNO I PUNTEGGI
