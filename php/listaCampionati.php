@@ -61,7 +61,7 @@
 	// Query che mostra tutti i CAMPIONATI IN CORSO A CUI NON SI PARTECIPA
 	$query = "SELECT NomeCamp, DataInizio, DataFine, Creatore
 						FROM campionato
-						WHERE CURDATE() BETWEEN DataInizio AND DataFine
+						WHERE DataInizio<=CURDATE() AND DataFine>CURDATE()
 						AND NomeCamp NOT IN (SELECT DISTINCT NomeCamp
 							        FROM campionato JOIN partecipa ON Campionato=NomeCamp JOIN squadra ON NomeSq=Squadra
 											WHERE CURDATE() BETWEEN DataInizio AND DataFine AND NomeSq IN ('$nomeSq[0]')
