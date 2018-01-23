@@ -17,11 +17,16 @@ $nuoviDif =$_POST['compraDifensori'];
 $nuoviCent=$_POST['compraCentrocampisti'];
 $nuoviAtt =$_POST['compraAttaccanti'];
 
+$mod="NO";
+
 //CANCELLO FORMAZIONI SE CAMBIO QUALCOSA
-if($vecchioPort!=0 || $vecchioDif!=0 ||$vecchioCent!=0 ||$vecchioAtt!=0){
+if($vecchioPort!=0 || $vecchioDif!=0 ||$vecchioCent!=0 ||$vecchioAtt!=0||
+		$nuoviPort!=0 || $nuoviDif!=0 ||$nuoviCent!=0 ||$nuoviAtt!=0){
 	$query="DELETE FROM formazione
 					WHERE Squadra='$nomeSq[0]'";
 	$cid->query($query);
+	$mod="SI";
+
 }
 
  // Salvo in una variabile il nome della squadra loggata
@@ -199,10 +204,10 @@ foreach($nuoviAtt as $NA) {
 											$cid->query($query);
 										}
 											$fantamilioni=$fantamilioni-$soldiAquistoPortieri;
-
+											$msgPortieri="OK";
 								}
 								else {
-										$msgPortieri="Non puoi avere più di due portieri nella tua squadra \n";
+										$msgPortieri="over_P";
 								}
 
 								if(($nDif[0] - count($vecchioDif) + count($nuoviDif))<4){
@@ -221,10 +226,10 @@ foreach($nuoviAtt as $NA) {
 											$cid->query($query);
 										}
     									$fantamilioni=$fantamilioni-$soldiAquistoDifensori;
-
+											$msgDifensori="OK";
 								}
 								else {
-										$msgDifensori="Non puoi avere più di tre difensori nella tua squadra \n";
+										$msgDifensori="over_D";
 								}
 
 								if(($nCen[0] - count($vecchioCent) + count($nuoviCent))<4){
@@ -242,10 +247,10 @@ foreach($nuoviAtt as $NA) {
 											$cid->query($query);
 										}
 											$fantamilioni=$fantamilioni-$soldiAquistoCentrocampisti;
-
+											$msgCentrocampisti="OK";
 							   }
 						  	else{
-								  	$msgCentrocampisti="Non puoi avere più di tre centrocampisti nella tua squadra \n";
+								  	$msgCentrocampisti="over_C";
 						  	}
 
 						  	if(($nAtt[0] - count($vecchioAtt) + count($nuoviAtt))<4){
@@ -263,10 +268,10 @@ foreach($nuoviAtt as $NA) {
 											$cid->query($query);
 										}
 											$fantamilioni=$fantamilioni-$soldiAquistoAttaccanti;
-
+											$msgAttaccanti="OK";
 								}
 								else {
-										$msgAttaccanti="Non puoi avere più di tre attaccanti nella tua squadra \n";
+										$msgAttaccanti="over_A";
 								}
 
 								$query="UPDATE Squadra SET FantaMilioni='$fantamilioni'
@@ -275,24 +280,24 @@ foreach($nuoviAtt as $NA) {
 
 					$cid->close();
 
-
+					$msgEccesso="OK";
 					}
 
 					else {
-						$msgEccesso="Non puoi avere più di 11 giocatori nella tua squadra \n bilancia le tue scelte!";
+						$msgEccesso="over_N";
 					}
-
+	$msgFineSoldi="OK";
 	}
 
 	else {
-		$msgFineSoldi="Non puoi spendere più di 300 milioni per la tua squadra \n bilancia le tue scelte!";
+		$msgFineSoldi="over_B";
 	}
 
-$msgGenerale="mi piace il cazzo";
 
 
 
-header("Location:../main.php?op=fantamercato");
+
+header("Location:../main.php?op=fantamercato&mod=$mod&msgP=$msgPortieri&msgD=$msgDifensori&msgC=$msgCentrocampisti&msgA=$msgAttaccanti&msgN=$msgEccesso&msgB=$msgFineSoldi");
 
 
  ?>

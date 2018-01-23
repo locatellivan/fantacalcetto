@@ -302,6 +302,54 @@
     }
 
 function  Fantacontrollo(){
+  var modEff = getUrlVars()["mod"];
+  var livPortieri = getUrlVars()["msgP"];
+  var livDifensori = getUrlVars()["msgD"];
+  var livCentrocampisti = getUrlVars()["msgC"];
+  var livAttaccanti = getUrlVars()["msgA"];
+  var livBudjet = getUrlVars()["msgB"];
+  var livGiocatori = getUrlVars()["msgN"];
 
+if(modEff=='SI'){
+      if(livGiocatori=='over_N'){
+        var msgGiocatori="Puoi avere al massiomo 11 giocatori nella tua squadra\n";}
+      else{var msgGiocatori="";}
+
+      if(livPortieri=='over_P'){
+        var msgOverP="Puoi avere al massiomo 2 portieri nella tua squadra\n";}
+      else{var msgOverP="";}
+
+      if(livDifensori=='over_D'){
+        var msgOverD="Puoi avere al massiomo 3 difensori nella tua squadra\n";}
+      else{var msgOverD="";}
+
+      if(livCentrocampisti=='over_C'){
+        var msgOverC="Puoi avere al massiomo 3 centrocampisti nella tua squadra\n";}
+      else{var msgOverC="";}
+
+      if(livAttaccanti=='over_A'){
+        var msgOverA="Puoi avere al massiomo 3 attacanti nella tua squadra\n";}
+      else{var msgOverA="";}
+
+      if(livBudjet=='over_B'){
+        var msgOverB="Non puoi sforare il budjet di 300 milioni per i giocatori della tua squadra\n";}
+      else{var msgOverB="";}
+      if((msgGiocatori+msgOverP+msgOverD+msgOverC+msgOverA+msgOverB)!=''){
+     alert(msgGiocatori+msgOverP+msgOverD+msgOverC+msgOverA+msgOverB);
+        }
+        else{alert('Modifica effettuata con successo\nricorda che devi consegnare le tue nuove formazioni')}
+   }
+
+}
+
+
+
+function getUrlVars() {
+var vars = {};
+var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi,
+function(m,key,value) {
+vars[key] = value;
+});
+return vars;
 }
 </script>
