@@ -21,15 +21,23 @@
 																	 ."<p>codice di errore ".$cid->errno
 																	 .":".$cid->error."</p>");
 		$vinc=$vincitore->fetch_row();
+		// controllo se è gia stato inserito
+		$sql="SELECT Campionato,Campione FROM vince
+		WHERE Campionato=$campConc AND Campione=$vinc"
+
+				$giaInserito=$cid->query($sql) or die("<p>Impossibile eseguire query.</p>"
+																	 ."<p>codice di errore ".$cid->errno
+																	 .":".$cid->error."</p>");
 		// Effettuo l'inserimento nel DB
+		if($giaInserito->num_rows==0){
 		$sql="INSERT INTO vince(Campionato,Campione)
 					VALUES ('$campConc[0]','$vinc[0]')";
 		$cid->query($sql) or die("<p>Impossibile eseguire query.</p>"
 																	 ."<p>codice di errore ".$cid->errno
 																	 .":".$cid->error."</p>");
 
-	}
-
+			}
+		}
 	$cid->close();
 	header("Location:../main.php?op=classificaCampionati");
 
