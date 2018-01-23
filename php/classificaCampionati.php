@@ -17,7 +17,7 @@
 		// Variabile per i campionati in corso a cui partecipa l'utente loggato
 		$sql="SELECT DISTINCT Campionato
 					FROM partecipa JOIN campionato ON Campionato=NomeCamp
-		      WHERE Squadra='$nomeSq[0]' AND CURDATE() BETWEEN DataInizio AND DataFine
+		      WHERE Squadra='$nomeSq[0]' AND DataInizio<=CURDATE() AND DataFine>CURDATE()
 					ORDER BY Campionato";
 		$campionati=$cid->query($sql) or die("<p>Imppossibile eseguire query.</p>"
 																		  	 ."<p>codice di errore ".$cid->errno
@@ -65,7 +65,8 @@
 
 	$sql="SELECT DISTINCT Campionato
 				FROM partecipa JOIN campionato ON NomeCamp=Campionato
-				WHERE CURDATE()>DataFine AND Squadra='$nomeSq[0]'";
+				WHERE CURDATE()>=DataFine AND Squadra='$nomeSq[0]'
+				ORDER BY Campionato";
 	$campionatiConc=$cid->query($sql);
 
 	// Se esistono classifiche da mostrare

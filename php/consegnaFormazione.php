@@ -21,9 +21,9 @@
 																 ."<p>codice di errore ".$cid->errno
 																 .":".$cid->error."</p>");
 
-	// Variabile per i campionati a cui partecipa l'utente loggato
-	$sql="SELECT Campionato FROM partecipa
-	      WHERE Squadra='$nomeSq[0]'
+	// Variabile per i campionati in corso a cui partecipa l'utente loggato
+	$sql="SELECT Campionato FROM partecipa JOIN campionato ON NomeCamp=Campionato
+	      WHERE Squadra='$nomeSq[0]' AND DataInizio<=CURDATE() AND DataFine>CURDATE()
 				ORDER BY Campionato";
 
 	$campionato=$cid->query($sql) or die("<p>Imppossibile eseguire query.</p>"

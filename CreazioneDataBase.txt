@@ -79,16 +79,16 @@ CREATE TABLE Partecipa (
 );
 
 CREATE TABLE Formazione (
-	IdForm varchar(20) PRIMARY KEY,
+	IdForm varchar(41) PRIMARY KEY,
 	Squadra varchar(20) NOT NULL,
 	INDEX (Squadra),
 	FOREIGN KEY (Squadra) REFERENCES Squadra(NomeSq) ON DELETE CASCADE ON UPDATE NO ACTION
 );
 
 CREATE TABLE Iscritta (
-	Formazione varchar(20),
+	Formazione varchar(41),
 	Campionato varchar(20),
-	Giornata int(2) UNSIGNED,
+	Giornata int(4) UNSIGNED,
 	PuntiGiornata int(2) UNSIGNED,
 	TopCoach ENUM('0','1'),
 	INDEX (Formazione),
@@ -103,7 +103,7 @@ CREATE TABLE Iscritta (
 
 CREATE TABLE Sta (
 	Giocatore varchar(20),
-	Formazione varchar(20),
+	Formazione varchar(41),
 	NumIngresso int(2) UNSIGNED,
 	INDEX (Giocatore),
 	INDEX (Formazione),
@@ -114,7 +114,7 @@ CREATE TABLE Sta (
 
 CREATE TABLE Gioca (
 	Giocatore varchar(20),
-	Giornata int(2) UNSIGNED,
+	Giornata int(4) UNSIGNED,
 	Punteggio int(2),
 	INDEX (Giocatore),
 	INDEX (Giornata),
