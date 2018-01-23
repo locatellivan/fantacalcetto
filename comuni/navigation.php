@@ -67,7 +67,7 @@
 					<li><a href="main.php?op=creaFormazione">Crea Formazione</a></li>
 					<li><a href="main.php?op=consegnaFormazione">Consegna Formazione</a></li>
 					<li role="separator" class="divider"></li>
-					<li><a href="main.php?op=formazioniAvversarie">Formazioni Avversarie</a></li>
+					<li><a href="main.php?op=formazioniAvversarie">Formazioni Iscritte</a></li>
 					<li role="separator" class="divider"></li>
 					<li><a href="main.php?op=eliminaFormazione">Elimina Formazione</a></li>
 				</ul>
