@@ -21,7 +21,7 @@
 		// Query che mostra tutti i CAMPIONATI A CUI SI PARTECIPA
 		$query = "SELECT NomeCamp, DataInizio, DataFine, Creatore
 			        FROM campionato JOIN partecipa ON Campionato=NomeCamp JOIN squadra ON NomeSq=Squadra
-							WHERE CURDATE() BETWEEN DataInizio AND DataFine AND NomeSq IN ('$nomeSq[0]')
+							WHERE DataInizio<=CURDATE() AND DataFine>CURDATE() AND NomeSq IN ('$nomeSq[0]')
 							ORDER BY DataInizio";
 
 		$camp= $cid->query($query) or die("<p>Inpossibile eseguire query.</p>"
