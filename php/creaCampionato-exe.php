@@ -59,13 +59,13 @@ if($errDB2==0){
 																	 ."<p>codice di errore ".$cid->errno
 																	 .":".$cid->error."</p>");
 
-		header("Location:../main.php?op=listaCampionati");
+		header("Location:../index.php?op=listaCampionati");
 	}
 	else {
-		header("Location:../main.php?op=creaCampionato");
+		header("Location:../index.php?op=creaCampionato");
 	}
 }
 else {
-	header("Location:../main.php?op=creaCampionato&err2=ALERT2");
+	header("Location:../index.php?op=creaCampionato&err2=ALERT2");
 }
 ?>

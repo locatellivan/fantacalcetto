@@ -12,7 +12,7 @@ $sql="SELECT NomeCamp FROM Campionato, utente WHERE (Nickname='$nick'or Nickname
 $campionato=$cid->query($sql) or die("<p>Imppossibile eseguire query.</p>"
 															 ."<p>codice di errore ".$cid->errno
 															 .":".$cid->error."</p>");
-$nomeCa=$campionato->fetch_row();    
+$nomeCa=$campionato->fetch_row();
 
 
 // Elimino le tuple in "partecipa" coi campionati selezionati per quella squadra
@@ -24,4 +24,4 @@ foreach($nomeCamp as $nomeCa) {
 }
 $cid->close();
 
-header("Location:../main.php?op=eliminaCampionato");
+header("Location:../index.php?op=eliminaCampionato");

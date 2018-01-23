@@ -30,5 +30,5 @@
 	}
 	$cid->close();
 
-header("Location:../main.php?op=eliminaFormazione");
+header("Location:../index.php?op=eliminaFormazione");
 ?>

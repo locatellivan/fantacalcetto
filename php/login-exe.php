@@ -37,11 +37,11 @@ if ($mail==$row[0] && $psw==$row[1])
   $_SESSION['nick']=$user[0];
   $cid->close();
 
-  header("Location:../main.php");
+  header("Location:../index.php");
 }
 else
 {
-  header("Location:../main.php?op=none&status=ko&msg=" . urlencode("Autenticazione fallita."));
+  header("Location:../index.php?op=none&status=ko&msg=" . urlencode("Autenticazione fallita."));
 }
 
 

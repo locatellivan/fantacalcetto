@@ -264,7 +264,7 @@
 
 
 
-	header("Location:../main.php?op=classificaGiornata");
+	header("Location:../index.php?op=classificaGiornata");
 
 
 ?>

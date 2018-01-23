@@ -8,26 +8,26 @@
 				 <span class="icon-bar"></span>
 				 <span class="icon-bar"></span>
 			 </button>
-			 <a href="main.php">
+			 <a href="index.php">
 			 	<img src="img/Home.PNG" style="width:50px; padding:8px; height:50px;"/>
 			 </a>
 		 </div>
 
 		 <div id="navbar" class="navbar-collapse collapse">
 			 <ul class="nav navbar-nav">
-				 <li class="active"><a href="main.php">HOME</a></li>
-				 <li class="active"><a href="main.php?op=regolamento">REGOLAMENTO</a></li>
+				 <li class="active"><a href="index.php">HOME</a></li>
+				 <li class="active"><a href="index.php?op=regolamento">REGOLAMENTO</a></li>
 				 <?php if (isset($_SESSION["nick"])) { ?>
-					 <li class="active"><a href="main.php?op=amministraGiornate">AMMINISTRA GIORNATE</a></li>
+					 <li class="active"><a href="index.php?op=amministraGiornate">AMMINISTRA GIORNATE</a></li>
 					 <li class="dropdown">
 						 <a href="#" class="dropdown-toggle" data-toggle="dropdown"
 			          role="button" aria-haspopup="true" aria-expanded="false"
 								>Account<span class="caret"></span></a>
 						 <ul class="dropdown-menu">
-							 <li><a href="main.php?op=profiloInfo">Dati Profilo</a></li>
-							 <li><a href="main.php?op=profiloModifica">Modifica Dati</a></li>
+							 <li><a href="index.php?op=profiloInfo">Dati Profilo</a></li>
+							 <li><a href="index.php?op=profiloModifica">Modifica Dati</a></li>
 							 <li role="separator" class="divider"></li>
-							 <li><a href="main.php?op=eliminaProfilo">Elimina Account</a></li>
+							 <li><a href="index.php?op=eliminaProfilo">Elimina Account</a></li>
 						 </ul>
 					 </li>
 
@@ -36,10 +36,10 @@
 		          role="button" aria-haspopup="true" aria-expanded="false"
 							>Squadra<span class="caret"></span></a>
 					 <ul class="dropdown-menu">
-						 <li><a href="main.php?op=SquadraInfo">Dati Squadra</a></li>
-						 <li><a href="main.php?op=SquadraModifica">Modifica Motto</a></li>
+						 <li><a href="index.php?op=SquadraInfo">Dati Squadra</a></li>
+						 <li><a href="index.php?op=SquadraModifica">Modifica Motto</a></li>
 						 <li role="separator" class="divider"></li>
-						 <li><a href="main.php?op=fantamercato">Fantamercato</a></li>
+						 <li><a href="index.php?op=fantamercato">Fantamercato</a></li>
 					 </ul>
 				 </li>
 
@@ -48,15 +48,15 @@
 						 role="button" aria-haspopup="true" aria-expanded="false"
 						 >Campionati<span class="caret"></span></a>
 					 <ul class="dropdown-menu">
-						<li><a href="main.php?op=listaCampionati">Lista</a></li>
-						<li><a href="main.php?op=classificaCampionati">Classifiche Generali</a></li>
-						<li><a href="main.php?op=classificaGiornata">Classifica della Giornata</a></li>
+						<li><a href="index.php?op=listaCampionati">Lista</a></li>
+						<li><a href="index.php?op=classificaCampionati">Classifiche Generali</a></li>
+						<li><a href="index.php?op=classificaGiornata">Classifica della Giornata</a></li>
 						<li role="separator" class="divider"></li>
-						<li><a href="main.php?op=creaCampionato">Crea Campionato</a></li>
-						<li><a href="main.php?op=eliminaCampionato">Elimina Campionato</a></li>
+						<li><a href="index.php?op=creaCampionato">Crea Campionato</a></li>
+						<li><a href="index.php?op=eliminaCampionato">Elimina Campionato</a></li>
 						<li role="separator" class="divider"></li>
-						<li><a href="main.php?op=storicoCampioni">Storico Campioni</a></li>
-						<li><a href="main.php?op=campionatiFantasma">Campionati Fantasma</a></li>
+						<li><a href="index.php?op=storicoCampioni">Storico Campioni</a></li>
+						<li><a href="index.php?op=campionatiFantasma">Campionati Fantasma</a></li>
 					</ul>
 				</li>
 				<li class="dropdown">
@@ -64,12 +64,12 @@
 						role="button" aria-haspopup="true" aria-expanded="false"
 						>Formazioni<span class="caret"></span></a>
 					<ul class="dropdown-menu">
-					<li><a href="main.php?op=creaFormazione">Crea Formazione</a></li>
-					<li><a href="main.php?op=consegnaFormazione">Consegna Formazione</a></li>
+					<li><a href="index.php?op=creaFormazione">Crea Formazione</a></li>
+					<li><a href="index.php?op=consegnaFormazione">Consegna Formazione</a></li>
 					<li role="separator" class="divider"></li>
-					<li><a href="main.php?op=formazioniAvversarie">Formazioni Iscritte</a></li>
+					<li><a href="index.php?op=formazioniAvversarie">Formazioni Iscritte</a></li>
 					<li role="separator" class="divider"></li>
-					<li><a href="main.php?op=eliminaFormazione">Elimina Formazione</a></li>
+					<li><a href="index.php?op=eliminaFormazione">Elimina Formazione</a></li>
 				</ul>
 			</li>
 
@@ -83,7 +83,7 @@
 				 <li><a href="php/logout-exe.php"><span class="glyphicon glyphicon-log-out"></span> Logout
 
 		 <?php } else {?>
-	 <li><a href="main.php?op=registrazione"><span class="glyphicon glyphicon-user"></span> Registrati </a></li>
+	 <li><a href="index.php?op=registrazione"><span class="glyphicon glyphicon-user"></span> Registrati </a></li>
 	 <li><a href="#" data-toggle="modal" data-target="#login-modal"><span class="glyphicon glyphicon-log-in"></span> Login
 	 <?php }?>
 
@@ -109,7 +109,7 @@ Maggiori informazioni a http://www.html.it/guide/img/bootstrap/ref/modal.html --
 			 </form>
 
 			 <div class="login-help">
-			 <a href="main.php?op=registrazione">Non hai ancora un account? Registrati</a>
+			 <a href="index.php?op=registrazione">Non hai ancora un account? Registrati</a>
 			 </div>
 		 </div>
 	 </div>

@@ -47,6 +47,6 @@
 		$cid->close();
 	}
 
-	header("Location:../main.php?op=consegnaFormazione");
+	header("Location:../index.php?op=consegnaFormazione");
 
  ?>

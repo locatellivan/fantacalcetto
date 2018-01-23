@@ -39,6 +39,6 @@
 			}
 		}
 	$cid->close();
-	header("Location:../main.php?op=classificaCampionati");
+	header("Location:../index.php?op=classificaCampionati");
 
  ?>

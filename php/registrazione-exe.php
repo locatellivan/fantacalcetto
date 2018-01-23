@@ -55,13 +55,13 @@ while($elenco=$elencoUtenti->fetch_row()){
 
 		$cid->close();
 
-		header("Location:../main.php?status=OK");
+		header("Location:../index.php?status=OK");
 	}
 	else {
-		header("Location:../main.php?op=registrazione");
+		header("Location:../index.php?op=registrazione");
 	}
 }
 else{
-	header("Location:../main.php?op=registrazione&err=ALERT");
+	header("Location:../index.php?op=registrazione&err=ALERT");
 }
 ?>

@@ -297,7 +297,7 @@ foreach($nuoviAtt as $NA) {
 
 
 
-header("Location:../main.php?op=fantamercato&mod=$mod&msgP=$msgPortieri&msgD=$msgDifensori&msgC=$msgCentrocampisti&msgA=$msgAttaccanti&msgN=$msgEccesso&msgB=$msgFineSoldi");
+header("Location:../index.php?op=fantamercato&mod=$mod&msgP=$msgPortieri&msgD=$msgDifensori&msgC=$msgCentrocampisti&msgA=$msgAttaccanti&msgN=$msgEccesso&msgB=$msgFineSoldi");
 
 
  ?>

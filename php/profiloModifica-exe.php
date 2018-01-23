@@ -58,10 +58,10 @@
 
 			$cid->close();
 
-			header("Location:../main.php?op=profiloInfo");
+			header("Location:../index.php?op=profiloInfo");
 
 		} else {
-			header("Location:../main.php?op=profiloModifica");
+			header("Location:../index.php?op=profiloModifica");
 		}
 
 ?>

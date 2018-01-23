@@ -55,7 +55,7 @@
 			}
 			else {
 				echo "<p align='center'>NESSUN GIOCATORE ANCORA PRESENTE. VAI ALLA PAGINA
-				DEL <a href='main.php?op=fantamercato'>FANTAMERCATO</a> PER CREARE LA TUA SQUADRA.</p>";
+				DEL <a href='index.php?op=fantamercato'>FANTAMERCATO</a> PER CREARE LA TUA SQUADRA.</p>";
 			}
 			unset($res);               //Rilascio le risorse
 

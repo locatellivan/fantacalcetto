@@ -33,7 +33,7 @@
 	// Se l'utente non ha nessuna formazione
 	if($nForm[0]<1) {
 		echo "<h3 align='center'>PER ELIMINARE UNA FORMAZIONE E' NECESSARIO
-		       AVERNE CREATA UNA.<br/> LO PUOI FARE NELLA PAGINA <a href='main.php?op=creaFormazione'>CREA FORMAZIONE</a>.</h3><br/>";
+		       AVERNE CREATA UNA.<br/> LO PUOI FARE NELLA PAGINA <a href='index.php?op=creaFormazione'>CREA FORMAZIONE</a>.</h3><br/>";
 		echo "<br/><br/><br/>";
 	}
 	else {

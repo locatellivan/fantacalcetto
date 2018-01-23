@@ -86,8 +86,8 @@
 		}
 		else {
 			echo "<h3 align='center'>PER ISCRIVERE AD UNA GIORNATA LA FORMAZIONE E' NECESSARIO
-			       AVERNE CREATA UNA. <br/>LO PUOI FARE NELLA PAGINA DEL <a href='main.php?op=creaFormazione'>CREA FORMAZIONE</a>.</h3><br/>
-						 <p align='center'>Per ulteriori informazioni leggi il <a href='main.php?op=regolamento'>regolamento</a>!";
+			       AVERNE CREATA UNA. <br/>LO PUOI FARE NELLA PAGINA DEL <a href='index.php?op=creaFormazione'>CREA FORMAZIONE</a>.</h3><br/>
+						 <p align='center'>Per ulteriori informazioni leggi il <a href='index.php?op=regolamento'>regolamento</a>!";
 			echo "<br/><br/><br/>";
 		}
 

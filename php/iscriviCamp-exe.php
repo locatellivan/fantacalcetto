@@ -23,6 +23,6 @@ foreach($nomeCamp as $nomiCamp) {
 }
 $cid->close();
 
-header("Location:../main.php?op=listaCampionati");
+header("Location:../index.php?op=listaCampionati");
 
 ?>

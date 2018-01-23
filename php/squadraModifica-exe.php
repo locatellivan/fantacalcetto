@@ -13,10 +13,10 @@ if(!empty($motto) && strlen($motto)<=30) {
 															 .":".$cid->error."</p>");
 
 	$cid->close();
-	header("Location:../main.php?op=squadraInfo");
+	header("Location:../index.php?op=squadraInfo");
 }
 else{
-		header("Location:../main.php?op=squadraModifica");
+		header("Location:../index.php?op=squadraModifica");
 }
 
 ?>

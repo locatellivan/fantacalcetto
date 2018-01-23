@@ -145,6 +145,6 @@
 		}
 
 
-		header("Location:../main.php?op=creaFormazione");
+		header("Location:../index.php?op=creaFormazione");
 		$cid->close();
  ?>
