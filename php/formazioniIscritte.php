@@ -33,7 +33,7 @@
 		if($nomeCamp->num_rows>=1) {
 			// per ogni campionato mostro le formazioni iscritte, se presenti
 			while($camp=$nomeCamp->fetch_row()) {
-				echo "<table border=1 align='center'><tr><th style='background-color:#bdb76b;' colspan='3'><center><h3>$camp[0]</h3></center></th></tr>";
+				echo "<table border=1 align='center'><tr><th style='background-color:#bdb76b;' colspan='3'><center><h3><b>$camp[0]</b></h3></center></th></tr>";
 				// Seleziono le formazioni avversarie per quel campionato
 				$sql="SELECT Formazione FROM iscritta WHERE Campionato='$camp[0]' AND Giornata='$numGior[0]'
 							ORDER BY Formazione";

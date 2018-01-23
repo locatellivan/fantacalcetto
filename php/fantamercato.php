@@ -19,10 +19,10 @@
 
             echo "<table border=4 align='center'>
         		     	<tr>
-                  <th><h3>&nbsp;&nbsp;Budget:&nbsp;&nbsp;\nfantamilioni&nbsp;&nbsp;</h3></th>
-                  <th  id='soldi'><center><h3>$soldiRestanti[0]</h3></center></th>
+                  <th style='background-color:ivory;'><h3>&nbsp;&nbsp;Fantamilioni&nbsp;&nbsp;</h3></th>
+                  <th style='background-color:ivory;'><center><h3 id='soldi'>$soldiRestanti[0]</h3></center></th>
                   <form role='form' method='POST' action='php/compravendi-exe.php'>
-                  <th colspan='4'><center><input type='submit' class='btn btn-success' onClick='Fantacontrollo()' value='COMPRAVENDI \n GIOCATORI'>
+                  <th style='background-color:ivory;'><center><input type='submit' class='btn btn-success' onClick='Fantacontrollo()' value='COMPRAVENDI \n GIOCATORI'>
                   </input></center></th>
                   </table>";
 
@@ -33,7 +33,7 @@
   		$nomeSq=$squadra->fetch_row();    // Salvo in una variabile il nome della squadra loggata
   		?>
 
-  		<h2 align="center"><b>VENDI GIOCATORI</b></h2><br/><br/>
+  		<br/><h2 align="center"><b>VENDI GIOCATORI</b></h2><br/>
 
       <?php
 
@@ -142,7 +142,7 @@
 
       			}
 
-            echo"</table>";
+            echo"</table><br/>";
           }
            else {
       			echo "<p align='center'>NESSUN GIOCATORE ANCORA PRESENTE. COMPRALI NELLA SEZIONE APPOSITA!</p><br/>";
@@ -157,7 +157,7 @@
 
 
 echo "<table border='1' align='center' class='table table-striped'>
-      <tr><th>";
+      <tr><th style='background-color:black;'>";
 
 
 
@@ -175,7 +175,7 @@ echo "<table border='1' align='center' class='table table-striped'>
 																					.":".$cid->error."</p>");
 
 			echo "<table align='center' border='1' class='table table-striped'>
-						<tr><th colspan='4'><center><h4><b>- PORTIERI -</b></h4></center></th></tr>
+						<tr><th style='background-color:#7fffd4;' colspan='4'><center><h4><b>- PORTIERI -</b></h4></center></th></tr>
 						<tr><th><center>Cognome</center></th><th>Squadra</th><th>Prezzo</th><th><center>✓</center></th></tr>";
             $y=4;
 						while($gioc=$listaPortiere->fetch_row()) {
@@ -186,7 +186,7 @@ echo "<table border='1' align='center' class='table table-striped'>
 						}
 
             echo"</table>";
-            echo"<h3></h3></th><th>";
+            echo"<h3></h3></th><th style='background-color:black;'>";
 
     if(true) {
       $sql="SELECT Cognome, Prezzo, Squadra  FROM giocatore
@@ -200,7 +200,7 @@ echo "<table border='1' align='center' class='table table-striped'>
                                           .":".$cid->error."</p>");
 
       echo "<table align='center' border='1' class='table table-striped'>
-            <tr><th colspan='4'><center><h4><b>- DIFENSORI -</b></h4></center></th></tr>
+            <tr><th style='background-color:#8fbc8f;' colspan='4'><center><h4><b>- DIFENSORI -</b></h4></center></th></tr>
             <tr><th><center>Cognome</center></th><th>Squadra</th><th>Prezzo</th><th><center>✓</center></th></tr>";
             while($gioc=$listaDifensori->fetch_row()) {
               echo "<tr><td><center>$gioc[0]</center></td><td><center>$gioc[2]</center></td><td><center>$gioc[1]</center></td>
@@ -209,7 +209,7 @@ echo "<table border='1' align='center' class='table table-striped'>
 
             }echo"</table>";
     }
-    echo"</th><th>";
+    echo"</th><th style='background-color:black;'>";
   }
 
     //seeziono e visulizzzo centrocampisti
@@ -226,7 +226,7 @@ echo "<table border='1' align='center' class='table table-striped'>
 
           echo "<form role='form' method='POST' onsumbit='javascript:xmlhttpPost('compra_ajax.php');' class='form-inline'>
                 <table align='center' border='1' class='table table-striped'>
-                <tr><th colspan='4'><center><h4><b>- CENTROCAMPISTI -</b></h4></center></th></tr>
+                <tr><th style='background-color:#e9967a;' colspan='4'><center><h4><b>- CENTROCAMPISTI -</b></h4></center></th></tr>
                 <tr><th><center>Cognome</center></th><th>Squadra</th><th>Prezzo</th><th id='spunta'><center>✓</center></th></tr>";
                 while($gioc=$listaCentrocampisti->fetch_row()) {
                   echo "<tr><td><center>$gioc[0]</center></td><td><center>$gioc[2]</center></td><td><center>$gioc[1]</center></td>
@@ -235,7 +235,7 @@ echo "<table border='1' align='center' class='table table-striped'>
 
                 }echo"</table>";
         }
-        echo"</th><th>";
+        echo"</th><th style='background-color:black;'>";
 
 
             if(true) {
@@ -251,7 +251,7 @@ echo "<table border='1' align='center' class='table table-striped'>
 
               echo "<form role='form' method='POST' onsumbit='javascript:xmlhttpPost('compra_ajax.php');' class='form-inline'>
                     <table align='center' border='1' class='table table-striped'>
-                    <tr><th colspan='4'><center><h4><b>- ATTACCANTI -</b></h4></center></th></tr>
+                    <tr><th style='background-color:#dda0dd;' colspan='4'><center><h4><b>- ATTACCANTI -</b></h4></center></th></tr>
                     <tr><th><center>Cognome</center></th><th>Squadra</th><th>Prezzo</th><th id='spunta'><center>✓</center></th></tr>";
                     while($gioc=$listaAttaccanti->fetch_row()) {
                       echo "<tr><td><center>$gioc[0]</center></td><td><center>$gioc[2]</center></td><td><center>$gioc[1]</center></td>
