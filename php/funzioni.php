@@ -281,13 +281,22 @@ else {
       }
 }
     // Funzioni AJAX per la gestione del fatamercato
-    function controlloCheck() {
-      if(document.getElementById('spunta').checked==true) {
-        funzione();
+    function controlloCheck(denaro, id) {
+      if(id<40000)    {
+      if(document.getElementById(id).checked==true) {
+        somma(denaro);
       } else {
-          funzione2();
+          differenza(denaro);
+        }
+      }
+      else{
+      if(document.getElementById(id).checked==true) {
+        differenza(denaro);
+      } else {
+          somma(denaro);
         }
 
+      }
     }
 
     function ajaxRequest() {
@@ -301,14 +310,31 @@ else {
       return request;
     }
 
-    function funzione() {
+    function somma(denaro) {
+      var denaro =denaro;
+      var soldiRimanenti =document.getElementById("soldi").innerHTML;
+      var passaggio = (denaro*1)+(soldiRimanenti*1);
       var xhttp=new ajaxRequest();
       xhttp.onreadystatechange=function(){
         if(this.readyState==4 && this.status==200){
           document.getElementById("soldi").innerHTML=this.responseText;
         }
       }
-      xhttp.open("GET","php/provaAjax.php", true);
+      xhttp.open("GET","php/fantaAjax.php?q="+passaggio, true);
+      xhttp.send();
+    }
+
+    function differenza(denaro) {
+      var denaro =denaro;
+      var soldiRimanenti =document.getElementById("soldi").innerHTML;
+      var passaggio = (soldiRimanenti*1)-(denaro*1);
+      var xhttp=new ajaxRequest();
+      xhttp.onreadystatechange=function(){
+        if(this.readyState==4 && this.status==200){
+          document.getElementById("soldi").innerHTML=this.responseText;
+        }
+      }
+      xhttp.open("GET","php/fantaAjax.php?q="+passaggio, true);
       xhttp.send();
     }
 

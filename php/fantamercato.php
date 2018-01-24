@@ -32,8 +32,9 @@
   																	 .":".$cid->error."</p>");
   		$nomeSq=$squadra->fetch_row();    // Salvo in una variabile il nome della squadra loggata
   		?>
-
-  		<br/><h2 align="center"><b>VENDI GIOCATORI</b></h2><br/>
+  		<br/><h4 align="center" >Dopo avere selezionato  i giocatori che vuoi vendere o comprare clicca su COMPRAVENDI GIOCATORI per confermare. </br>
+                                          Qualunque modifica non verrà salvata in caso contrario.</h4><br/>
+  		<h2 align="center"><b>VENDI GIOCATORI</b></h2><br/>
 
       <?php
 
@@ -63,13 +64,15 @@
         																	 ."<p>codice di errore ".$cid->errno
         																	 .":".$cid->error."</p>");
 
+            $ciclo=0;
       			while ($por=$res->fetch_row()){
 
                 echo "<tr><td><center>$por[0]</center></td>
                           <td><center>$por[1]</center></td>
-                          <td><center>$por[2]</center></td>
-                         <td><center><input type='checkbox'  name='vendiPortieri[]' value='".$por[0]."'/></center></td>
+                          <td><center id='portiereS'>$por[2]</center></td>
+                         <td><center><input type='checkbox' onClick='controlloCheck($por[2], $ciclo )'id='$ciclo' name='vendiPortieri[]' value='".$por[0]."'/></center></td>
                           </tr>";
+                          $ciclo++;
                         }
 //difensori
              $sql="SELECT Cognome, Ruolo, Prezzo
@@ -83,15 +86,16 @@
          																	 .":".$cid->error."</p>");
 
 
-
+            $ciclo=10000;
             while ($dif=$res->fetch_row()) {
 
 
               echo "<tr><td><center>$dif[0]</center></td>
                         <td><center>$dif[1]</center></td>
                         <td><center>$dif[2]</center></td>
-      				          <td><center><input type='checkbox'  name='vendiDifensori[]' value='".$dif[0]."'/></center></td>
+      				          <td><center><input type='checkbox' onClick='controlloCheck($dif[2], $ciclo )'id='$ciclo' name='vendiDifensori[]' value='".$dif[0]."'/></center></td>
                         </tr>";
+                        $ciclo++;
 
       			}
 //centrocampisti
@@ -106,15 +110,16 @@
          																	 .":".$cid->error."</p>");
 
 
-
+            $ciclo=20000;
             while ($cent=$res->fetch_row()) {
 
 
               echo "<tr><td><center>$cent[0]</center></td>
                         <td><center>$cent[1]</center></td>
                         <td><center>$cent[2]</center></td>
-      				          <td><center><input type='checkbox'  name='vendiCentrocampisti[]' value='".$cent[0]."'/></center></td>
+      				          <td><center><input type='checkbox' onClick='controlloCheck($cent[2], $ciclo )'id='$ciclo'  name='vendiCentrocampisti[]' value='".$cent[0]."'/></center></td>
                         </tr>";
+                        $ciclo++;
 
       			}
 
@@ -130,15 +135,16 @@
          																	 .":".$cid->error."</p>");
 
 
-
+            $ciclo=30000;
             while ($att=$res->fetch_row()) {
 
 
               echo "<tr><td><center>$att[0]</center></td>
                         <td><center>$att[1]</center></td>
                         <td><center>$att[2]</center></td>
-      				          <td><center><input type='checkbox'  name='vendiAttaccanti[]' value='".$att[0]."'/></center></td>
+      				          <td><center><input type='checkbox' onClick='controlloCheck($att[2], $ciclo )'id='$ciclo'  name='vendiAttaccanti[]' value='".$att[0]."'/></center></td>
                         </tr>";
+                        $ciclo++;
 
       			}
 
@@ -153,8 +159,6 @@
  <h2 align="center"><b>COMPRA GIOCATORI</b></h2><br/><br/>
 
 <?php
-
-
 
 echo "<table border='1' align='center' class='table table-striped'>
       <tr><th style='background-color:black;'>";
@@ -177,12 +181,15 @@ echo "<table border='1' align='center' class='table table-striped'>
 			echo "<table align='center' border='1' class='table table-striped'>
 						<tr><th style='background-color:#7fffd4;' colspan='4'><center><h4><b>- PORTIERI -</b></h4></center></th></tr>
 						<tr><th><center>Cognome</center></th><th>Squadra</th><th>Prezzo</th><th><center>✓</center></th></tr>";
-            $y=4;
+
+            $ciclo=50000;
 						while($gioc=$listaPortiere->fetch_row()) {
-							echo "<tr><td><center>$gioc[0]</center></td><td><center>$gioc[2]</center></td><td><center>$gioc[1]</center></td>
-							<td><center><input type='checkbox' id='$y' onClick='controllod()' name='compraPortieri[]' value='".$gioc[0]."'/>
-							</center></td></tr>";
-              $y++;
+							echo "<tr><td><center>$gioc[0]</center></td>
+                    <td><center>$gioc[2]</center></td>
+                    <td><center>$gioc[1]</center></td>
+			              <td><center><input type='checkbox' onClick='controlloCheck($gioc[1], $ciclo )' id='$ciclo' name='compraPortieri[]' value='".$gioc[0]."'/></center></td>
+                    </tr>";
+              $ciclo++;
 						}
 
             echo"</table>";
@@ -202,10 +209,12 @@ echo "<table border='1' align='center' class='table table-striped'>
       echo "<table align='center' border='1' class='table table-striped'>
             <tr><th style='background-color:#8fbc8f;' colspan='4'><center><h4><b>- DIFENSORI -</b></h4></center></th></tr>
             <tr><th><center>Cognome</center></th><th>Squadra</th><th>Prezzo</th><th><center>✓</center></th></tr>";
+            $ciclo=60000;
             while($gioc=$listaDifensori->fetch_row()) {
               echo "<tr><td><center>$gioc[0]</center></td><td><center>$gioc[2]</center></td><td><center>$gioc[1]</center></td>
-              <td><center><input type='checkbox' onclick='loadDocBuy()' name='compraDifensori[]' value='".$gioc[0]."'/>
+              <td><center><input type='checkbox'  onClick='controlloCheck($gioc[1], $ciclo )' id='$ciclo' name='compraDifensori[]' value='".$gioc[0]."'/>
               </center></td></tr>";
+              $ciclo++;
 
             }echo"</table>";
     }
@@ -228,11 +237,12 @@ echo "<table border='1' align='center' class='table table-striped'>
                 <table align='center' border='1' class='table table-striped'>
                 <tr><th style='background-color:#e9967a;' colspan='4'><center><h4><b>- CENTROCAMPISTI -</b></h4></center></th></tr>
                 <tr><th><center>Cognome</center></th><th>Squadra</th><th>Prezzo</th><th id='spunta'><center>✓</center></th></tr>";
+                $ciclo=70000;
                 while($gioc=$listaCentrocampisti->fetch_row()) {
                   echo "<tr><td><center>$gioc[0]</center></td><td><center>$gioc[2]</center></td><td><center>$gioc[1]</center></td>
-                  <td><center><input type='checkbox' onclick='loadDocBuy()' name='compraCentrocampisti[]' value='".$gioc[0]."'/>
+                  <td><center><input type='checkbox'  onClick='controlloCheck($gioc[1], $ciclo )' id='$ciclo' name='compraCentrocampisti[]' value='".$gioc[0]."'/>
                   </center></td></tr>";
-
+                  $ciclo++;
                 }echo"</table>";
         }
         echo"</th><th style='background-color:black;'>";
@@ -253,11 +263,12 @@ echo "<table border='1' align='center' class='table table-striped'>
                     <table align='center' border='1' class='table table-striped'>
                     <tr><th style='background-color:#dda0dd;' colspan='4'><center><h4><b>- ATTACCANTI -</b></h4></center></th></tr>
                     <tr><th><center>Cognome</center></th><th>Squadra</th><th>Prezzo</th><th id='spunta'><center>✓</center></th></tr>";
+                    $ciclo=80000;
                     while($gioc=$listaAttaccanti->fetch_row()) {
                       echo "<tr><td><center>$gioc[0]</center></td><td><center>$gioc[2]</center></td><td><center>$gioc[1]</center></td>
-                      <td><center><input type='checkbox' onclick='loadDocBuy()' name='compraAttaccanti[]' value='".$gioc[0]."'/>
+                      <td><center><input type='checkbox'  onClick='controlloCheck($gioc[1], $ciclo )' id='$ciclo' name='compraAttaccanti[]' value='".$gioc[0]."'/>
                       </center></td></tr>";
-
+                      $ciclo++;
                     }echo"</table>";
             }
     echo"</th></tr></table>";
