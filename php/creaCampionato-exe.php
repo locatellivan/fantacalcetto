@@ -51,18 +51,17 @@ while($elenco=$elencoCamp->fetch_row()){
 		$errDB2++;
 	}
 }
-if($errDB2==0){
-	if(strlen($nomeCamp)<=20 && strlen($nomeCamp)!=0 && $dataInizio_New<$dataFine_New && $diffAnni<=1 && ($dataInizio>=$today || $dataOdierna)) {
+if($errDB2==0) {
+	if(/*strlen($nomeCamp)<=20 && strlen($nomeCamp)!=0 && $dataInizio_New<$dataFine_New && $diffAnni<=1 && */($dataInizio_New>$today || $dataOdierna)) {
 		$query="INSERT INTO `campionato`(`NomeCamp`, `DataInizio`, `DataFine`, `Creatore`)
 	   				VALUES ('$nomeCamp', '$dataInizio', '$dataFine','$mailUtente[0]')";
 		$cid->query($query) or die("<p>Impossibile eseguire query.</p>"
-																	 ."<p>codice di errore ".$cid->errno
-																	 .":".$cid->error."</p>");
-
+															 ."<p>codice di errore ".$cid->errno
+															 .":".$cid->error."</p>");
 		header("Location:../index.php?op=listaCampionati");
 	}
 	else {
-		header("Location:../index.php?op=creaCampionato");
+			header("Location:../index.php?op=creaCampionato");
 	}
 }
 else {
