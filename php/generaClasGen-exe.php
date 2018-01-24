@@ -12,6 +12,7 @@
 	$nomeSq=$squadra->fetch_row();
 
 	$str.='<?xml version="1" encoding="ISO-8859-1">'; $str.="\n";
+	$str.='<!DOCTYPE CLASSIFICA SYSTEM "clasGen.dtd">'; $str.="\n";
 	$str.='<CLASSIFICA tipo="generale">'; $str.="\n";
 	// Seleziono i campionati  a cui si partecipa per i quali mostro la classifica GENERALE
 	$sql="SELECT DISTINCT Campionato, DataInizio, DataFine

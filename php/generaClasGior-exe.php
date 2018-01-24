@@ -20,6 +20,7 @@
 	$gior=$ultimaGior->fetch_row();
 
 	$str.='<?xml version="1" encoding="ISO-8859-1">'; $str.="\n";
+	$str.='<!DOCTYPE CLASSIFICA SYSTEM "clasGior.dtd">'; $str.="\n";
 	$str.='<CLASSIFICA tipo="giornaliera" giornata="'.$gior[0].'">'; $str.="\n";
 
 	// Variabile per i campionati per i quali si è giocata l'ultima giornata
