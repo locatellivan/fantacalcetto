@@ -107,12 +107,12 @@
 
 	if($nForm[0]==3) {
 		echo "<p align='center'> HAI RAGGIUNTO IL LIMITE MASSIMO DI FORMAZIONI.<br/>
-		      PER CREARNE DI NUOVE E' NECESSARIO <a href='main.php?op=eliminaFormazione'>ELIMINARLE</a>.
+		      PER CREARNE DI NUOVE E' NECESSARIO <a href='index.php?op=eliminaFormazione'>ELIMINARLE</a>.
 		</p><br/><br/>";
 	}
 	else if ($nGioc[0]<11) {
 		$giocMancanti=11-$nGioc[0];
-		echo "<p align='center'>PER CREARE UNA FOMRAZIONE E' NECESSARIO AVERE LA SQUADRA AL COMPLETO. VAI AL <a href='main.php?op=fantamercato'>FANTAMERCATO</a></p><br/><br/>";
+		echo "<p align='center'>PER CREARE UNA FOMRAZIONE E' NECESSARIO AVERE LA SQUADRA AL COMPLETO. VAI AL <a href='index.php?op=fantamercato'>FANTAMERCATO</a></p><br/><br/>";
 		echo "<table align='center' border=2><tr><th>GIOCATORI MANCANTI:&nbsp;</th><td>&nbsp;$giocMancanti&nbsp;</td></tr></table><br/><br/>";
 	} else {
 				echo "<table align='center' border=1>";
