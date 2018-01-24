@@ -5,7 +5,7 @@
 													potrebbe non essere ancora stato aggiornato.</b></h5><br/>
 
 		<form role="form" method="POST" action="php/generaClasGen-exe.php">
-		<center><input type="submit" class="btn-lg btn-info" value="AGGIORNA CLASSIFICA GENERALE"></input>
+		<center><input type="submit" onclick="grazie()" class="btn-lg btn-info" value="AGGIORNA CLASSIFICA GENERALE"></input>
 		</center></form><br/>
 		<center><a href="XML/clasGenerale.xml" download><button class="btn-lg btn-basic">DOWNLOAD FILE</button></a></center><br/>
 
@@ -16,7 +16,7 @@
 													potrebbe non essere ancora stato aggiornato.</b></h5><br/>
 
 		<form role="form" method="POST" action="php/generaClasGior-exe.php">
-		<center><input type="submit" class="btn-lg btn-info" value="AGGIORNA CLASSIFICA GIORNALIERA"></input>
+		<center><input type="submit" onclick="grazie()" class="btn-lg btn-info" value="AGGIORNA CLASSIFICA GIORNALIERA"></input>
 		</center></form><br/>
 		<center><a href="XML/clasGiornaliera.xml" download><button class="btn-lg btn-basic">DOWNLOAD FILE</button></a></center><br/>
 
