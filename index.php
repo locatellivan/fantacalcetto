@@ -37,8 +37,8 @@
 						}
 					}
 					else
-						echo "<h1 class='h1HOME'>Ciao $_SESSION[nick] <br/>
-										Puoi accedere alle funzionalità del sito</h1>";
+						echo "<div class='well'><h1 class='h1HOME'>Ciao $_SESSION[nick] <br/>
+										Puoi accedere alle funzionalità del sito</h1></div>";
 				}
 				else
 				{
@@ -47,8 +47,8 @@
 					 else
 						{
 						if (isset($_COOKIE["user"]))
-							echo "<h1>Ciao $_COOKIE[user].<br/>
-									Per accedere ai servizi è necessario autenticarti</h1>";
+							echo "<div class='well'><h1>Ciao $_COOKIE[user].<br/>
+									Per accedere ai servizi è necessario autenticarti</h1></div>";
 						else
 						{
 								echo "<h1 class='h1HOME'>Crea la tua squadra,<br/>
