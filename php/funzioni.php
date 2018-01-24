@@ -151,6 +151,11 @@
 		}
 	}
 
+  // Alert per confermato aggiornamento dei file per il download delle classifiche
+  function grazie() {
+    alert("Grazie, il file è stato aggiornato all'ultima giornata giocata.\nClicca su DOWNLOAD per scaricarlo.")
+  }
+
   // Gestione alert per il crea formazione
   function errCreaFormazione()  {
 		var nomeForm = document.getElementById("nomeForm").value;
