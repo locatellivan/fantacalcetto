@@ -12,7 +12,7 @@
 																 .":".$cid->error."</p>");
 	$numGior=$numero->fetch_row();
 
-	echo "<h2 align='center'><b>FORMAZIONI AVVERSARIE ISCRITTE A:<br/><br/>
+	echo "<h2 align='center'><b>FORMAZIONI ISCRITTE A:<br/><br/>
 				GIORNATA&nbsp;$numGior[0]</b></h3><br/><br/>";
 
 		// Salvo in una variabile il nome della squadra loggata
