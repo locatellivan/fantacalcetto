@@ -26,11 +26,6 @@
 				$sql="SELECT NumGior FROM giornata WHERE Stato='NGA'";
 				$giornata=$cid->query($sql);
 				$gior=$giornata->fetch_row();
-				// queste variabili servono a gestire situazioni di errori locali alla pagina
-				// per le quali evito una ridirezione, ma semplicemente produco un messaggio che
-				// viene visualizzato in fondo alla pagina.
-				$_errore = false;
-				$_err_msg="";
 
 				//Recupero il valore dello stato della pagina
 				if(isset($_GET['status'])) {
@@ -39,7 +34,7 @@
 						echo "<div class='well well-sm' style='background: rgba(212,71,42,0.4);'>";
 						echo "<h4 align='center'>MAIL O PASSWORD ERRATE!</h4></div>";
 					}
-					else if($status="ok") {
+					else if($status="log") {
 						echo "<div class='well well-sm' style='background: rgba(37,217,43,0.4);'>";
 						echo "<h4 align='center'>LOGIN EFFETTUATO!</h4></div>";
 					}
@@ -55,10 +50,10 @@
 						}
 					}
 					else
-						echo "<br/><div class='well'><h1 class='h1HOME'>Benvenuto $_SESSION[nick]!</h1>
-										<h1><center>Puoi accedere alle funzionalità del sito.<br/><br/></div>
-										<div class='well' style='color:white; background:rgba(79,115,106,0.74);'>
-										<h1 align='center'>Prossima giornata:&nbsp;&nbsp;$gior[0]</center></h1></div>";
+						echo "<div class='well well-sm' style='color:white; background:rgba(66,77,79,0.4);'>
+									<h1 class='h1HOME'><i><u>Benvenuto $_SESSION[nick]!</u></h1>
+									<h1><center>Puoi accedere alle funzionalità del sito.</i><br/><br/>
+									<h1 align='center'>PROSSIMA GIORNATA:&nbsp;&nbsp;$gior[0]</center></h1></div>";
 				}
 				else
 				{

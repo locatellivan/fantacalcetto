@@ -55,7 +55,7 @@
 																		 .":".$cid->error."</p>");
 
 			$cid->close();
-			header("Location:../index.php?op=&status=OK");
+			header("Location:../index.php");
 			}
 			else {
 				header("Location:../index.php?op=registrazione");
