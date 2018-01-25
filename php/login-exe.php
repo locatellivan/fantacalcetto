@@ -37,12 +37,11 @@ if ($mail==$row[0] && $psw==$row[1])
   $_SESSION['nick']=$user[0];
   $cid->close();
 
-  header("Location:../index.php");
+  header("Location:../index.php?&status=ok");
 }
 else
 {
-
-  header("Location:../index.php?op=loginErrore.php");
+  header("Location:../index.php?&status=ko");
 }
 
 
