@@ -50,10 +50,11 @@
 						}
 					}
 					else
-						echo "<div class='well well-sm' style='color:white; background:rgba(66,77,79,0.4);'>
-									<h1 class='h1HOME'><i><u>Benvenuto $_SESSION[nick]!</u></h1>
-									<h1><center>Puoi accedere alle funzionalità del sito.</i><br/><br/>
-									<h1 align='center'>PROSSIMA GIORNATA:&nbsp;&nbsp;$gior[0]</center></h1></div>";
+						echo "<div class='well well-sm' style='background:rgba(66,77,79,0.4);'>
+									<h1 class='h1HOME'><i>Benvenuto $_SESSION[nick]!</h1>
+									<h1><center>Preparati per le prossime partite!</i><br/><br/><br/>
+									<h1><div align='center' class='well well-sm' style='background:rgba(20,202,222,0.4); width:40%;'>
+									<b>PROSSIMA GIORNATA:<br/>$gior[0]</b></div></h1></div><br/>";
 				}
 				else
 				{
