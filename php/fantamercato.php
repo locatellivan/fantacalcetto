@@ -22,7 +22,7 @@
                   <th style='background-color:ivory;'><h3>&nbsp;&nbsp;Fantamilioni&nbsp;&nbsp;</h3></th>
                   <th style='background-color:ivory;'><center><h3 id='soldi'>$soldiRestanti[0]</h3></center></th>
                   <form role='form' method='POST' action='php/compravendi-exe.php'>
-                  <th style='background-color:ivory;'><center><input type='submit' class='btn btn-success' onClick='Fantacontrollo()' value='COMPRAVENDI \n GIOCATORI'>
+                  <th style='background-color:ivory;'><center><input type='submit' class='btn btn-success' value='COMPRAVENDI \n GIOCATORI'>
                   </input></center></th>
                   </table>";
 
@@ -272,6 +272,7 @@ echo "<table border='1' align='center' class='table table-striped'>
                     }echo"</table>";
             }
     echo"</th></tr></table>";
+    echo "<script type='text/javascript'>Fantacontrollo();</script>"
 ?>
 <!-- <td style="border: 1; align: center" -->
 </div>

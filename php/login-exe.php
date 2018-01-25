@@ -41,7 +41,8 @@ if ($mail==$row[0] && $psw==$row[1])
 }
 else
 {
-  header("Location:../index.php?op=none&status=ko&msg=" . urlencode("Autenticazione fallita."));
+
+  header("Location:../index.php?op=loginErrore.php");
 }
 
 

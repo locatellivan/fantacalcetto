@@ -1,5 +1,12 @@
 <script>
-
+  function erroreLogin(){
+    var login = getUrlVars()["msg"];
+    alert(login);
+    if(login!=AutenticazioneFallita){}
+    else{
+    alert("Ci dispiace! \n I dati inseriti sono incorretti o non presenti nel database \n riprova o registrati")
+  }
+}
   // Gestione alert in registrazione
   function errRegistrazione()  {
     var duplicazione = getUrlVars()["err"];
@@ -56,7 +63,10 @@
     alert("email e/o nickname e/o nome della squadra in uso da un'altro utente\ncambili per registrarti");
   }
 	}
-
+//aggiornamento giornate
+  function grazie(){
+    alert("grazie per aver aggiornato la classifica \nse vuoi ora puoi scaricare il file aggiornato");
+  }
   // Gestione alert in modifica squadra
 	function errModificaSquadra()  {
 		var motto = document.getElementById("motto").value;
@@ -344,6 +354,7 @@ else {
     }
 
 function  Fantacontrollo(){
+
   var modEff = getUrlVars()["mod"];
   var livPortieri = getUrlVars()["msgP"];
   var livDifensori = getUrlVars()["msgD"];
@@ -381,7 +392,7 @@ if(modEff=='SI'){
         }
         else{alert('Modifica effettuata con successo\nricorda che devi consegnare le tue nuove formazioni')}
    }
-
+ 
 }
 
 

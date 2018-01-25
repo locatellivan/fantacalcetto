@@ -108,7 +108,7 @@ Maggiori informazioni a http://www.html.it/guide/img/bootstrap/ref/modal.html --
 			 <input type="text" name="mail" placeholder="e-Mail"  value="<?php if (isset($_COOKIE["user"])) echo $_COOKIE["user"]; ?>">
 			 <input type="password" name="password" placeholder="Password">
 			 <b>Ricordami</b>:  <input type="checkbox" name="ricordami" <?php if (isset($_COOKIE["user"])) echo "checked"; ?>>
-			 <br/><input type="submit" name="login" class="login loginmodal-submit" value="Login">
+			 <br/><input type="submit" onclick="pippo()" name="login" class="login loginmodal-submit" value="Login">
 			 </form>
 
 			 <div class="login-help">
