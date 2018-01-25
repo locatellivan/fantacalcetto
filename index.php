@@ -35,8 +35,8 @@
 						echo "<h4 align='center'>MAIL O PASSWORD ERRATE!</h4></div>";
 					}
 					else if($status="log") {
-						echo "<div class='well well-sm' style='background: rgba(37,217,43,0.4);'>";
-						echo "<h4 align='center'>LOGIN EFFETTUATO!</h4></div>";
+						echo "<center><div aling='center' class='well well-sm' style='width:30%; background: rgba(37,217,43,0.4);'>";
+						echo "<h4 align='center'>LOGIN EFFETTUATO!</h4></div></center>";
 					}
 				}
 
@@ -62,9 +62,10 @@
 							include_once "php/". $_GET["op"] . ".php";
 					 else
 						{
-						if (isset($_COOKIE["user"]))
+						if (isset($_COOKIE["user"])) {
 							echo "<div class='well'><h1>Ciao $_COOKIE[user].<br/>
 									Per accedere ai servizi è necessario autenticarti</h1></div>";
+							}
 						else
 						{
 								echo "<h1 class='h1HOME'>Crea la tua squadra,<br/>

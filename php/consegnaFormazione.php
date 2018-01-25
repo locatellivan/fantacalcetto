@@ -1,5 +1,5 @@
 <div class="well">
-	<h1 align="center"><b>CONSEGNA FORMAZIONE</b></h1><br/>
+	<h1 align="center"><b>CONSEGNA FORMAZIONE</b></h1>
 
 	<?php
 
@@ -59,6 +59,8 @@
 	// Se il giocatore non possiede formaioni non puo iscriversi alle giornate di campionato.
 	if($nForm[0]>=1) {
 
+		echo "<center><h4><div align='center' class='well well-sm' style='background:rgba(70,197,212,1); width:25%;'>
+		      <b>GIORNATA DA GIOCARE:<br/>$gior[0]</b></div></h4>";
 		echo "<form role='form' method='POST' action='php/consegnaFormazione-exe.php' class='form-inline'>
 					<table border=1 align='center'>";
 		echo "<tr><th><center>Formazione:</th><td><center><select name='formazione'>";
@@ -72,12 +74,6 @@
 					while($nomeCa=$campionato->fetch_row()) {
 							echo "<option value='$nomeCa[0]'>$nomeCa[0]</option>";
 					}
-		echo "</select></center></td></tr>";
-		echo "<tr><th><center><b>Giornata</b></center></th>";
-		echo "<td><center><select name='giornata'>";
-		while($gior=$giornateGiocate->fetch_row()) {
-			echo "<option value='$gior[0]'>$gior[0]</option>";
-		}
 		echo "</select></center></td></tr>";
 		echo "<tr><td colspan='2'><center><input type='submit'
 					class='btn btn-success' value='CONSEGNA FORMAZIONE'></input></center></td>

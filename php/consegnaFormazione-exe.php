@@ -6,7 +6,12 @@
 
 	$campionato=$_POST['campionato'];
 	$formazione=$_POST['formazione'];
-	$giornata=$_POST['giornata'];
+
+	// Seleziono il numero dela prossima giornata
+	$sql="SELECT NumGior FROM giornata WHERE Stato='NGA'";
+	$giornata=$cid->query($sql);
+	$gior=$giornata->fetch_row();
+
 	// Salvo in una variabile il nome della squadra loggata
 	$sql="SELECT nomeSq FROM squadra JOIN utente ON Mail=Utente WHERE Nickname='".$nick."'";
 	$squadra=$cid->query($sql) or die("<p>Impossibile eseguire query.</p>"
@@ -17,7 +22,7 @@
 	// Salvo i campionati ai quali sono già iscritto per la prossima giornata.
 	$sql="SELECT Campionato
 				FROM iscritta JOIN formazione ON IdForm=Formazione
-				WHERE Campionato='$campionato' AND Giornata='$giornata' AND Squadra='$nomeSq[0]'";
+				WHERE Campionato='$campionato' AND Giornata='$gior[0]' AND Squadra='$nomeSq[0]'";
 	$campGiaIsc=$cid->query($sql);
 
 	if($campGiaIsc->num_rows==0) {
@@ -30,7 +35,7 @@
 
   if($cons) {
 		$query="UPDATE iscritta SET Formazione='$formazione'
-		        WHERE Giornata='$giornata' AND Campionato='$campionato'
+		        WHERE Giornata='$gior[0]' AND Campionato='$campionato'
 						AND Formazione IN (SELECT IdForm FROM formazione
 															 WHERE Squadra='$nomeSq[0]')";
 		$cid->query($query) or die("<p>Impossibile eseguire query.</p>"
@@ -40,7 +45,7 @@
 	}
 	else {
 		$query="INSERT INTO iscritta (Formazione, Campionato, Giornata)
-	        	VALUES ('$formazione','$campionato','$giornata')";
+	        	VALUES ('$formazione','$campionato','$gior[0]')";
 		$cid->query($query) or die("<p>Impossibile eseguire query.</p>"
 																	 ."<p>codice di errore ".$cid->errno
 																	 .":".$cid->error."</p>");
