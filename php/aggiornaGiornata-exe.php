@@ -260,11 +260,7 @@
 
 
 
-
-
-
-
-	header("Location:../index.php?op=classificaGiornata");
+	header("Location:../index.php?op=classificaCampionati");
 
 
 ?>
