@@ -38,7 +38,8 @@
 	 Ci sono due differenti sezioni per visualizzare le classifiche. Nella <b>clessifiche generali</b> vengono mostrati i punti totali delle squadre, per tutti i campionati in corso a cui
    si partecipa. Una volta terminato il campionato sarà possibile visualizzare il relativo campione nello storico (chi ha totalizzato più punti).<br/>
 	 Nelle <b>classifiche giornaliere</b> viene mostrato sopra il numero della giornata per la quale si sono giocate le ultime partite. I voti presi dai tuoi giocatori sono visibili in
-	 una tabella apposita. Sotto di questa vengono mostrati tutti i punteggi giornalieri per tutti i campionati a cui si è iscritto.
+	 una tabella apposita. Sotto di questa vengono mostrati tutti i punteggi giornalieri per tutti i campionati a cui si è iscritto. Qui verranno anche segnalati i TopCoach, cioè
+	 coloro i quali titolari hanno preso un voto maggiore della media dei voti di tutti gli altri giocatori titolari.<br/>
 	 Viene poi data la possibilità di <b>esportare le classifiche generali e giornaliere in formato XML</b>. Prima di effettuare il download si consiglia di aggiornare il file,
 	 in caso qualcuno non l'abbia ancora fatto. Cliccando subito su DOWNLOAD si rischia di scaricare il file corrispondente alla giornata precedente.<br/>
 	 Nello <b>storico dei campioni</b> è possibile visualizzare tutti i vincitori dei campionati che si sono conclusi.<br/>
