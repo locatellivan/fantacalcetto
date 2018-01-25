@@ -55,8 +55,9 @@
 		} else {
 			 echo "<p align='center'>NON C'E' NESSUN CAMPIONATO IN CORSO.</p>";
 		}
-
+/*
 ?>
+
 
 	<br/><br/>
 	<h2 align="center"><b>CAMPIONATI CONCLUSI</b></h2><br/>
@@ -98,7 +99,7 @@
 	} else {
 		 echo "<p align='center'>NON SI E' CONCLUSO ALCUN CAMPIONATO A CUI SI PARTECIPA.</p>";
 	}
-
+*/	
 ?>
 
 </div>
