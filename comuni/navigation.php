@@ -1,3 +1,13 @@
+<?php
+	if (isset($_SESSION["nick"])) {
+		include_once("php/connessione.php");
+		$nick=$_SESSION['nick'];
+		$sql="SELECT Tipo FROM utente WHERE Nickname='$nick'";
+		$tipoUt=$cid->query($sql);
+		$tipo=$tipoUt->fetch_row();
+	}
+?>
+
 <nav class="navbar navbar-inverse navbar-static-top">
 	 <div class="container">
 
@@ -17,8 +27,10 @@
 			 <ul class="nav navbar-nav">
 				 <li class="active"><a href="index.php">HOME</a></li>
 				 <li class="active"><a href="index.php?op=regolamento">REGOLAMENTO</a></li>
-				 <?php if (isset($_SESSION["nick"])) { ?>
-					 <li class="active"><a href="index.php?op=amministrazione">AMMINISTRAZIONE</a></li>
+				 <?php if (isset($_SESSION["nick"])) {
+					 if($tipo[0]=='Amministratore') {?>
+					 	<li class="active"><a href="index.php?op=amministrazione">AMMINISTRAZIONE</a></li>
+				 <?php } ?>
 					 <li class="dropdown">
 						 <a href="#" class="dropdown-toggle" data-toggle="dropdown"
 			          role="button" aria-haspopup="true" aria-expanded="false"
