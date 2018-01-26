@@ -1,5 +1,5 @@
 <?php
-
+	// Stabilisco la connessione col DB
 	include_once("connessione.php");
 
 	// Salvo la giornata per la quale vengono generati i risultati
@@ -23,11 +23,9 @@
 																	 ."<p>codice di errore ".$cid->errno
 																	 .":".$cid->error."</p>");
 	}
-	// ELIMINO I DATI CHE NON SERVIRANNO PIU'
-
 
 	// Seleziono tutte le formazioni iscritte alla giornata
-	$sql="SELECT  DISTINCT Formazione
+	$sql="SELECT DISTINCT Formazione
 				FROM iscritta WHERE Giornata='$gior[0]'";
 	$formDaAgg=$cid->query($sql) or die("<p>Impossibile eseguire query.</p>"
 																 ."<p>codice di errore ".$cid->errno
@@ -44,8 +42,7 @@
 		$giocatoriInForm=$cid->query($sql) or die("<p>Impossibile eseguire query.</p>"
 																	 ."<p>codice di errore ".$cid->errno
 																	 .":".$cid->error."</p>");
-		// Imposto una variabile di controlo per le sostituzioni
-		$ciSonoSostituti=true;
+
 		// Per ogni punteggio del giocatore sommo ai punti giornalieri
 		while($titolare=$giocatoriInForm->fetch_row()) {
 			// Prendo il voto del giocatore considerato
@@ -77,10 +74,11 @@
 				$ris=$cid->query($sql) or die("<p>Impossibile eseguire query.</p>"
 																			 ."<p>codice di errore ".$cid->errno
 																			 .":".$cid->error."</p>");
+				// Salvo questi giocatori in un array
 				while($nomeRis=$ris->fetch_row()) {
 					$riserve[]=$nomeRis[0];
 				}
-				// Nel caso ho un solo sostituto per quel ruolo, se il voto è != da -1 lo sommo
+				// Nel caso ho un solo sostituto per quel ruolo, se il voto è diverso da "-1" lo sommo
 				if(count($riserve)==1) {
 					// Salvo il punteggio dell'unico sostituto
 					$sql="SELECT Punteggio FROM gioca WHERE Giocatore='$riserve[0]'";
@@ -88,8 +86,8 @@
 																				 ."<p>codice di errore ".$cid->errno
 																				 .":".$cid->error."</p>");
 					$ptSost=$ptSost->fetch_row();
-					// Controllo il punteggio, se è uguale a "-1" non faccio nulla
-					if($ptTost != -1) {
+					// Controllo il punteggio del sostituto, se è uguale a "-1" non faccio nulla
+					if($ptSost != -1) {
 						$puntiGiornalieri=$puntiGiornalieri+$ptSost[0];
 					}
 				}
@@ -102,7 +100,7 @@
 																					 ."<p>codice di errore ".$cid->errno
 																					 .":".$cid->error."</p>");
 						$ptSost=$ptSost->fetch_row();
-						if($ptSost!="" && $ptTost!=(-1)) {
+						if($ptSost!="" && $ptSost!=(-1)) {
 							$puntiGiornalieri=$puntiGiornalieri+$ptSost[0];
 							break;
 						}
@@ -111,11 +109,12 @@
 			}
 		}
 
-		// Aggiorno i punteggi della giornata per ogni formazione iscritta
+		// Aggiorno i punteggi giornalieri per ogni formazione iscritta
 		$sql="UPDATE iscritta SET PuntiGiornata='$puntiGiornalieri' WHERE Formazione='$form[0]'";
 		$cid->query($sql) or die("<p>Impossibile eseguire query.</p>"
 														 ."<p>codice di errore ".$cid->errno
 														 .":".$cid->error."</p>");
+
 		// Salvo nome squadra formazione considerata
 		$sql="SELECT Squadra FROM Formazione WHERE IdForm='$form[0]'";
 		$nomeSquadraForm=$cid->query($sql) or die("<p>Impossibile eseguire query.</p>"
@@ -124,6 +123,7 @@
 		$nomeSqForm=$nomeSquadraForm->fetch_row();
 		$nomeSqForm=$nomeSqForm[0];
 
+		// Controllo e il punteggio giornaliero è maggiore o uguale a 35 per l'attribuzione delle stelle
 		if($puntiGiornalieri>=35) {
 		  // Salvo il numero corrente di Stelle
 			$sql="SELECT Stelle FROM squadra WHERE NomeSq='$nomeSqForm'";
@@ -133,8 +133,15 @@
 			$numStelle=$numeroStelle->fetch_row();
 			$newStelle=$numStelle[0]+1;
 
+			// Inserisco una stella alla squadra della formazione considerata
+			$sql="UPDATE squadra SET Stelle='$newStelle' WHERE NomeSq='$nomeSqForm'";
+			$cid->query($sql) or die("<p>Impossibile eseguire query.</p>"
+																			 ."<p>codice di errore ".$cid->errno
+																			 .":".$cid->error."</p>");
 
+			// Controllo se l'utente passa di grado (con tre o più stelle da "Allenatore" diventerà "CT")
 			if($newStelle==3) {
+
 				// Salvo la mail dell'utente che passa di grado
 				$sql="SELECT Utente FROM squadra WHERE NomeSq='$nomeSqForm'";
 				$mailUt=$cid->query($sql) or die("<p>Impossibile eseguire query.</p>"
@@ -148,25 +155,18 @@
 																				 ."<p>codice di errore ".$cid->errno
 																				 .":".$cid->error."</p>");
 				$tipo=$tipoUt->fetch_row();
-
+				// Controllo se l'utente non è amministratore
 				if($tipo[0]!='Amministratore') {
-					// Se non è un amministratore aggiorno il Tipo dell'utente
+					// Se non è un amministratore aggiorno il Tipo dell'utente a "CT"
 					$sql="UPDATE utente SET Tipo='CT' WHERE Mail='$mail[0]'";
 					$cid->query($sql) or die("<p>Impossibile eseguire query.</p>"
 																					 ."<p>codice di errore ".$cid->errno
 																					 .":".$cid->error."</p>");
 				}
 			}
-
-			// Inserisco una stella alla squadra della formazione considerata
-			$sql="UPDATE squadra SET Stelle='$newStelle' WHERE NomeSq='$nomeSqForm'";
-			$cid->query($sql) or die("<p>Impossibile eseguire query.</p>"
-																			 ."<p>codice di errore ".$cid->errno
-																			 .":".$cid->error."</p>");
 		}
 
-
-		/*         ----- CONTROLLI PER TOP COACH ----           */
+		/*          ----- CONTROLLI PER TOP COACH ----            */
 		// Salvo i voti dei 5 titolari della formazione considerata
 		$sql="SELECT Punteggio
 					FROM gioca JOIN Giocatore ON gioca.Giocatore=Cognome JOIN sta ON Cognome=sta.Giocatore
@@ -205,14 +205,15 @@
 																			 .":".$cid->error."</p>");
 		}
 
-		// Seleziono i campionati a cui si partecipa per i quali si è giocata la giornata con formazione considerata
+		/* Seleziono i campionati a cui si partecipa per i quali si è giocata la giornata
+			 con la formazione considerata per aggiornarne le classifiche generali */
 		$sql="SELECT Campionato FROM iscritta WHERE Formazione='$form[0]' AND Giornata='$gior[0]'";
 		$campionatiDaAggiornare=$cid->query($sql) or die("<p>Impossibile eseguire query.</p>"
 																	 ."<p>codice di errore ".$cid->errno
 																	 .":".$cid->error."</p>");
 
 		while($campAgg=$campionatiDaAggiornare->fetch_row()) {
-			// Inserisco automaticamente le formazioni nei campionati
+			// Iscrivo automaticamente le formazioni nei campionati per la prossima giornata
 			$nextGior=$gior[0]+1;
 			$sql="INSERT INTO iscritta (Formazione,Campionato,Giornata)
 						VALUES ('$form[0]','$campAgg[0]','$nextGior')";
@@ -257,8 +258,6 @@
 	$cid->query($sql) or die("<p>Impossibile eseguire query.</p>"
 													 ."<p>codice di errore ".$cid->errno
 													 .":".$cid->error."</p>");
-
-
 
 	header("Location:../index.php?op=classificaCampionati");
 
