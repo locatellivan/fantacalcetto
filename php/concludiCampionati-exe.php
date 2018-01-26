@@ -38,8 +38,8 @@
 
 			}
 		}
-	
+
 	$cid->close();
-	header("Location:../index.php?op=classificaCampionati");
+	header("Location:../index.php?op=storicoCampioni");
 
  ?>

@@ -32,7 +32,7 @@
 		$cons=true;
 	}
 
-
+	// Se è già consegnata una formazione per quel campionato per quela giornata modifico
   if($cons) {
 		$query="UPDATE iscritta SET Formazione='$formazione'
 		        WHERE Giornata='$gior[0]' AND Campionato='$campionato'
@@ -43,6 +43,7 @@
 																	 .":".$cid->error."</p>");
 	  $cid->close();
 	}
+	// altrimenti inserisco
 	else {
 		$query="INSERT INTO iscritta (Formazione, Campionato, Giornata)
 	        	VALUES ('$formazione','$campionato','$gior[0]')";

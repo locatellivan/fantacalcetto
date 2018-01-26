@@ -1,0 +1,680 @@
+<?xml version="1" encoding="ISO-8859-1">
+<!DOCTYPE CLASSIFICA SYSTEM "clasGior.dtd">
+<CLASSIFICA tipo="giornaliera" giornata="6">
+	<CAMPIONATO NomeCamp="1* CHAMP DEL SITO" DataInizio="2018-01-01" DataFine="2018-01-31">
+		<SQUADRA NomeSquadra="GLI ZUMBA" Allenatore="Zumbella">
+			<FORMAZIONE NomeForm="MyForm-1_GLI ZUMBA" PuntiGiornata="32">
+				<GIOCATORE NomeGiocatore="CORDAZ" Ruolo="P" Stato="titolare">
+					<VOTO>7</VOTO>
+				</GIOCATORE>
+				<GIOCATORE NomeGiocatore="CHIELLINI" Ruolo="D" Stato="titolare">
+					<VOTO>0</VOTO>
+				</GIOCATORE>
+				<GIOCATORE NomeGiocatore="ALEX SANDRO" Ruolo="D" Stato="titolare">
+					<VOTO>10</VOTO>
+				</GIOCATORE>
+				<GIOCATORE NomeGiocatore="CASTRO" Ruolo="C" Stato="titolare">
+					<VOTO>6</VOTO>
+				</GIOCATORE>
+				<GIOCATORE NomeGiocatore="BORRIELLO" Ruolo="A" Stato="titolare">
+					<VOTO>9</VOTO>
+				</GIOCATORE>
+				<GIOCATORE NomeGiocatore="SANTURRO" Ruolo="P" Stato="riserva">
+					<VOTO>10</VOTO>
+				</GIOCATORE>
+				<GIOCATORE NomeGiocatore="GYAMFI" Ruolo="D" Stato="riserva">
+					<VOTO>10</VOTO>
+				</GIOCATORE>
+				<GIOCATORE NomeGiocatore="JANKTO" Ruolo="C" Stato="riserva">
+					<VOTO>3</VOTO>
+				</GIOCATORE>
+				<GIOCATORE NomeGiocatore="FARAGO" Ruolo="C" Stato="riserva">
+					<VOTO>0</VOTO>
+				</GIOCATORE>
+				<GIOCATORE NomeGiocatore="MATOS" Ruolo="A" Stato="riserva">
+					<VOTO>-1</VOTO>
+				</GIOCATORE>
+				<GIOCATORE NomeGiocatore="VERDE" Ruolo="A" Stato="riserva">
+					<VOTO>6</VOTO>
+				</GIOCATORE>
+			<FORMAZIONE>
+		<SQUADRA>
+		<SQUADRA NomeSquadra="AdminCTeam" Allenatore="CT-BY-ADMIN">
+			<FORMAZIONE NomeForm="AttacBOOM_AdminCTeam" PuntiGiornata="18">
+				<GIOCATORE NomeGiocatore="GUERRIERI" Ruolo="P" Stato="titolare">
+					<VOTO>4</VOTO>
+				</GIOCATORE>
+				<GIOCATORE NomeGiocatore="BASTA" Ruolo="D" Stato="titolare">
+					<VOTO>6</VOTO>
+				</GIOCATORE>
+				<GIOCATORE NomeGiocatore="DE ROSSI" Ruolo="C" Stato="titolare">
+					<VOTO>5</VOTO>
+				</GIOCATORE>
+				<GIOCATORE NomeGiocatore="BOYE" Ruolo="A" Stato="titolare">
+					<VOTO>0</VOTO>
+				</GIOCATORE>
+				<GIOCATORE NomeGiocatore="NIANG" Ruolo="A" Stato="titolare">
+					<VOTO>-1</VOTO>
+				</GIOCATORE>
+				<GIOCATORE NomeGiocatore="DONNARUMMA G" Ruolo="P" Stato="riserva">
+					<VOTO>10</VOTO>
+				</GIOCATORE>
+				<GIOCATORE NomeGiocatore="CONTI" Ruolo="D" Stato="riserva">
+					<VOTO>8</VOTO>
+				</GIOCATORE>
+				<GIOCATORE NomeGiocatore="AJETI" Ruolo="D" Stato="riserva">
+					<VOTO>6</VOTO>
+				</GIOCATORE>
+				<GIOCATORE NomeGiocatore="CALHANOGLU" Ruolo="C" Stato="riserva">
+					<VOTO>-1</VOTO>
+				</GIOCATORE>
+				<GIOCATORE NomeGiocatore="PJANIC" Ruolo="C" Stato="riserva">
+					<VOTO>-1</VOTO>
+				</GIOCATORE>
+				<GIOCATORE NomeGiocatore="PUCCIARELLI" Ruolo="A" Stato="riserva">
+					<VOTO>0</VOTO>
+				</GIOCATORE>
+			<FORMAZIONE>
+		<SQUADRA>
+	</CAMPIONATO>
+	<CAMPIONATO NomeCamp="CAMPIONATO GENERALE" DataInizio="2018-01-26" DataFine="2018-12-31">
+		<SQUADRA NomeSquadra="PollFrogZZ" Allenatore="PollFrog">
+			<FORMAZIONE NomeForm="1-1-2_PollFrogZZ" PuntiGiornata="31">
+				<GIOCATORE NomeGiocatore="PISCITELLI" Ruolo="P" Stato="titolare">
+					<VOTO>1</VOTO>
+				</GIOCATORE>
+				<GIOCATORE NomeGiocatore="FERRARI G" Ruolo="D" Stato="titolare">
+					<VOTO>9</VOTO>
+				</GIOCATORE>
+				<GIOCATORE NomeGiocatore="MATUIDI" Ruolo="C" Stato="titolare">
+					<VOTO>6</VOTO>
+				</GIOCATORE>
+				<GIOCATORE NomeGiocatore="IMMOBILE" Ruolo="A" Stato="titolare">
+					<VOTO>10</VOTO>
+				</GIOCATORE>
+				<GIOCATORE NomeGiocatore="PALOMBI" Ruolo="A" Stato="titolare">
+					<VOTO>5</VOTO>
+				</GIOCATORE>
+				<GIOCATORE NomeGiocatore="CONSIGLI" Ruolo="P" Stato="riserva">
+					<VOTO>-1</VOTO>
+				</GIOCATORE>
+				<GIOCATORE NomeGiocatore="DE VRIJ" Ruolo="D" Stato="riserva">
+					<VOTO>10</VOTO>
+				</GIOCATORE>
+				<GIOCATORE NomeGiocatore="KOULIBALY" Ruolo="D" Stato="riserva">
+					<VOTO>5</VOTO>
+				</GIOCATORE>
+				<GIOCATORE NomeGiocatore="COSSU" Ruolo="C" Stato="riserva">
+					<VOTO>10</VOTO>
+				</GIOCATORE>
+				<GIOCATORE NomeGiocatore="FELIPE ANDERSON" Ruolo="C" Stato="riserva">
+					<VOTO>7</VOTO>
+				</GIOCATORE>
+				<GIOCATORE NomeGiocatore="ANDRE SILVA" Ruolo="A" Stato="riserva">
+					<VOTO>6</VOTO>
+				</GIOCATORE>
+			<FORMAZIONE>
+		<SQUADRA>
+		<SQUADRA NomeSquadra="MAURISSIMI" Allenatore="Mauro86">
+			<FORMAZIONE NomeForm="FormGENERALE_MAURISSIMI" PuntiGiornata="31">
+				<GIOCATORE NomeGiocatore="CONSIGLI" Ruolo="P" Stato="titolare">
+					<VOTO>-1</VOTO>
+				</GIOCATORE>
+				<GIOCATORE NomeGiocatore="CALDARA" Ruolo="D" Stato="titolare">
+					<VOTO>4</VOTO>
+				</GIOCATORE>
+				<GIOCATORE NomeGiocatore="PAROLO" Ruolo="C" Stato="titolare">
+					<VOTO>8</VOTO>
+				</GIOCATORE>
+				<GIOCATORE NomeGiocatore="FLOCCARI" Ruolo="A" Stato="titolare">
+					<VOTO>9</VOTO>
+				</GIOCATORE>
+				<GIOCATORE NomeGiocatore="LAPADULA" Ruolo="A" Stato="titolare">
+					<VOTO>8</VOTO>
+				</GIOCATORE>
+				<GIOCATORE NomeGiocatore="SILVESTRI" Ruolo="P" Stato="riserva">
+					<VOTO>5</VOTO>
+				</GIOCATORE>
+				<GIOCATORE NomeGiocatore="BIANCHETTI" Ruolo="D" Stato="riserva">
+					<VOTO>7</VOTO>
+				</GIOCATORE>
+				<GIOCATORE NomeGiocatore="DE SCIGLIO" Ruolo="D" Stato="riserva">
+					<VOTO>-1</VOTO>
+				</GIOCATORE>
+				<GIOCATORE NomeGiocatore="ROMERO A" Ruolo="C" Stato="riserva">
+					<VOTO>-1</VOTO>
+				</GIOCATORE>
+				<GIOCATORE NomeGiocatore="ALVAREZ R" Ruolo="C" Stato="riserva">
+					<VOTO>7</VOTO>
+				</GIOCATORE>
+				<GIOCATORE NomeGiocatore="EDER" Ruolo="A" Stato="riserva">
+					<VOTO>7</VOTO>
+				</GIOCATORE>
+			<FORMAZIONE>
+		<SQUADRA>
+		<SQUADRA NomeSquadra="GIUsuGIUsu" Allenatore="GIULIUS_09">
+			<FORMAZIONE NomeForm="DAJE_GIUsuGIUsu" PuntiGiornata="30">
+				<GIOCATORE NomeGiocatore="HANDANOVIC" Ruolo="P" Stato="titolare">
+					<VOTO>7</VOTO>
+				</GIOCATORE>
+				<GIOCATORE NomeGiocatore="RUGANI" Ruolo="D" Stato="titolare">
+					<VOTO>-1</VOTO>
+				</GIOCATORE>
+				<GIOCATORE NomeGiocatore="ZAPATA C" Ruolo="D" Stato="titolare">
+					<VOTO>6</VOTO>
+				</GIOCATORE>
+				<GIOCATORE NomeGiocatore="ZIELINSKI" Ruolo="C" Stato="titolare">
+					<VOTO>0</VOTO>
+				</GIOCATORE>
+				<GIOCATORE NomeGiocatore="BERARDI" Ruolo="A" Stato="titolare">
+					<VOTO>9</VOTO>
+				</GIOCATORE>
+				<GIOCATORE NomeGiocatore="ZIMA" Ruolo="P" Stato="riserva">
+					<VOTO>7</VOTO>
+				</GIOCATORE>
+				<GIOCATORE NomeGiocatore="GONZALEZ G" Ruolo="D" Stato="riserva">
+					<VOTO>5</VOTO>
+				</GIOCATORE>
+				<GIOCATORE NomeGiocatore="IONITA" Ruolo="C" Stato="riserva">
+					<VOTO>7</VOTO>
+				</GIOCATORE>
+				<GIOCATORE NomeGiocatore="SPINAZZOLA" Ruolo="C" Stato="riserva">
+					<VOTO>1</VOTO>
+				</GIOCATORE>
+				<GIOCATORE NomeGiocatore="LO FASO" Ruolo="A" Stato="riserva">
+					<VOTO>1</VOTO>
+				</GIOCATORE>
+				<GIOCATORE NomeGiocatore="ZAPATA D" Ruolo="A" Stato="riserva">
+					<VOTO>4</VOTO>
+				</GIOCATORE>
+			<FORMAZIONE>
+		<SQUADRA>
+		<SQUADRA NomeSquadra="GLI ZUMBA" Allenatore="Zumbella">
+			<FORMAZIONE NomeForm="MyForm-2_GLI ZUMBA" PuntiGiornata="19">
+				<GIOCATORE NomeGiocatore="SANTURRO" Ruolo="P" Stato="titolare">
+					<VOTO>10</VOTO>
+				</GIOCATORE>
+				<GIOCATORE NomeGiocatore="CHIELLINI" Ruolo="D" Stato="titolare">
+					<VOTO>0</VOTO>
+				</GIOCATORE>
+				<GIOCATORE NomeGiocatore="FARAGO" Ruolo="C" Stato="titolare">
+					<VOTO>0</VOTO>
+				</GIOCATORE>
+				<GIOCATORE NomeGiocatore="JANKTO" Ruolo="C" Stato="titolare">
+					<VOTO>3</VOTO>
+				</GIOCATORE>
+				<GIOCATORE NomeGiocatore="VERDE" Ruolo="A" Stato="titolare">
+					<VOTO>6</VOTO>
+				</GIOCATORE>
+				<GIOCATORE NomeGiocatore="CORDAZ" Ruolo="P" Stato="riserva">
+					<VOTO>7</VOTO>
+				</GIOCATORE>
+				<GIOCATORE NomeGiocatore="GYAMFI" Ruolo="D" Stato="riserva">
+					<VOTO>10</VOTO>
+				</GIOCATORE>
+				<GIOCATORE NomeGiocatore="ALEX SANDRO" Ruolo="D" Stato="riserva">
+					<VOTO>10</VOTO>
+				</GIOCATORE>
+				<GIOCATORE NomeGiocatore="CASTRO" Ruolo="C" Stato="riserva">
+					<VOTO>6</VOTO>
+				</GIOCATORE>
+				<GIOCATORE NomeGiocatore="BORRIELLO" Ruolo="A" Stato="riserva">
+					<VOTO>9</VOTO>
+				</GIOCATORE>
+				<GIOCATORE NomeGiocatore="MATOS" Ruolo="A" Stato="riserva">
+					<VOTO>-1</VOTO>
+				</GIOCATORE>
+			<FORMAZIONE>
+		<SQUADRA>
+		<SQUADRA NomeSquadra="AdminCTeam" Allenatore="CT-BY-ADMIN">
+			<FORMAZIONE NomeForm="AttacBOOM_AdminCTeam" PuntiGiornata="18">
+				<GIOCATORE NomeGiocatore="GUERRIERI" Ruolo="P" Stato="titolare">
+					<VOTO>4</VOTO>
+				</GIOCATORE>
+				<GIOCATORE NomeGiocatore="BASTA" Ruolo="D" Stato="titolare">
+					<VOTO>6</VOTO>
+				</GIOCATORE>
+				<GIOCATORE NomeGiocatore="DE ROSSI" Ruolo="C" Stato="titolare">
+					<VOTO>5</VOTO>
+				</GIOCATORE>
+				<GIOCATORE NomeGiocatore="BOYE" Ruolo="A" Stato="titolare">
+					<VOTO>0</VOTO>
+				</GIOCATORE>
+				<GIOCATORE NomeGiocatore="NIANG" Ruolo="A" Stato="titolare">
+					<VOTO>-1</VOTO>
+				</GIOCATORE>
+				<GIOCATORE NomeGiocatore="DONNARUMMA G" Ruolo="P" Stato="riserva">
+					<VOTO>10</VOTO>
+				</GIOCATORE>
+				<GIOCATORE NomeGiocatore="CONTI" Ruolo="D" Stato="riserva">
+					<VOTO>8</VOTO>
+				</GIOCATORE>
+				<GIOCATORE NomeGiocatore="AJETI" Ruolo="D" Stato="riserva">
+					<VOTO>6</VOTO>
+				</GIOCATORE>
+				<GIOCATORE NomeGiocatore="CALHANOGLU" Ruolo="C" Stato="riserva">
+					<VOTO>-1</VOTO>
+				</GIOCATORE>
+				<GIOCATORE NomeGiocatore="PJANIC" Ruolo="C" Stato="riserva">
+					<VOTO>-1</VOTO>
+				</GIOCATORE>
+				<GIOCATORE NomeGiocatore="PUCCIARELLI" Ruolo="A" Stato="riserva">
+					<VOTO>0</VOTO>
+				</GIOCATORE>
+			<FORMAZIONE>
+		<SQUADRA>
+	</CAMPIONATO>
+	<CAMPIONATO NomeCamp="OneDayCHAMP" DataInizio="2018-01-23" DataFine="2018-01-26">
+		<SQUADRA NomeSquadra="MAURISSIMI" Allenatore="Mauro86">
+			<FORMAZIONE NomeForm="FormONEDAY_MAURISSIMI" PuntiGiornata="32">
+				<GIOCATORE NomeGiocatore="SILVESTRI" Ruolo="P" Stato="titolare">
+					<VOTO>5</VOTO>
+				</GIOCATORE>
+				<GIOCATORE NomeGiocatore="DE SCIGLIO" Ruolo="D" Stato="titolare">
+					<VOTO>-1</VOTO>
+				</GIOCATORE>
+				<GIOCATORE NomeGiocatore="PAROLO" Ruolo="C" Stato="titolare">
+					<VOTO>8</VOTO>
+				</GIOCATORE>
+				<GIOCATORE NomeGiocatore="ALVAREZ R" Ruolo="C" Stato="titolare">
+					<VOTO>7</VOTO>
+				</GIOCATORE>
+				<GIOCATORE NomeGiocatore="LAPADULA" Ruolo="A" Stato="titolare">
+					<VOTO>8</VOTO>
+				</GIOCATORE>
+				<GIOCATORE NomeGiocatore="CONSIGLI" Ruolo="P" Stato="riserva">
+					<VOTO>-1</VOTO>
+				</GIOCATORE>
+				<GIOCATORE NomeGiocatore="CALDARA" Ruolo="D" Stato="riserva">
+					<VOTO>4</VOTO>
+				</GIOCATORE>
+				<GIOCATORE NomeGiocatore="BIANCHETTI" Ruolo="D" Stato="riserva">
+					<VOTO>7</VOTO>
+				</GIOCATORE>
+				<GIOCATORE NomeGiocatore="ROMERO A" Ruolo="C" Stato="riserva">
+					<VOTO>-1</VOTO>
+				</GIOCATORE>
+				<GIOCATORE NomeGiocatore="EDER" Ruolo="A" Stato="riserva">
+					<VOTO>7</VOTO>
+				</GIOCATORE>
+				<GIOCATORE NomeGiocatore="FLOCCARI" Ruolo="A" Stato="riserva">
+					<VOTO>9</VOTO>
+				</GIOCATORE>
+			<FORMAZIONE>
+		<SQUADRA>
+		<SQUADRA NomeSquadra="PollFrogZZ" Allenatore="PollFrog">
+			<FORMAZIONE NomeForm="1-1-2_PollFrogZZ" PuntiGiornata="31">
+				<GIOCATORE NomeGiocatore="PISCITELLI" Ruolo="P" Stato="titolare">
+					<VOTO>1</VOTO>
+				</GIOCATORE>
+				<GIOCATORE NomeGiocatore="FERRARI G" Ruolo="D" Stato="titolare">
+					<VOTO>9</VOTO>
+				</GIOCATORE>
+				<GIOCATORE NomeGiocatore="MATUIDI" Ruolo="C" Stato="titolare">
+					<VOTO>6</VOTO>
+				</GIOCATORE>
+				<GIOCATORE NomeGiocatore="IMMOBILE" Ruolo="A" Stato="titolare">
+					<VOTO>10</VOTO>
+				</GIOCATORE>
+				<GIOCATORE NomeGiocatore="PALOMBI" Ruolo="A" Stato="titolare">
+					<VOTO>5</VOTO>
+				</GIOCATORE>
+				<GIOCATORE NomeGiocatore="CONSIGLI" Ruolo="P" Stato="riserva">
+					<VOTO>-1</VOTO>
+				</GIOCATORE>
+				<GIOCATORE NomeGiocatore="DE VRIJ" Ruolo="D" Stato="riserva">
+					<VOTO>10</VOTO>
+				</GIOCATORE>
+				<GIOCATORE NomeGiocatore="KOULIBALY" Ruolo="D" Stato="riserva">
+					<VOTO>5</VOTO>
+				</GIOCATORE>
+				<GIOCATORE NomeGiocatore="COSSU" Ruolo="C" Stato="riserva">
+					<VOTO>10</VOTO>
+				</GIOCATORE>
+				<GIOCATORE NomeGiocatore="FELIPE ANDERSON" Ruolo="C" Stato="riserva">
+					<VOTO>7</VOTO>
+				</GIOCATORE>
+				<GIOCATORE NomeGiocatore="ANDRE SILVA" Ruolo="A" Stato="riserva">
+					<VOTO>6</VOTO>
+				</GIOCATORE>
+			<FORMAZIONE>
+		<SQUADRA>
+		<SQUADRA NomeSquadra="GIUsuGIUsu" Allenatore="GIULIUS_09">
+			<FORMAZIONE NomeForm="DAJE_GIUsuGIUsu" PuntiGiornata="30">
+				<GIOCATORE NomeGiocatore="HANDANOVIC" Ruolo="P" Stato="titolare">
+					<VOTO>7</VOTO>
+				</GIOCATORE>
+				<GIOCATORE NomeGiocatore="RUGANI" Ruolo="D" Stato="titolare">
+					<VOTO>-1</VOTO>
+				</GIOCATORE>
+				<GIOCATORE NomeGiocatore="ZAPATA C" Ruolo="D" Stato="titolare">
+					<VOTO>6</VOTO>
+				</GIOCATORE>
+				<GIOCATORE NomeGiocatore="ZIELINSKI" Ruolo="C" Stato="titolare">
+					<VOTO>0</VOTO>
+				</GIOCATORE>
+				<GIOCATORE NomeGiocatore="BERARDI" Ruolo="A" Stato="titolare">
+					<VOTO>9</VOTO>
+				</GIOCATORE>
+				<GIOCATORE NomeGiocatore="ZIMA" Ruolo="P" Stato="riserva">
+					<VOTO>7</VOTO>
+				</GIOCATORE>
+				<GIOCATORE NomeGiocatore="GONZALEZ G" Ruolo="D" Stato="riserva">
+					<VOTO>5</VOTO>
+				</GIOCATORE>
+				<GIOCATORE NomeGiocatore="IONITA" Ruolo="C" Stato="riserva">
+					<VOTO>7</VOTO>
+				</GIOCATORE>
+				<GIOCATORE NomeGiocatore="SPINAZZOLA" Ruolo="C" Stato="riserva">
+					<VOTO>1</VOTO>
+				</GIOCATORE>
+				<GIOCATORE NomeGiocatore="LO FASO" Ruolo="A" Stato="riserva">
+					<VOTO>1</VOTO>
+				</GIOCATORE>
+				<GIOCATORE NomeGiocatore="ZAPATA D" Ruolo="A" Stato="riserva">
+					<VOTO>4</VOTO>
+				</GIOCATORE>
+			<FORMAZIONE>
+		<SQUADRA>
+	</CAMPIONATO>
+	<CAMPIONATO NomeCamp="OneWeek" DataInizio="2018-01-26" DataFine="2018-01-27">
+		<SQUADRA NomeSquadra="PollFrogZZ" Allenatore="PollFrog">
+			<FORMAZIONE NomeForm="1-2-1_PollFrogZZ" PuntiGiornata="40">
+				<GIOCATORE NomeGiocatore="CONSIGLI" Ruolo="P" Stato="titolare">
+					<VOTO>-1</VOTO>
+				</GIOCATORE>
+				<GIOCATORE NomeGiocatore="DE VRIJ" Ruolo="D" Stato="titolare">
+					<VOTO>10</VOTO>
+				</GIOCATORE>
+				<GIOCATORE NomeGiocatore="FELIPE ANDERSON" Ruolo="C" Stato="titolare">
+					<VOTO>7</VOTO>
+				</GIOCATORE>
+				<GIOCATORE NomeGiocatore="MATUIDI" Ruolo="C" Stato="titolare">
+					<VOTO>6</VOTO>
+				</GIOCATORE>
+				<GIOCATORE NomeGiocatore="IMMOBILE" Ruolo="A" Stato="titolare">
+					<VOTO>10</VOTO>
+				</GIOCATORE>
+				<GIOCATORE NomeGiocatore="PISCITELLI" Ruolo="P" Stato="riserva">
+					<VOTO>1</VOTO>
+				</GIOCATORE>
+				<GIOCATORE NomeGiocatore="FERRARI G" Ruolo="D" Stato="riserva">
+					<VOTO>9</VOTO>
+				</GIOCATORE>
+				<GIOCATORE NomeGiocatore="KOULIBALY" Ruolo="D" Stato="riserva">
+					<VOTO>5</VOTO>
+				</GIOCATORE>
+				<GIOCATORE NomeGiocatore="COSSU" Ruolo="C" Stato="riserva">
+					<VOTO>10</VOTO>
+				</GIOCATORE>
+				<GIOCATORE NomeGiocatore="PALOMBI" Ruolo="A" Stato="riserva">
+					<VOTO>5</VOTO>
+				</GIOCATORE>
+				<GIOCATORE NomeGiocatore="ANDRE SILVA" Ruolo="A" Stato="riserva">
+					<VOTO>6</VOTO>
+				</GIOCATORE>
+			<FORMAZIONE>
+		<SQUADRA>
+		<SQUADRA NomeSquadra="AdminCTeam" Allenatore="CT-BY-ADMIN">
+			<FORMAZIONE NomeForm="CentroBOOM_AdminCTeam" PuntiGiornata="36">
+				<GIOCATORE NomeGiocatore="DONNARUMMA G" Ruolo="P" Stato="titolare">
+					<VOTO>10</VOTO>
+				</GIOCATORE>
+				<GIOCATORE NomeGiocatore="CONTI" Ruolo="D" Stato="titolare">
+					<VOTO>8</VOTO>
+				</GIOCATORE>
+				<GIOCATORE NomeGiocatore="CALHANOGLU" Ruolo="C" Stato="titolare">
+					<VOTO>-1</VOTO>
+				</GIOCATORE>
+				<GIOCATORE NomeGiocatore="PJANIC" Ruolo="C" Stato="titolare">
+					<VOTO>-1</VOTO>
+				</GIOCATORE>
+				<GIOCATORE NomeGiocatore="BOYE" Ruolo="A" Stato="titolare">
+					<VOTO>0</VOTO>
+				</GIOCATORE>
+				<GIOCATORE NomeGiocatore="GUERRIERI" Ruolo="P" Stato="riserva">
+					<VOTO>4</VOTO>
+				</GIOCATORE>
+				<GIOCATORE NomeGiocatore="BASTA" Ruolo="D" Stato="riserva">
+					<VOTO>6</VOTO>
+				</GIOCATORE>
+				<GIOCATORE NomeGiocatore="AJETI" Ruolo="D" Stato="riserva">
+					<VOTO>6</VOTO>
+				</GIOCATORE>
+				<GIOCATORE NomeGiocatore="DE ROSSI" Ruolo="C" Stato="riserva">
+					<VOTO>5</VOTO>
+				</GIOCATORE>
+				<GIOCATORE NomeGiocatore="NIANG" Ruolo="A" Stato="riserva">
+					<VOTO>-1</VOTO>
+				</GIOCATORE>
+				<GIOCATORE NomeGiocatore="PUCCIARELLI" Ruolo="A" Stato="riserva">
+					<VOTO>0</VOTO>
+				</GIOCATORE>
+			<FORMAZIONE>
+		<SQUADRA>
+		<SQUADRA NomeSquadra="MAURISSIMI" Allenatore="Mauro86">
+			<FORMAZIONE NomeForm="BestOfDefence_MAURISSIMI" PuntiGiornata="17">
+				<GIOCATORE NomeGiocatore="SILVESTRI" Ruolo="P" Stato="titolare">
+					<VOTO>5</VOTO>
+				</GIOCATORE>
+				<GIOCATORE NomeGiocatore="DE SCIGLIO" Ruolo="D" Stato="titolare">
+					<VOTO>-1</VOTO>
+				</GIOCATORE>
+				<GIOCATORE NomeGiocatore="CALDARA" Ruolo="D" Stato="titolare">
+					<VOTO>4</VOTO>
+				</GIOCATORE>
+				<GIOCATORE NomeGiocatore="ROMERO A" Ruolo="C" Stato="titolare">
+					<VOTO>-1</VOTO>
+				</GIOCATORE>
+				<GIOCATORE NomeGiocatore="EDER" Ruolo="A" Stato="titolare">
+					<VOTO>7</VOTO>
+				</GIOCATORE>
+				<GIOCATORE NomeGiocatore="CONSIGLI" Ruolo="P" Stato="riserva">
+					<VOTO>-1</VOTO>
+				</GIOCATORE>
+				<GIOCATORE NomeGiocatore="BIANCHETTI" Ruolo="D" Stato="riserva">
+					<VOTO>7</VOTO>
+				</GIOCATORE>
+				<GIOCATORE NomeGiocatore="PAROLO" Ruolo="C" Stato="riserva">
+					<VOTO>8</VOTO>
+				</GIOCATORE>
+				<GIOCATORE NomeGiocatore="ALVAREZ R" Ruolo="C" Stato="riserva">
+					<VOTO>7</VOTO>
+				</GIOCATORE>
+				<GIOCATORE NomeGiocatore="FLOCCARI" Ruolo="A" Stato="riserva">
+					<VOTO>9</VOTO>
+				</GIOCATORE>
+				<GIOCATORE NomeGiocatore="LAPADULA" Ruolo="A" Stato="riserva">
+					<VOTO>8</VOTO>
+				</GIOCATORE>
+			<FORMAZIONE>
+		<SQUADRA>
+	</CAMPIONATO>
+	<CAMPIONATO NomeCamp="SFIDA IL CT" DataInizio="2018-01-01" DataFine="2018-02-16">
+		<SQUADRA NomeSquadra="PollFrogZZ" Allenatore="PollFrog">
+			<FORMAZIONE NomeForm="1-2-1_PollFrogZZ" PuntiGiornata="40">
+				<GIOCATORE NomeGiocatore="CONSIGLI" Ruolo="P" Stato="titolare">
+					<VOTO>-1</VOTO>
+				</GIOCATORE>
+				<GIOCATORE NomeGiocatore="DE VRIJ" Ruolo="D" Stato="titolare">
+					<VOTO>10</VOTO>
+				</GIOCATORE>
+				<GIOCATORE NomeGiocatore="FELIPE ANDERSON" Ruolo="C" Stato="titolare">
+					<VOTO>7</VOTO>
+				</GIOCATORE>
+				<GIOCATORE NomeGiocatore="MATUIDI" Ruolo="C" Stato="titolare">
+					<VOTO>6</VOTO>
+				</GIOCATORE>
+				<GIOCATORE NomeGiocatore="IMMOBILE" Ruolo="A" Stato="titolare">
+					<VOTO>10</VOTO>
+				</GIOCATORE>
+				<GIOCATORE NomeGiocatore="PISCITELLI" Ruolo="P" Stato="riserva">
+					<VOTO>1</VOTO>
+				</GIOCATORE>
+				<GIOCATORE NomeGiocatore="FERRARI G" Ruolo="D" Stato="riserva">
+					<VOTO>9</VOTO>
+				</GIOCATORE>
+				<GIOCATORE NomeGiocatore="KOULIBALY" Ruolo="D" Stato="riserva">
+					<VOTO>5</VOTO>
+				</GIOCATORE>
+				<GIOCATORE NomeGiocatore="COSSU" Ruolo="C" Stato="riserva">
+					<VOTO>10</VOTO>
+				</GIOCATORE>
+				<GIOCATORE NomeGiocatore="PALOMBI" Ruolo="A" Stato="riserva">
+					<VOTO>5</VOTO>
+				</GIOCATORE>
+				<GIOCATORE NomeGiocatore="ANDRE SILVA" Ruolo="A" Stato="riserva">
+					<VOTO>6</VOTO>
+				</GIOCATORE>
+			<FORMAZIONE>
+		<SQUADRA>
+		<SQUADRA NomeSquadra="AdminCTeam" Allenatore="CT-BY-ADMIN">
+			<FORMAZIONE NomeForm="CentroBOOM_AdminCTeam" PuntiGiornata="36">
+				<GIOCATORE NomeGiocatore="DONNARUMMA G" Ruolo="P" Stato="titolare">
+					<VOTO>10</VOTO>
+				</GIOCATORE>
+				<GIOCATORE NomeGiocatore="CONTI" Ruolo="D" Stato="titolare">
+					<VOTO>8</VOTO>
+				</GIOCATORE>
+				<GIOCATORE NomeGiocatore="CALHANOGLU" Ruolo="C" Stato="titolare">
+					<VOTO>-1</VOTO>
+				</GIOCATORE>
+				<GIOCATORE NomeGiocatore="PJANIC" Ruolo="C" Stato="titolare">
+					<VOTO>-1</VOTO>
+				</GIOCATORE>
+				<GIOCATORE NomeGiocatore="BOYE" Ruolo="A" Stato="titolare">
+					<VOTO>0</VOTO>
+				</GIOCATORE>
+				<GIOCATORE NomeGiocatore="GUERRIERI" Ruolo="P" Stato="riserva">
+					<VOTO>4</VOTO>
+				</GIOCATORE>
+				<GIOCATORE NomeGiocatore="BASTA" Ruolo="D" Stato="riserva">
+					<VOTO>6</VOTO>
+				</GIOCATORE>
+				<GIOCATORE NomeGiocatore="AJETI" Ruolo="D" Stato="riserva">
+					<VOTO>6</VOTO>
+				</GIOCATORE>
+				<GIOCATORE NomeGiocatore="DE ROSSI" Ruolo="C" Stato="riserva">
+					<VOTO>5</VOTO>
+				</GIOCATORE>
+				<GIOCATORE NomeGiocatore="NIANG" Ruolo="A" Stato="riserva">
+					<VOTO>-1</VOTO>
+				</GIOCATORE>
+				<GIOCATORE NomeGiocatore="PUCCIARELLI" Ruolo="A" Stato="riserva">
+					<VOTO>0</VOTO>
+				</GIOCATORE>
+			<FORMAZIONE>
+		<SQUADRA>
+		<SQUADRA NomeSquadra="GIUsuGIUsu" Allenatore="GIULIUS_09">
+			<FORMAZIONE NomeForm="DAJE_GIUsuGIUsu" PuntiGiornata="30">
+				<GIOCATORE NomeGiocatore="HANDANOVIC" Ruolo="P" Stato="titolare">
+					<VOTO>7</VOTO>
+				</GIOCATORE>
+				<GIOCATORE NomeGiocatore="RUGANI" Ruolo="D" Stato="titolare">
+					<VOTO>-1</VOTO>
+				</GIOCATORE>
+				<GIOCATORE NomeGiocatore="ZAPATA C" Ruolo="D" Stato="titolare">
+					<VOTO>6</VOTO>
+				</GIOCATORE>
+				<GIOCATORE NomeGiocatore="ZIELINSKI" Ruolo="C" Stato="titolare">
+					<VOTO>0</VOTO>
+				</GIOCATORE>
+				<GIOCATORE NomeGiocatore="BERARDI" Ruolo="A" Stato="titolare">
+					<VOTO>9</VOTO>
+				</GIOCATORE>
+				<GIOCATORE NomeGiocatore="ZIMA" Ruolo="P" Stato="riserva">
+					<VOTO>7</VOTO>
+				</GIOCATORE>
+				<GIOCATORE NomeGiocatore="GONZALEZ G" Ruolo="D" Stato="riserva">
+					<VOTO>5</VOTO>
+				</GIOCATORE>
+				<GIOCATORE NomeGiocatore="IONITA" Ruolo="C" Stato="riserva">
+					<VOTO>7</VOTO>
+				</GIOCATORE>
+				<GIOCATORE NomeGiocatore="SPINAZZOLA" Ruolo="C" Stato="riserva">
+					<VOTO>1</VOTO>
+				</GIOCATORE>
+				<GIOCATORE NomeGiocatore="LO FASO" Ruolo="A" Stato="riserva">
+					<VOTO>1</VOTO>
+				</GIOCATORE>
+				<GIOCATORE NomeGiocatore="ZAPATA D" Ruolo="A" Stato="riserva">
+					<VOTO>4</VOTO>
+				</GIOCATORE>
+			<FORMAZIONE>
+		<SQUADRA>
+		<SQUADRA NomeSquadra="GLI ZUMBA" Allenatore="Zumbella">
+			<FORMAZIONE NomeForm="MyForm-2_GLI ZUMBA" PuntiGiornata="19">
+				<GIOCATORE NomeGiocatore="SANTURRO" Ruolo="P" Stato="titolare">
+					<VOTO>10</VOTO>
+				</GIOCATORE>
+				<GIOCATORE NomeGiocatore="CHIELLINI" Ruolo="D" Stato="titolare">
+					<VOTO>0</VOTO>
+				</GIOCATORE>
+				<GIOCATORE NomeGiocatore="FARAGO" Ruolo="C" Stato="titolare">
+					<VOTO>0</VOTO>
+				</GIOCATORE>
+				<GIOCATORE NomeGiocatore="JANKTO" Ruolo="C" Stato="titolare">
+					<VOTO>3</VOTO>
+				</GIOCATORE>
+				<GIOCATORE NomeGiocatore="VERDE" Ruolo="A" Stato="titolare">
+					<VOTO>6</VOTO>
+				</GIOCATORE>
+				<GIOCATORE NomeGiocatore="CORDAZ" Ruolo="P" Stato="riserva">
+					<VOTO>7</VOTO>
+				</GIOCATORE>
+				<GIOCATORE NomeGiocatore="GYAMFI" Ruolo="D" Stato="riserva">
+					<VOTO>10</VOTO>
+				</GIOCATORE>
+				<GIOCATORE NomeGiocatore="ALEX SANDRO" Ruolo="D" Stato="riserva">
+					<VOTO>10</VOTO>
+				</GIOCATORE>
+				<GIOCATORE NomeGiocatore="CASTRO" Ruolo="C" Stato="riserva">
+					<VOTO>6</VOTO>
+				</GIOCATORE>
+				<GIOCATORE NomeGiocatore="BORRIELLO" Ruolo="A" Stato="riserva">
+					<VOTO>9</VOTO>
+				</GIOCATORE>
+				<GIOCATORE NomeGiocatore="MATOS" Ruolo="A" Stato="riserva">
+					<VOTO>-1</VOTO>
+				</GIOCATORE>
+			<FORMAZIONE>
+		<SQUADRA>
+		<SQUADRA NomeSquadra="MAURISSIMI" Allenatore="Mauro86">
+			<FORMAZIONE NomeForm="BestOfDefence_MAURISSIMI" PuntiGiornata="17">
+				<GIOCATORE NomeGiocatore="SILVESTRI" Ruolo="P" Stato="titolare">
+					<VOTO>5</VOTO>
+				</GIOCATORE>
+				<GIOCATORE NomeGiocatore="DE SCIGLIO" Ruolo="D" Stato="titolare">
+					<VOTO>-1</VOTO>
+				</GIOCATORE>
+				<GIOCATORE NomeGiocatore="CALDARA" Ruolo="D" Stato="titolare">
+					<VOTO>4</VOTO>
+				</GIOCATORE>
+				<GIOCATORE NomeGiocatore="ROMERO A" Ruolo="C" Stato="titolare">
+					<VOTO>-1</VOTO>
+				</GIOCATORE>
+				<GIOCATORE NomeGiocatore="EDER" Ruolo="A" Stato="titolare">
+					<VOTO>7</VOTO>
+				</GIOCATORE>
+				<GIOCATORE NomeGiocatore="CONSIGLI" Ruolo="P" Stato="riserva">
+					<VOTO>-1</VOTO>
+				</GIOCATORE>
+				<GIOCATORE NomeGiocatore="BIANCHETTI" Ruolo="D" Stato="riserva">
+					<VOTO>7</VOTO>
+				</GIOCATORE>
+				<GIOCATORE NomeGiocatore="PAROLO" Ruolo="C" Stato="riserva">
+					<VOTO>8</VOTO>
+				</GIOCATORE>
+				<GIOCATORE NomeGiocatore="ALVAREZ R" Ruolo="C" Stato="riserva">
+					<VOTO>7</VOTO>
+				</GIOCATORE>
+				<GIOCATORE NomeGiocatore="FLOCCARI" Ruolo="A" Stato="riserva">
+					<VOTO>9</VOTO>
+				</GIOCATORE>
+				<GIOCATORE NomeGiocatore="LAPADULA" Ruolo="A" Stato="riserva">
+					<VOTO>8</VOTO>
+				</GIOCATORE>
+			<FORMAZIONE>
+		<SQUADRA>
+	</CAMPIONATO>
+</CLASSIFICA>

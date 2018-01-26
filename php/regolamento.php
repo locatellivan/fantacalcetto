@@ -42,8 +42,9 @@
 	 coloro i quali titolari hanno preso un voto maggiore della media dei voti di tutti gli altri giocatori titolari.<br/>
 	 Viene poi data la possibilità di <b>esportare le classifiche generali e giornaliere in formato XML</b>. Prima di effettuare il download si consiglia di aggiornare il file,
 	 in caso qualcuno non l'abbia ancora fatto. Cliccando subito su DOWNLOAD si rischia di scaricare il file corrispondente alla giornata precedente.<br/>
-	 Nello <b>storico dei campioni</b> è possibile visualizzare tutti i vincitori dei campionati che si sono conclusi.<br/>
-	 Infine, per <b>campionati fantasma</b> si intendono quei campionati che sono stati giocati, conclusi e vinti da giocatori che si sono eliminati.
+	 Nello <b>storico dei campioni</b> è possibile visualizzare tutti i vincitori dei campionati che si sono conclusi. Si fa notare che se un campione si elimina dal sistema
+   vengono persi anche i dati relativi ai campionati da esso vinti.<br/>
+
    </p><br/>
 	 <h4><b><i>5. FORMAZIONI</i></b></h4>
 	 <p>Qui potremo creare le nostre formazioni e iscriverle alle giornate dei campionati in cui partecipiamo.<br/>

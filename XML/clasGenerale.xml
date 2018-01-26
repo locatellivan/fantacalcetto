@@ -1,17 +1,4 @@
 <?xml version="1" encoding="ISO-8859-1">
+<!DOCTYPE CLASSIFICA SYSTEM "clasGen.dtd">
 <CLASSIFICA tipo="generale">
-	<CAMPIONATO NomeCamp="CAMPIONATO GENERALE" DataInizio="2018-01-14" DataFine="2018-12-31">
-		<SQUADRA NomeSquadra="hhh" Allenatore="hhh">
-			<PUNTI>0</PUNTI>
-		</SQUADRA>
-		<SQUADRA NomeSquadra="ii" Allenatore="ii">
-			<PUNTI>0</PUNTI>
-		</SQUADRA>
-		<SQUADRA NomeSquadra="ivan" Allenatore="ivan">
-			<PUNTI>0</PUNTI>
-		</SQUADRA>
-		<SQUADRA NomeSquadra="piccioni " Allenatore="giuls">
-			<PUNTI>0</PUNTI>
-		</SQUADRA>
-	</CAMPIONATO>
 </CLASSIFICA>

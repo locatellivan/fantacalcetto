@@ -33,14 +33,14 @@
   		$nomeSq=$squadra->fetch_row();    // Salvo in una variabile il nome della squadra loggata
   		?>
   		<br/><h4 align="center" >Seleziona i giocatori che vuoi vendere/o comprare. Clicca poi sul pulsante "COMPRAVENDI GIOCATORI" per salvare le modifiche.<br/>
-                              <b>NB: il budget dei Fantamilioni mostrato è una preview del valore che si otterrebbe dopo aver confermato le modifiche alla squadra.</b></h4><br/>
+                              <b>NB: il budget dei Fantamilioni mostrato è un'anteprima del valore che si otterrebbe dopo aver confermato le modifiche alla squadra.</b></h4><br/>
 
 
       <h2 align="center"><b>VENDI GIOCATORI</b></h2>
 
       <?php
 
-//salvo i giocatoriche ho in rosa e se non è vuota creo una tabella
+          //salvo i giocatoriche ho in rosa e se non è vuota creo una tabella
       		$sql="SELECT Cognome, Ruolo, Prezzo
       					FROM possiede JOIN giocatore ON (Giocatore=Cognome)
       					WHERE SquadraGioc='$nomeSq[0]'
@@ -55,7 +55,8 @@
                   <th><center>RUOLO</center></th>
                   <th><center>PREZZO</center>
                   </th><th><center>✓</center></th></tr>";
-// portieri
+
+            // portieri
             $sql="SELECT Cognome, Ruolo, Prezzo
         					FROM possiede JOIN giocatore ON (Giocatore=Cognome)
         					WHERE SquadraGioc='$nomeSq[0]'
@@ -66,6 +67,7 @@
         																	 ."<p>codice di errore ".$cid->errno
         																	 .":".$cid->error."</p>");
 
+            // Variabile per l'attribuzione progressiva di identificatori alle checkbox
             $ciclo=0;
       			while ($por=$res->fetch_row()){
 
@@ -76,7 +78,7 @@
                           </tr>";
                           $ciclo++;
                         }
-//difensori
+              //difensori
              $sql="SELECT Cognome, Ruolo, Prezzo
          					FROM possiede JOIN giocatore ON (Giocatore=Cognome)
          					WHERE SquadraGioc='$nomeSq[0]'
@@ -90,8 +92,6 @@
 
             $ciclo=10000;
             while ($dif=$res->fetch_row()) {
-
-
               echo "<tr><td><center>$dif[0]</center></td>
                         <td><center>$dif[1]</center></td>
                         <td><center>$dif[2]</center></td>
@@ -100,7 +100,7 @@
                         $ciclo++;
 
       			}
-//centrocampisti
+            //centrocampisti
              $sql="SELECT Cognome, Ruolo, Prezzo
          					FROM possiede JOIN giocatore ON (Giocatore=Cognome)
          					WHERE SquadraGioc='$nomeSq[0]'
@@ -111,10 +111,8 @@
          																	 ."<p>codice di errore ".$cid->errno
          																	 .":".$cid->error."</p>");
 
-
             $ciclo=20000;
             while ($cent=$res->fetch_row()) {
-
 
               echo "<tr><td><center>$cent[0]</center></td>
                         <td><center>$cent[1]</center></td>
@@ -122,10 +120,9 @@
       				          <td><center><input type='checkbox' onClick='controlloCheck($cent[2], $ciclo )'id='$ciclo'  name='vendiCentrocampisti[]' value='".$cent[0]."'/></center></td>
                         </tr>";
                         $ciclo++;
-
       			}
 
-//attacanti
+            //attacanti
              $sql="SELECT Cognome, Ruolo, Prezzo
          					FROM possiede JOIN giocatore ON (Giocatore=Cognome)
          					WHERE SquadraGioc='$nomeSq[0]'
@@ -136,20 +133,15 @@
          																	 ."<p>codice di errore ".$cid->errno
          																	 .":".$cid->error."</p>");
 
-
             $ciclo=30000;
             while ($att=$res->fetch_row()) {
-
-
               echo "<tr><td><center>$att[0]</center></td>
                         <td><center>$att[1]</center></td>
                         <td><center>$att[2]</center></td>
       				          <td><center><input type='checkbox' onClick='controlloCheck($att[2], $ciclo )'id='$ciclo'  name='vendiAttaccanti[]' value='".$att[0]."'/></center></td>
                         </tr>";
                         $ciclo++;
-
       			}
-
             echo"</table><br/>";
           }
            else {
@@ -162,10 +154,10 @@
 
 <?php
 
+// Creo le tabelle relative ai giocatori divisi per ruolo che si possono comprare, senza mostrare i giocatori che si possiedono
+
 echo "<table border='1' align='center' class='table table-striped'>
       <tr><th style='background-color:#b0e0e6;'>";
-
-
 
 		if(true) {
 			$sql="SELECT Cognome, Prezzo, Squadra
@@ -195,6 +187,7 @@ echo "<table border='1' align='center' class='table table-striped'>
 						}
 
             echo"</table>";
+          }
             echo"<h3></h3></th><th style='background-color:#CCFF99;'>";
 
     if(true) {
@@ -221,9 +214,9 @@ echo "<table border='1' align='center' class='table table-striped'>
             }echo"</table>";
     }
     echo"</th><th style='background-color:#FFD9B3;'>";
-  }
 
-    //seeziono e visulizzzo centrocampisti
+
+        // seleziono e visualizzo centrocampisti
         if(true) {
           $sql="SELECT Cognome, Prezzo, Squadra  FROM giocatore
                 WHERE Ruolo='C'
@@ -242,7 +235,7 @@ echo "<table border='1' align='center' class='table table-striped'>
                 $ciclo=70000;
                 while($gioc=$listaCentrocampisti->fetch_row()) {
                   echo "<tr><td><center>$gioc[0]</center></td><td><center>$gioc[2]</center></td><td><center>$gioc[1]</center></td>
-                  <td><center><input type='checkbox'  onClick='controlloCheck($gioc[1], $ciclo )' id='$ciclo' name='compraCentrocampisti[]' value='".$gioc[0]."'/>
+                  <td><center><input type='checkbox' onClick='controlloCheck($gioc[1], $ciclo )' id='$ciclo' name='compraCentrocampisti[]' value='".$gioc[0]."'/>
                   </center></td></tr>";
                   $ciclo++;
                 }echo"</table>";
@@ -276,5 +269,5 @@ echo "<table border='1' align='center' class='table table-striped'>
     echo"</th></tr></table>";
     echo "<script type='text/javascript'>Fantacontrollo();</script>"
 ?>
-<!-- <td style="border: 1; align: center" -->
+
 </div>

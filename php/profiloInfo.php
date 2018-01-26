@@ -8,6 +8,7 @@
 
 		include_once("connessione.php");
 
+		// Salvo informazioni relative all'utente loggato
 		$query = "SELECT Mail, Nome, CognomeU, Sesso, DataN, LuogoN, CittaAtt,
 							SquadraTifata, Tipo, Nickname
 			        FROM utente

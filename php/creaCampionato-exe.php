@@ -11,7 +11,6 @@
 	// Rendo le date confrontabili
 	$dataInizio_New=strtotime($dataInizio);
 	$dataFine_New=strtotime($dataFine);
-
 	$data1=explode("-",$dataInizio);
 	$data2=explode("-",$dataFine);
 	$oggi=date("Y/m/d");
@@ -52,7 +51,7 @@ while($elenco=$elencoCamp->fetch_row()){
 	}
 }
 if($errDB2==0) {
-	if(/*strlen($nomeCamp)<=20 && strlen($nomeCamp)!=0 && $dataInizio_New<$dataFine_New && $diffAnni<=1 && */($dataInizio_New>$today || $dataOdierna)) {
+	if(strlen($nomeCamp)<=20 && strlen($nomeCamp)!=0 && $dataInizio_New<$dataFine_New && $diffAnni<=1 && ($dataInizio_New>$today || $dataOdierna)) {
 		$query="INSERT INTO `campionato`(`NomeCamp`, `DataInizio`, `DataFine`, `Creatore`)
 	   				VALUES ('$nomeCamp', '$dataInizio', '$dataFine','$mailUtente[0]')";
 		$cid->query($query) or die("<p>Impossibile eseguire query.</p>"

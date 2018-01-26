@@ -1,17 +1,10 @@
 <script>
-  function erroreLogin(){
-    var login = getUrlVars()["msg"];
-    alert(login);
-    if(login!=AutenticazioneFallita){}
-    else{
-    alert("Ci dispiace! \n I dati inseriti sono incorretti o non presenti nel database \n riprova o registrati")
-  }
-}
+
   // Gestione alert in registrazione
   function errRegistrazione()  {
     var duplicazione = getUrlVars()["err"];
     if(duplicazione!='ALERT'){
-
+    // Controllo input lato client
     var nick = document.getElementById("nick").value;
 		var nomeSq = document.getElementById("squadra").value;
 		var mail = document.getElementById("mail").value;
@@ -70,7 +63,7 @@
   // Gestione alert in modifica squadra
 	function errModificaSquadra()  {
 		var motto = document.getElementById("motto").value;
-
+    // Controllo input lato client
     if(motto.length>30) {
        var msgMotto = "Il motto deve essere di massimo 30 caratteri.\n";
     }
@@ -110,7 +103,7 @@
     var newDataNasc = new Date(anno, mese,giorno);
     var diff = today.getTime() - newDataNasc.getTime();
 
-
+    // Controllo input lato client
 		if(mail.length>40) {
 			 var msgMail = "La mail deve essere di massimo 40 caratteri.\n";
 			 	}
@@ -180,7 +173,7 @@
 		var att1 = document.getElementById("att1").value;
 		var att2 = document.getElementById("att2").value;
 		var att3 = document.getElementById("att3").value;
-
+    // Controllo input lato client
     if(nomeForm.length>20) {
 			 var msgNomeForm = "Il nome della formazione deve essere di massimo 20 caratteri.\n";
 			 	}
@@ -253,7 +246,7 @@
     else {
       var dataOggi=false;
     }
-
+    // Controllo input lato client
     if(nomeCamp.length==0) {
 			 var msgCampVuoto = "E' necessario inserire un nome per il campionato.\n";
 		}
@@ -295,18 +288,22 @@ else {
         alert("Questo nome campionato è già in uso");
       }
 }
-    // Funzioni AJAX per la gestione del fatamercato
+
+
+    /*  ----- Funzioni AJAX per la gestione del fatamercato  ------ */
     function controlloCheck(denaro, id) {
-      if(id<40000)    {
-      if(document.getElementById(id).checked==true) {
-        somma(denaro);
-      } else {
-          differenza(denaro);
+      if(id<40000) {
+        // Dati prezzo e id del giocatore da vendere controllo lo stato della check
+        if(document.getElementById(id).checked==true) {
+            somma(denaro);
+        } else {
+            differenza(denaro);
         }
       }
-      else{
-      if(document.getElementById(id).checked==true) {
-        differenza(denaro);
+      // Altrimenti stai comprando
+      else {
+        if(document.getElementById(id).checked==true) {
+          differenza(denaro);
       } else {
           somma(denaro);
         }
@@ -326,8 +323,10 @@ else {
     }
 
     function somma(denaro) {
-      var denaro =denaro;
-      var soldiRimanenti =document.getElementById("soldi").innerHTML;
+      var denaro = denaro;
+      // Variabile che contiene ciò che visualizzo nei fantamilioni
+      var soldiRimanenti = document.getElementById("soldi").innerHTML;
+      // Calcolo soldi rimanenti sugli onclick() delle checkbox
       var passaggio = (denaro*1)+(soldiRimanenti*1);
       var xhttp=new ajaxRequest();
       xhttp.onreadystatechange=function(){
@@ -362,7 +361,7 @@ function  Fantacontrollo(){
   var livAttaccanti = getUrlVars()["msgA"];
   var livBudjet = getUrlVars()["msgB"];
   var livGiocatori = getUrlVars()["msgN"];
-
+// Controllo input lato client
 if(modEff=='SI'){
       if(livGiocatori=='over_N'){
         var msgGiocatori="Puoi avere al massiomo 11 giocatori nella tua squadra\n";}
@@ -392,17 +391,17 @@ if(modEff=='SI'){
         }
         else{alert('Modifica effettuata con successo\nricorda che devi consegnare le tue nuove formazioni')}
    }
- 
+
 }
 
-
-
+// FUNZIONE CHE SEPARA I VARI ATTRIBUTI DELL'URL
 function getUrlVars() {
-var vars = {};
-var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi,
-function(m,key,value) {
-vars[key] = value;
-});
-return vars;
+  var vars = {};
+  var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi,
+  function(m,key,value) {
+    vars[key] = value;
+  });
+  return vars;
 }
+
 </script>

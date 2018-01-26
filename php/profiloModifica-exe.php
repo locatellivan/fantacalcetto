@@ -19,7 +19,7 @@
 	$today=strtotime($todays_date);
 	$dataN_New=strtotime($dataN);
 
-
+	// Controllo gli input
 	if(strlen($mail)<=40 && strlen($nome)<=20 && strlen($cognome)<=20 && $dataN_New<$today
 	   && strlen($luogoN)<=20 && strlen($cittaAtt)<=20 && strlen($squadraTifata)<=20) {
 

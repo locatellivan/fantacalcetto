@@ -81,18 +81,12 @@
 				else {
 					echo "<tr><td colspan='3'><center>Nessuna formazione ancora presente</center></td></th>";
 				}
-
-
 				echo "</table><br/>";
 			}
 		}
 		else {
 			echo "<h3 align='center'>NON SEI ISCRITTO A NESSUN CAMPIONATO</h3>";
 		}
-
-
-
-
 
 	 ?>
 

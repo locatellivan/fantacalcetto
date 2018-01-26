@@ -5,6 +5,6 @@
 		Qualunque informazione non potrà più essere recuperata, compreso lo storico dei campionati vinti.
 		Formazioni, squadre e campionati creati verranno cancellati.<br/><br/>Per confermare la cancellazione dell'
 	  account premere il pulsante sottostante.</p><br/><br/><br/>
-		<p align="center"><input type="submit" class="btn btn-danger" value="ELIMINA ACCOUNT"></input></p>
+		<p align="center"><input type="submit" class="btn btn-lg btn-danger" value="ELIMINA ACCOUNT"></input></p>
 	</form>
 </div>

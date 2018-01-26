@@ -71,7 +71,6 @@
 						<li><a href="index.php?op=classificheXML">Esporta Classifiche</a></li>
 						<li role="separator" class="divider"></li>
 						<li><a href="index.php?op=storicoCampioni">Storico Campioni</a></li>
-						<li><a href="index.php?op=campionatiFantasma">Campionati Fantasma</a></li>
 					</ul>
 				</li>
 				<li class="dropdown">
@@ -115,11 +114,8 @@
 		 <div class="loginmodal-container">
 			 <h1><b>Accedi al tuo account</b></h1><br>
 			 <form method="POST" action="php/login-exe.php">
-			 <input type="text" name="mail" placeholder="e-Mail"
-			        value="<?php if (isset($_COOKIE["user"])) echo $_COOKIE["user"]; ?>">
+			 <input type="text" name="mail" placeholder="e-Mail">
 			 <input type="password" name="password" placeholder="Password">
-			 <b>Ricordami</b>:  <input type="checkbox" name="ricordami"
-			        value="<?php if (isset($_COOKIE["user"])) echo "checked"; ?>">
 			 <br/><input type="submit" name="login" class="login loginmodal-submit" value="Login">
 			 </form>
 			 <div class="login-help">

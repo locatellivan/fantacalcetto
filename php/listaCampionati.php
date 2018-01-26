@@ -18,7 +18,7 @@
 		$nomeSq=$squadra->fetch_row();
 
 
-		// Query che mostra tutti i CAMPIONATI A CUI SI PARTECIPA
+		// SALVO TUTTI I CAMPIONATI A CUI SI PARTECIPA
 		$query = "SELECT NomeCamp, DataInizio, DataFine, Creatore
 			        FROM campionato JOIN partecipa ON Campionato=NomeCamp JOIN squadra ON NomeSq=Squadra
 							WHERE DataInizio<=CURDATE() AND DataFine>CURDATE() AND NomeSq IN ('$nomeSq[0]')

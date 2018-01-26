@@ -5,6 +5,11 @@
 	include("connessione.php");
 	$nick=$_SESSION['nick'];
 
+	// Salvo il tipo dell'utente loggato
+	$sql="SELECT Tipo FROM utente WHERE Nickname='$nick'";
+	$tipoUt=$cid->query($sql);
+	$t=$tipoUt->fetch_row();
+
 	// Salvo in una variabile il nome della squadra loggata
 	$sql="SELECT nomeSq FROM squadra JOIN utente ON Mail=Utente WHERE Nickname='".$nick."'";
 	$squadra=$cid->query($sql) or die("<p>Impossibile eseguire query.</p>"
@@ -56,39 +61,86 @@
 	}
 	echo "<center><b>_____________________________________________</b></center><br/>";
 	echo "<h3 align='center'><b>CLASSIFICA GIORNALIERA</b></h3><br/>";
-	// Mostro le classifiche relative all'ultima giornata
-	if($campionatiIscr->num_rows>=1) {
-			while ($camp=$campionatiIscr->fetch_row()) {
-				echo "<table align='center' border=1>
-							<tr><th colspan='5'><center><h4><b>$camp[0]</b></h4></center></th></tr>
-							<tr><th><center>Nickname</center></th>
-							<th><center>Nome Squadra</center></th>
-							<th><center>Formazione</center></th>
-							<th><center>Punti giornata</center></th>
-							<th><center>TopCoach<center></th></tr>";
 
-				// Informazioni da stampare nella tabella
+	if($t[0]!="Amministratore") {
+		// Mostro le classifiche relative all'ultima giornata
+		if($campionatiIscr->num_rows>=1) {
+				while ($camp=$campionatiIscr->fetch_row()) {
+					echo "<table align='center' border=1>
+								<tr><th colspan='5'><center><h4><b>$camp[0]</b></h4></center></th></tr>
+								<tr><th><center>Nickname</center></th>
+								<th><center>Nome Squadra</center></th>
+								<th><center>Formazione</center></th>
+								<th><center>Punti giornata</center></th>
+								<th><center>TopCoach<center></th></tr>";
 
-				$sql="SELECT Nickname, NomeSq, Formazione, PuntiGiornata, TopCoach
-							FROM utente JOIN squadra on Mail=utente JOIN formazione on Squadra=NomeSq
-							JOIN iscritta ON Formazione=IdForm
-							WHERE Campionato='$camp[0]' AND Giornata='$gior[0]'
-							ORDER BY PuntiGiornata DESC";
-				$utente=$cid->query($sql) or die("<p>Impossibile eseguire query.</p>"
-																				."<p>codice di errore ".$cid->errno
-																				.":".$cid->error."</p>");
-				while($ut=$utente->fetch_row()) {
-						if($ut[4]=="1") $top="✓"; else $top="";
-						echo "<tr><td><center>$ut[0]</center></td>
-											<td><center>$ut[1]</center></td>
-											<td><center>$ut[2]</center></td>
-											<td><center>$ut[3]</center></td>
-											<td><center><b>$top</b><center></td></tr>";
+					// Informazioni da stampare nella tabella
+					$sql="SELECT Nickname, NomeSq, Formazione, PuntiGiornata, TopCoach
+								FROM utente JOIN squadra on Mail=utente JOIN formazione on Squadra=NomeSq
+								JOIN iscritta ON Formazione=IdForm
+								WHERE Campionato='$camp[0]' AND Giornata='$gior[0]'
+								ORDER BY PuntiGiornata DESC";
+					$utente=$cid->query($sql) or die("<p>Impossibile eseguire query.</p>"
+																					."<p>codice di errore ".$cid->errno
+																					.":".$cid->error."</p>");
+					while($ut=$utente->fetch_row()) {
+							if($ut[4]=="1") $top="✓"; else $top="";
+							echo "<tr><td><center>$ut[0]</center></td>
+												<td><center>$ut[1]</center></td>
+												<td><center>$ut[2]</center></td>
+												<td><center>$ut[3]</center></td>
+												<td><center><b>$top</b><center></td></tr>";
+					}
+					echo "</table><br/><br/>";
 				}
-				echo "</table><br/><br/>";
-			}
-	} else {
-		 echo "<p align='center'>NON CI SONO CAMPIONATI DA MOSTRARE.</p>";
+		} else {
+			 echo "<p align='center'>NON CI SONO CAMPIONATI DA MOSTARE</p>";
+		}
+	}
+	// L'amministratore può vedere le classifiche giornaliere per tutti i campionati
+	else {
+
+		// Variabile per tutti i campionati per i quali si è giocata l'ultima giornata
+		$sql="SELECT DISTINCT Campionato FROM iscritta
+					WHERE  Giornata='$gior[0]' ORDER BY Campionato";
+		$allCamp=$cid->query($sql) or die("<p>Impossibile eseguire query.</p>"
+																	 ."<p>codice di errore ".$cid->errno
+																	 .":".$cid->error."</p>");
+
+		// Mostro le classifiche relative all'ultima giornata
+		if($allCamp->num_rows>=1) {
+				while ($c=$allCamp->fetch_row()) {
+					echo "<table align='center' border=1>
+								<tr><th colspan='5'><center><h4><b>$c[0]</b></h4></center></th></tr>
+								<tr><th><center>Nickname</center></th>
+								<th><center>Nome Squadra</center></th>
+								<th><center>Formazione</center></th>
+								<th><center>Punti giornata</center></th>
+								<th><center>TopCoach<center></th></tr>";
+
+					// Informazioni da stampare nella tabella
+					$sql="SELECT Nickname, NomeSq, Formazione, PuntiGiornata, TopCoach
+								FROM utente JOIN squadra on Mail=utente JOIN formazione on Squadra=NomeSq
+								JOIN iscritta ON Formazione=IdForm
+								WHERE Campionato='$c[0]' AND Giornata='$gior[0]'
+								ORDER BY PuntiGiornata DESC";
+					$utente=$cid->query($sql) or die("<p>Impossibile eseguire query.</p>"
+																					."<p>codice di errore ".$cid->errno
+																					.":".$cid->error."</p>");
+					while($ut=$utente->fetch_row()) {
+							if($ut[4]=="1") $top="✓"; else $top="";
+							echo "<tr><td><center>$ut[0]</center></td>
+												<td><center>$ut[1]</center></td>
+												<td><center>$ut[2]</center></td>
+												<td><center>$ut[3]</center></td>
+												<td><center><b>$top</b><center></td></tr>";
+					}
+					echo "</table><br/><br/>";
+				}
+		} else {
+			 echo "<p align='center'>NON CI SONO CAMPIONATI DA MOSTRARE.</p>";
+		}
+
 	}
 
 ?>
