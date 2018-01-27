@@ -72,7 +72,7 @@
 							// Seleziono le riserve della formazione considerata
 							$sql="SELECT Ruolo, Giocatore, giocatore.Squadra  FROM sta JOIN giocatore ON Giocatore=Cognome
 										WHERE Formazione='$form[0]' AND NumIngresso BETWEEN 6 AND 11
-										ORDER BY Ruolo DESC";
+										ORDER BY Ruolo DESC, NumIngresso";
 							$riserve=$cid->query($sql) or die("<p>Impossibile eseguire query.</p>"
 																						 ."<p>codice di errore ".$cid->errno
 																						 .":".$cid->error."</p>");
