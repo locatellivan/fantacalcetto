@@ -53,10 +53,10 @@
 						}
 						// Altrimenti siamo nella homepage
 						else {
-							echo "<center><div class='well well-sm' style='background:rgba(224,224,224,0.6); width:80%;'>
+							echo "<center><div class='well well-sm' style='background:rgba(224,224,224,0.6); width:85%;'>
 										<h1 class='h1HOME'><i>Ciao $_SESSION[nick]!</h1>
 										<h1><center>Preparati per le prossime partite!</i><br/><br/><br/>
-										<h1><div align='center' class='well well-sm' style='background:rgba(20,202,222,0.4); width:40%;'>
+										<h1><div align='center' class='well well-sm' style='background:rgba(20,202,222,0.4); width:45%;'>
 										<b>PROSSIMA GIORNATA:<br/>$gior[0]</b></div></h1></div></center><br/>";
 						}
 				}

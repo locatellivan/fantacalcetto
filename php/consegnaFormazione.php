@@ -57,7 +57,7 @@
 																 .":".$cid->error."</p>");
 
 	// Se il giocatore non possiede formaioni non puo iscriversi alle giornate di campionato.
-	if($nForm[0]>=1) {
+	if($nForm[0]>=1 && $campionato->num_rows>=1) {
 
 		echo "<center><h4><div align='center' class='well well-sm' style='background:rgba(70,197,212,1); width:25%;'>
 		      <b>GIORNATA DA GIOCARE:<br/>$gior[0]</b></div></h4>";
@@ -81,8 +81,9 @@
 
 		}
 		else {
-			echo "<h3 align='center'>PER ISCRIVERE AD UNA GIORNATA LA FORMAZIONE E' NECESSARIO
-			       AVERNE CREATA UNA. <br/>LO PUOI FARE NELLA PAGINA DEL <a href='index.php?op=creaFormazione'>CREA FORMAZIONE</a>.</h3><br/>
+			echo "<h4 align='center'>PER ISCRIVERE AD UNA GIORNATA LA FORMAZIONE E' NECESSARIO
+			       AVERNE CREATA UNA. <br/>LO PUOI FARE NELLA PAGINA DEL <a href='index.php?op=creaFormazione'>CREA FORMAZIONE</a>.<br/>
+						 INOLTRE BISOGNA PARTECIPARE AD ALMENO UN CAMPIONATO (<a href='index.php?op=listaCampionati'>LISTA</a>).</h4><br/>
 						 <p align='center'>Per ulteriori informazioni leggi il <a href='index.php?op=regolamento'>regolamento</a>!";
 			echo "<br/><br/><br/>";
 		}

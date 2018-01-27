@@ -214,7 +214,7 @@
 						$sql="SELECT Cognome, Ruolo, Squadra
 									FROM sta JOIN giocatore ON Cognome=Giocatore
 									WHERE Formazione='$nomeForm[0]' AND NumIngresso>5
-									ORDER BY Ruolo DESC";
+									ORDER BY Ruolo DESC, NumIngresso ASC";
 						$giocatoriRis=$cid->query($sql) or die("<p>Impossibile eseguire query.</p>"
 																					 ."<p>codice di errore ".$cid->errno
 																					 .":".$cid->error."</p>");

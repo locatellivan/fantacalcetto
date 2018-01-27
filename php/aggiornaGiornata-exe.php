@@ -68,26 +68,26 @@
 				// Creo un array che conterrà le riserve per quel ruolo
 				$riserve=array();
 				// Seleziono i giocatori che possono sostuire il giocatore in quella formazione
-				$sql="SELECT Giocatore FROM sta JOIN giocatore ON Cognome=giocatore
+				$sql="SELECT Giocatore FROM sta JOIN giocatore ON Cognome=sta.Giocatore
 							WHERE Formazione='$form[0]' AND Ruolo='$ruolo[0]' AND NumIngresso BETWEEN 6 AND 11
 							ORDER BY NumIngresso";
 				$ris=$cid->query($sql) or die("<p>Impossibile eseguire query.</p>"
 																			 ."<p>codice di errore ".$cid->errno
 																			 .":".$cid->error."</p>");
-				// Salvo questi giocatori in un array
+				// Salvo questi giocatori in un array, il primo sostituto sarà in pos [0]
 				while($nomeRis=$ris->fetch_row()) {
 					$riserve[]=$nomeRis[0];
 				}
 				// Nel caso ho un solo sostituto per quel ruolo, se il voto è diverso da "-1" lo sommo
 				if(count($riserve)==1) {
 					// Salvo il punteggio dell'unico sostituto
-					$sql="SELECT Punteggio FROM gioca WHERE Giocatore='$riserve[0]'";
+					$sql="SELECT Punteggio FROM gioca WHERE Giocatore='$riserve[0]' AND Giornata='$gior[0]'";
 					$ptSost=$cid->query($sql) or die("<p>Impossibile eseguire query.</p>"
 																				 ."<p>codice di errore ".$cid->errno
 																				 .":".$cid->error."</p>");
 					$ptSost=$ptSost->fetch_row();
 					// Controllo il punteggio del sostituto, se è uguale a "-1" non faccio nulla
-					if($ptSost != -1) {
+					if($ptSost[0]!='-1') {
 						$puntiGiornalieri=$puntiGiornalieri+$ptSost[0];
 					}
 				}
@@ -95,12 +95,12 @@
 					// Controllo se la prima riserva per quel ruolo ha voto diverso da "-1",
 					// Se si sommo, altrimenti prendo il voto della seconda e lo controllo a sua volta
 					for($i=0;$i<2;$i++) {
-						$sql="SELECT Punteggio FROM gioca WHERE Giocatore='$riserve[$i]'";
+						$sql="SELECT Punteggio FROM gioca WHERE Giocatore='$riserve[$i]' AND Giornata='$gior[0]'";
 						$ptSost=$cid->query($sql) or die("<p>Impossibile eseguire query.</p>"
 																					 ."<p>codice di errore ".$cid->errno
 																					 .":".$cid->error."</p>");
 						$ptSost=$ptSost->fetch_row();
-						if($ptSost!="" && $ptSost!=(-1)) {
+						if($ptSost[0]!="" && $ptSost[0]!='-1') {
 							$puntiGiornalieri=$puntiGiornalieri+$ptSost[0];
 							break;
 						}
@@ -169,10 +169,12 @@
 		/*          ----- CONTROLLI PER TOP COACH ----            */
 		// Salvo i voti dei 5 titolari della formazione considerata
 		$sql="SELECT Punteggio
-					FROM gioca JOIN Giocatore ON gioca.Giocatore=Cognome JOIN sta ON Cognome=sta.Giocatore
-					JOIN Formazione ON sta.Formazione=IdForm JOIN iscritta ON IdForm=iscritta.Formazione
-					WHERE iscritta.Formazione='$form[0]' AND iscritta.Giornata='$gior[0]'
-					AND NumIngresso BETWEEN 1 AND 5";
+					FROM gioca
+					WHERE gioca.Giocatore IN (SELECT sta.Giocatore
+																		FROM sta JOIN formazione ON sta.Formazione=IdForm
+																		JOIN iscritta ON IdForm=iscritta.Formazione
+																		WHERE iscritta.Formazione='$form[0]'
+																		AND NumIngresso BETWEEN 1 AND 5)";
 		$votiTitolari=$cid->query($sql) or die("<p>Impossibile eseguire query.</p>"
 																		 ."<p>codice di errore ".$cid->errno
 																		 .":".$cid->error."</p>");
@@ -182,6 +184,12 @@
 					FROM gioca JOIN giocatore ON gioca.Giocatore=Cognome JOIN sta ON Cognome=sta.Giocatore
 					JOIN Formazione ON sta.Formazione=IdForm JOIN iscritta ON IdForm=iscritta.Formazione
 					WHERE NumIngresso BETWEEN 1 AND 5 AND iscritta.Giornata='$gior[0]'";
+		/*$sql="SELECT AVG(Punteggio)
+					FROM gioca WHERE gioca.Giocatore IN (SELECT DISTINCT sta.Giocatore
+																							 FROM sta JOIN Formazione ON sta.Formazione=IdForm
+																							 JOIN iscritta ON IdForm=iscritta.Formazione
+																							 WHERE iscritta.Giornata='$gior[0]' AND NumIngresso BETWEEN 1 AND 5)"; */
+
 		$mediaGiocatori=$cid->query($sql) or die("<p>Impossibile eseguire query.</p>"
 																		 ."<p>codice di errore ".$cid->errno
 																		 .":".$cid->error."</p>");
@@ -206,8 +214,11 @@
 		}
 
 		/* Seleziono i campionati a cui si partecipa per i quali si è giocata la giornata
-			 con la formazione considerata per aggiornarne le classifiche generali */
-		$sql="SELECT Campionato FROM iscritta WHERE Formazione='$form[0]' AND Giornata='$gior[0]'";
+			 con la formazione considerata per aggiornarne le classifiche generali.
+			 Non vengono aggiornati i campionati conclusi ne iscritte le formazioni. */
+		$sql="SELECT iscritta.Campionato FROM iscritta
+		      WHERE Formazione='$form[0]' AND Giornata='$gior[0]'
+					AND iscritta.Campionato NOT IN (SELECT DISTINCT vince.Campionato FROM vince)";
 		$campionatiDaAggiornare=$cid->query($sql) or die("<p>Impossibile eseguire query.</p>"
 																	 ."<p>codice di errore ".$cid->errno
 																	 .":".$cid->error."</p>");
