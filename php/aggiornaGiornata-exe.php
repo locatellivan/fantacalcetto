@@ -60,7 +60,7 @@
 			$ruolo=$ruoloGiocPerSost->fetch_row();
 
 			// verifico se ci sono sostituzioni da fare, se il voto è '-1' devo considerare il voto del sostituto
-			if($voto[0]!='-1') {
+			if($voto[0]!=-1) {
 				// Sommo ai punti i punti del giocatore
 				$puntiGiornalieri=$puntiGiornalieri+$voto[0];
 			}
@@ -87,7 +87,7 @@
 																				 .":".$cid->error."</p>");
 					$ptSost=$ptSost->fetch_row();
 					// Controllo il punteggio del sostituto, se è uguale a "-1" non faccio nulla
-					if($ptSost[0]!='-1') {
+					if($ptSost[0]!=-1) {
 						$puntiGiornalieri=$puntiGiornalieri+$ptSost[0];
 					}
 				}
@@ -105,6 +105,49 @@
 							break;
 						}
 					}
+				}
+			}
+		}
+
+		/* PROTEGGO IL CASO IN CUI I TITOLARI CON STESSO RUOLO PRENDONO -1 */
+		// Seleziono il voto e il ruolo del giocatore in posizione 5 (seocndo gioc. di un ruolo)
+		$sql="SELECT Punteggio, Ruolo
+					FROM gioca JOIN giocatore ON gioca.Giocatore=Cognome
+					JOIN sta ON Cognome=sta.Giocatore
+					WHERE sta.Formazione='$form[0]' AND gioca.Giornata='$gior[0]' AND NumIngresso='5'";
+		$votoDopp=$cid->query($sql) or die("<p>Impossibile eseguire query.</p>"
+														 ."<p>codice di errore ".$cid->errno
+														 .":".$cid->error."</p>");
+		$votoDop=$votoDopp->fetch_row();
+
+		// Controllo se ha preso "-1"
+		if($votoDop[0]==-1) {
+			// vedo se il giocatore titolare dello stesso ruolo ha preso "-1"
+			$sql="SELECT Punteggio
+						FROM gioca JOIN giocatore ON gioca.Giocatore=Cognome
+						JOIN sta ON Cognome=sta.Giocatore
+						WHERE sta.Formazione='$form[0]' AND gioca.Giornata='$gior[0]'
+						AND Ruolo='$votoDop[1]' AND NumIngresso BETWEEN 2 AND 4";
+			$votoTitCorr=$cid->query($sql) or die("<p>Impossibile eseguire query.</p>"
+															 ."<p>codice di errore ".$cid->errno
+															 .":".$cid->error."</p>");
+			$votoCorr=$votoTitCorr->fetch_row();
+
+			if($votoCorr[0]==-1) {
+				/* Seleziono il voto dell'unico sostituto che sarà stato aggiunto due volte (una per sostituzione),
+				ed essendo le posizioni dei sostituti fisse, il mio sarà o in poiszione 9, o 10 o 11 */
+				$sql="SELECT Punteggio
+							FROM gioca JOIN giocatore ON gioca.Giocatore=Cognome
+							JOIN sta ON Cognome=sta.Giocatore
+							WHERE sta.Formazione='$form[0]' AND gioca.Giornata='$gior[0]'
+							AND Ruolo='$votoDop[1]' AND NumIngresso BETWEEN 9 AND 11";
+			 	$punteggioSostituto=$cid->query($sql) or die("<p>Impossibile eseguire query.</p>"
+																 ."<p>codice di errore ".$cid->errno
+																 .":".$cid->error."</p>");
+				$pDaTogliere=$punteggioSostituto->fetch_row();
+				// Controllo che il voto non sia "-1"
+				if($pDaTogliere[0]!=-1) {
+					$puntiGiornalieri=$puntiGiornaliri-$pDaTogliere[0];
 				}
 			}
 		}
@@ -184,11 +227,6 @@
 					FROM gioca JOIN giocatore ON gioca.Giocatore=Cognome JOIN sta ON Cognome=sta.Giocatore
 					JOIN Formazione ON sta.Formazione=IdForm JOIN iscritta ON IdForm=iscritta.Formazione
 					WHERE NumIngresso BETWEEN 1 AND 5 AND iscritta.Giornata='$gior[0]'";
-		/*$sql="SELECT AVG(Punteggio)
-					FROM gioca WHERE gioca.Giocatore IN (SELECT DISTINCT sta.Giocatore
-																							 FROM sta JOIN Formazione ON sta.Formazione=IdForm
-																							 JOIN iscritta ON IdForm=iscritta.Formazione
-																							 WHERE iscritta.Giornata='$gior[0]' AND NumIngresso BETWEEN 1 AND 5)"; */
 
 		$mediaGiocatori=$cid->query($sql) or die("<p>Impossibile eseguire query.</p>"
 																		 ."<p>codice di errore ".$cid->errno
