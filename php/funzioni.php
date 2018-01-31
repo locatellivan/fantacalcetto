@@ -38,7 +38,7 @@
       var msgPswConf = "";
 		}
 		if((mail.length==0)|| (nick.length==0) || (nomeSq.length==0) || (psw1.length==0) || (psw2.length==0)){
-			var msgVuoto = "i campi non possono essere vuoti.\n";
+			var msgVuoto = "Ricorda:\ni campi non possono essere vuoti.\n";
 		}
 		else {
       var msgVuoto = "";

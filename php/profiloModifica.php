@@ -2,10 +2,7 @@
 	<h3 align="center"><b>MODIFICA:</b></h3>
 	<form role="form" method="POST" action="php/profiloModifica-exe.php">
 
-		<div class="form-group">
-					<label>Mail</label>
-					<input class="form-control" type="email" id="mail" name="mail" placeholder="eMail"/>
-		</div>
+
 		<div class="form-group">
 					<label>Nome</label>
 					<input class="form-control" type="text" id="nome" name="nome" placeholder="Nome"/>
